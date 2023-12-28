@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,shadows,arrows}
+\begin{document}
+\tikzstyle{fresh}=[rectangle, rounded corners, draw, green!100, thick, %
+fill =green!10, text width=10em, minimum height=12mm,%
+text centered, node distance=9em]
+
+\tikzstyle{buspci}=[draw,<->,blue!20, line width=1mm]
+
+\tikzstyle{old}=[rectangle, rounded corners, draw, red!100, thick, %
+fill =red!20, text width=10em, minimum height=12mm,%
+text centered, node distance=9em]
+
+\tikzstyle{field}=[ellipse, text centered, draw,node distance=18em]
+
+
+\tikzstyle{pointer}=[draw,->,black]
+
+\tikzstyle{comm}=[draw,-stealth,green!100,line width=2mm]
+
+%%% At start: fresh on CPU, not on GPU 
+\begin{tikzpicture}
+  \node[old](GPU){\textcolor{black}{GPU (Video RAM)}};
+  \node[fresh, below of=GPU](CPU){\textcolor{black}{CPU (Normal RAM)}};
+  \node[field, left of=CPU](field){\tt{Field *Vx}};
+%------------------
+%\path[comm](GPU) -- node[xshift=1.5em]{\textcolor{black}{D2H}}(CPU);
+%\path[comm](CPU) -- node[xshift=1.5em]{\textcolor{black}{H2D}}(GPU);
+\path[buspci](GPU) -- node[xshift=2.2em]{PCI bus}(CPU);
+%------------------
+\path[pointer](field) --node[yshift=1em]{\tt{field\_cpu}} (CPU);
+\path[pointer](field) |-node[near end,yshift=1em]{\tt{field\_gpu}} (GPU);
+\end{tikzpicture}
+\clearpage 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%% Then H2D
+\begin{tikzpicture}
+  \node[fresh](GPU){\textcolor{black}{GPU (Video RAM)}};
+  \node[fresh, below of=GPU](CPU){\textcolor{black}{CPU (Normal RAM)}};
+  \node[field, left of=CPU](field){\tt{Field *Vx}};
+%------------------
+%\path[comm](GPU) -- node[xshift=1.5em]{\textcolor{black}{D2H}}(CPU);
+\path[comm](CPU) -- node[xshift=1.5em]{\textcolor{black}{H2D}}(GPU);
+%\path[buspci](GPU) -- node[xshift=2.2em]{PCI bus}(CPU);
+%------------------
+\path[pointer](field) --node[yshift=1em]{\tt{field\_cpu}} (CPU);
+\path[pointer](field) |-node[near end,yshift=1em]{\tt{field\_gpu}} (GPU);
+\end{tikzpicture}
+\clearpage 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%% Then process on GPU 
+\begin{tikzpicture}
+  \node[fresh](GPU){\textcolor{black}{GPU (Video RAM)}};
+  \node[old, below of=GPU](CPU){\textcolor{black}{CPU (Normal RAM)}};
+  \node[field, left of=CPU](field){\tt{Field *Vx}};
+%------------------
+%\path[comm](GPU) -- node[xshift=1.5em]{\textcolor{black}{D2H}}(CPU);
+%\path[comm](CPU) -- node[xshift=1.5em]{\textcolor{black}{H2D}}(GPU);
+\path[buspci](GPU) -- node[xshift=2.2em]{PCI bus}(CPU);
+%------------------
+\path[pointer](field) --node[yshift=1em]{\tt{field\_cpu}} (CPU);
+\path[pointer](field) |-node[near end,yshift=1em]{\tt{field\_gpu}} (GPU);
+\end{tikzpicture}
+\clearpage 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%Then D2H
+\begin{tikzpicture}
+  \node[fresh](GPU){\textcolor{black}{GPU (Video RAM)}};
+  \node[fresh, below of=GPU](CPU){\textcolor{black}{CPU (Normal RAM)}};
+  \node[field, left of=CPU](field){\tt{Field *Vx}};
+%------------------
+\path[comm](GPU) -- node[xshift=1.5em]{\textcolor{black}{D2H}}(CPU);
+%\path[comm](CPU) -- node[xshift=1.5em]{\textcolor{black}{H2D}}(GPU);
+%\path[buspci](GPU) -- node[xshift=2.2em]{PCI bus}(CPU);
+%------------------
+\path[pointer](field) --node[yshift=1em]{\tt{field\_cpu}} (CPU);
+\path[pointer](field) |-node[near end,yshift=1em]{\tt{field\_gpu}} (GPU);
+\end{tikzpicture}
+\clearpage 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\end{document}

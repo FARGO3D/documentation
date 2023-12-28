@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,shadows,arrows,fit}
+\usepackage[active,tightpage,delayed]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{10pt}%
+\begin{document}
+\tikzstyle{gpu}=[rectangle, rounded corners, draw, green!100, thick, %
+fill =green!20, minimum height=10mm,%
+text centered]
+
+\tikzstyle{invis}=[rectangle]
+
+\tikzstyle{cpu}=[rectangle, rounded corners, draw, blue!100, thick, %
+fill =blue!20, minimum height=10mm,%
+text centered]
+
+\tikzstyle{cpup}=[rectangle, rounded corners, draw, orange!100, thick, %
+fill =orange!20, minimum height=10mm,%
+text centered]
+
+\tikzstyle{buspci}=[draw,<->,blue!20, line width=1mm]
+
+\tikzstyle{ifb}=[draw,<->,orange!50, line width=1mm]
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+
+\begin{tikzpicture}
+  \node[cpu](CPU1){\textcolor{black}{CPU core}};
+  \node[cpup, right of=CPU1, xshift =
+  3em](CPU2){\textcolor{black}{Process 0}};
+  \node[invis,below of=CPU2,yshift=1em](invis2){};
+  \node[cpup, below
+  of=invis2,yshift=1em](CPU3){\textcolor{black}{Process 1}};
+  \node[invis, below of=CPU1,yshift=1em](invis1){};
+  \node[cpu, below of=invis1,yshift=1em](CPU4){\textcolor{black}{CPU core}};
+  \node[gpu, right of=CPU2, xshift = 5em](GPU0){\textcolor{black}{GPU 0}};
+  \node[invis, below of=GPU0,yshift=1em](invis3){};
+  \node[gpu, below of=invis3, yshift=1em](GPU1){\textcolor{black}{GPU 1}};
+  \node[below of= CPU4, xshift = 6em,yshift = -.5em](node0){node 0};
+
+  \path[buspci,shorten <= 9.7mm, shorten >= 7.5mm](invis2) -- (invis3);
+
+
+   \begin{pgfonlayer}{background}
+     % Compute a few helper coordinates 
+        \path(CPU1.west |- CPU2.north)+(-0.4,0.4) node (e) {};
+        \path(node0.south -| GPU1.east)+(+0.4,-0.2) node (f) {};
+       \path[fill=orange!5,rounded corners, draw=black!50, dashed]
+       (e) rectangle (f);
+       
+        \path(CPU1.west |- CPU2.north)+(-0.2,0.2) node (a) {};
+        \path(CPU4.south -| CPU3.east)+(+0.2,-0.2) node (b) {};
+       \path[fill=blue!10,rounded corners, draw=blue!50, dashed]
+       (a) rectangle (b);
+
+        \path(GPU0.west |- GPU0.north)+(-0.2,0.2) node (c) {};
+        \path(GPU1.south -| GPU1.east)+(+0.2,-0.2) node (d) {};
+       \path[fill=green!10,rounded corners, draw=green!50, dashed]
+       (c) rectangle (d);
+    \end{pgfonlayer}
+
+  \node[cpu, below of=CPU4, yshift=-8em](CPU1){\textcolor{black}{CPU core}};
+  \node[cpup, right of=CPU1, xshift =
+  3em](CPU2){\textcolor{black}{Process 2}};
+  \node[invis,below of=CPU2,yshift=1em](invis2){};
+  \node[cpup, below
+  of=invis2,yshift=1em](CPU3){\textcolor{black}{Process 3}};
+  \node[invis, below of=CPU1,yshift=1em](invis1){};
+  \node[cpu, below of=invis1,yshift=1em](CPU4){\textcolor{black}{CPU core}};
+  \node[gpu, right of=CPU2, xshift = 5em](GPU0){\textcolor{black}{GPU 0}};
+  \node[invis, below of=GPU0,yshift=1em](invis3){};
+  \node[gpu, below of=invis3, yshift=1em](GPU1){\textcolor{black}{GPU 1}};
+  \node[below of= CPU4, xshift = 6em,yshift = -.5em](node1){node 1};
+
+  \path[buspci,shorten <= 9.7mm, shorten >= 7.5mm](invis2) -- (invis3);
+
+
+   \begin{pgfonlayer}{background}
+     % Compute a few helper coordinates 
+        \path(CPU1.west |- CPU2.north)+(-0.4,0.4) node (e) {};
+        \path(node1.south -| GPU1.east)+(+0.4,-0.2) node (f) {};
+       \path[fill=orange!5,rounded corners, draw=black!50, dashed]
+       (e) rectangle (f);
+       
+        \path(CPU1.west |- CPU2.north)+(-0.2,0.2) node (a) {};
+        \path(CPU4.south -| CPU3.east)+(+0.2,-0.2) node (b) {};
+       \path[fill=blue!10,rounded corners, draw=blue!50, dashed]
+       (a) rectangle (b);
+
+        \path(GPU0.west |- GPU0.north)+(-0.2,0.2) node (c) {};
+        \path(GPU1.south -| GPU1.east)+(+0.2,-0.2) node (d) {};
+       \path[fill=green!10,rounded corners, draw=green!50, dashed]
+       (c) rectangle (d);
+    \end{pgfonlayer}
+
+  \node[cpu, below of=CPU4, yshift=-8em](CPU1){\textcolor{black}{CPU core}};
+  \node[cpup, right of=CPU1, xshift =
+  3em](CPU2){\textcolor{black}{Process 4}};
+  \node[invis,below of=CPU2,yshift=1em](invis2){};
+  \node[cpup, below
+  of=invis2,yshift=1em](CPU3){\textcolor{black}{Process 5}};
+  \node[invis, below of=CPU1,yshift=1em](invis1){};
+  \node[cpu, below of=invis1,yshift=1em](CPU4){\textcolor{black}{CPU core}};
+  \node[gpu, right of=CPU2, xshift = 5em](GPU0){\textcolor{black}{GPU 0}};
+  \node[invis, below of=GPU0,yshift=1em](invis3){};
+  \node[gpu, below of=invis3, yshift=1em](GPU1){\textcolor{black}{GPU 1}};
+  \node[below of= CPU4, xshift = 6em,yshift = -.5em](node2){node 2};
+
+  \path[buspci,shorten <= 9.7mm, shorten >= 7.5mm](invis2) -- (invis3);
+
+
+   \begin{pgfonlayer}{background}
+     % Compute a few helper coordinates 
+        \path(CPU1.west |- CPU2.north)+(-0.4,0.4) node (e) {};
+        \path(node2.south -| GPU1.east)+(+0.4,-0.2) node (f) {};
+       \path[fill=orange!5,rounded corners, draw=black!50, dashed]
+       (e) rectangle (f);
+       
+        \path(CPU1.west |- CPU2.north)+(-0.2,0.2) node (a) {};
+        \path(CPU4.south -| CPU3.east)+(+0.2,-0.2) node (b) {};
+       \path[fill=blue!10,rounded corners, draw=blue!50, dashed]
+       (a) rectangle (b);
+
+        \path(GPU0.west |- GPU0.north)+(-0.2,0.2) node (c) {};
+        \path(GPU1.south -| GPU1.east)+(+0.2,-0.2) node (d) {};
+       \path[fill=green!10,rounded corners, draw=green!50, dashed]
+       (c) rectangle (d);
+    \end{pgfonlayer}
+
+    \path[ifb,shorten <= 2mm, shorten >= 3.2cm](node0) -- (node1);
+    \path[ifb,shorten <= 2mm, shorten >= 3.2cm](node1) -- (node2);
+
+\end{tikzpicture}
+\end{document}
