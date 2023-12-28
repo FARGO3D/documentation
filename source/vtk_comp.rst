@@ -1,5 +1,5 @@
-VTK Compatibility.
-==================
+VTK Compatibility
+=================
 
 The Visualization Toolkit (VTK) is an open-source, freely available
 software system for 3D computer graphics, image processing, and

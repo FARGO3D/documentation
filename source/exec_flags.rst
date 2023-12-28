@@ -1,7 +1,7 @@
 .. _execflags:
 
-Execution flags.
-================
+Execution flags
+===============
 
 FARGO3D has options that can be activated at run time in the form::
 

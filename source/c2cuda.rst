@@ -1,4 +1,4 @@
-Cuda translator (C2CUDA.py).
+Cuda translator (C2CUDA.py)
 ============================
 
 One of the most interesting features of FARGO3D is that it can run on
