@@ -5,7 +5,7 @@ Non-uniform meshes
 
 .. note::
    
-   This extension is described and tested in `Benítez-Llambay et al. (2023) `.
+This extension is described and tested in `Benítez-Llambay et al. (2023) <https://ui.adsabs.harvard.edu/abs/2023ApJ...952..106B/abstract>`_
 
 Notes about the non-uniform meshes feature:
 

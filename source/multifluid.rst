@@ -5,7 +5,7 @@ Multifluid
 
 .. note::
    
-   This extension is described and tested in `Benítez-Llambay et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019ApJS..241...25B/abstract>`_.
+   This extension is described and tested in `Benítez-Llambay et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019ApJS..241...25B/abstract>`_
 
 .. warning:: Setups from versions < 2.0 are not fully compatible with
 	     this version.  However, we provide the script
