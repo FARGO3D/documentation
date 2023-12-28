@@ -21,14 +21,6 @@ latex_custom = r'''
 \definecolor{warningBgColor}{RGB}{221,233,239}'''
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
-
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
-
-# Additional stuff for the LaTeX preamble.
-#'preamble': latex_custom,
     'sphinxsetup': 'warningBgColor={RGB}{255,204,204}'
 }
 
