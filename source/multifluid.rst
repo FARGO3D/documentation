@@ -41,7 +41,7 @@ First run::
    $: make SETUP=fargo_multifluid
    $: ./fargo3d setups/fargo_multifluid/fargo_multifluid.par
 
-As an example, we show a snapshot of this setup after 50 orbits.
+As an example, we show a snapshot of this setup after 50 orbits:
 
 .. figure:: ../images/fargo_multifluid.png
    :width: 100%
