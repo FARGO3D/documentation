@@ -152,15 +152,23 @@ ________
 
 **-V**:
 
-The same as -S, but takes a .dat merged file, and makes VTK
-files. Useful if you want to convert some .dat files into VTK files.
+The same as -S, but takes .dat merged files as input, and writes the same data in a VTK (.vtk)
+file. Useful to convert .dat files into VTK files.
+
+Example: to convert the outputs number "0" to VTK:
+
+``./fargo3d -V 0 setups/setupname/setupname.par``
 
 ________
 
 **-B**:
 
-The same as -S, but takes a VTK merged file, and makes .dat
-files. Useful if you want to convert some .vtk files into .dat files.
+The same as -S, but takes VTK merged files as input, and makes .dat
+files. Useful to convert VTK (.vtk) files into .dat files.
+
+Example: to convert the outputs number "0" in VTK format to standard FARGO3D .dat files:
+
+``./fargo3d -B 0 setups/setupname/setupname.par``
 
 ________
 
