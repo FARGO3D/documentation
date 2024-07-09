@@ -157,7 +157,7 @@ file. Useful to convert .dat files into VTK files.
 
 Example: to convert the outputs number "0" to VTK::
 
-  ./fargo3d -V 0 setups/setupname/setupname.par
+  ./fargo3d -V 0 parameters.par
 
 ________
 
@@ -168,7 +168,7 @@ files. Useful to convert VTK (.vtk) files into .dat files.
 
 Example: to convert the outputs number "0" in VTK format to standard FARGO3D .dat files::
 
-  ./fargo3d -B 0 setups/setupname/setupname.par
+  ./fargo3d -B 0 parameters.par
 
 ________
 
