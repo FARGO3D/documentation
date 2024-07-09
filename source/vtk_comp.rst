@@ -37,6 +37,7 @@ while in Spherical coordinates, the order is::
 This format is useful when you are working with Visit and coordinate transformations. 
 
 To enable VTK outputs, in the ``.par`` file include the following::
+   
    VTK   Yes
 
 It is possible to convert specific outputs from ``.dat -> .vtk`` using the ``-V`` flag 
