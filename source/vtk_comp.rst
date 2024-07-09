@@ -36,12 +36,8 @@ while in Spherical coordinates, the order is::
 
 This format is useful when you are working with Visit and coordinate transformations. 
 
-If you have a run in .dat format and you want to convert its output to
-vtk for displaying it with Visit, FARGO3D has two execution flags
-devoted to this: -V (Dat2VTK) & -B (VTK2Dat). The flag -V is used when
-you have an output file in dat and you want to convert it into
-VTK. The opposite holds for the flag -B.
+To enable VTK outputs, in the ``.par`` file include the following::
+   VTK   Yes
 
-
-Visit has also a powerful python-script for converting your data into
-vtk, but it is not included with FARGO3D.
+It is possible to convert specific outputs from ``.dat -> .vtk`` using the ``-V`` flag 
+or from ``.vtk -> .dat`` with the ``-B`` flag (see :ref:`execflags`).
