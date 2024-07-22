@@ -556,6 +556,14 @@ afterward.  Among them:
 * An incorrect centering.
 
 
+Shearing-periodic boundaries:
+-----------------------------
+
+Shearing box setups (see :ref:`shearingbox-flags`) can make use of shearing-periodic boundaries by by using ``-DSHEARINGBC`` in the ``.opt`` file.
+
+.. warning::
+	shearing-periodic boundaries only work on the CPU.
+
 .. _ref_hardboundaries:
 
 Defining boundaries by hand
