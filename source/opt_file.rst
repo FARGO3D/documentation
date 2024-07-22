@@ -116,6 +116,7 @@ Enable Cartesian coodinates (``-DCARTESIAN``) and then add
   allowing to increase the time step significantly on both uniform and non-uniform domains.
 * STANDARD: Forces the standard advection algorithm in x. By default,
   the x-advection is done with the orbital advection (FARGO) algorithm.
+
 ------------------------------------------------------------------
 
 **Slopes**:
