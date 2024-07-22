@@ -95,6 +95,18 @@ Note: Some fields are not available until one specific direction is activated.
 
 ------------------------------------------------------------------
 
+**Shearing box**:
+
+Enable Cartesian coodinates (``-DCARTESIAN``) and then add
+
+* SHEARINGBOX: Enables the shearing-box terms.
+* SHEARINGBC: Enables shearing-periodic boundaries
+
+.. warning::
+	shearing-periodic boundaries only work on the CPU.
+
+------------------------------------------------------------------
+
 **Transport**:
 
 * RAM: Enables the Rapid Advection Algorithm on Arbitrary Meshes (Benítez-Llambay et al. 2023).
