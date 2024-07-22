@@ -559,7 +559,7 @@ afterward.  Among them:
 Shearing-periodic boundaries
 ----------------------------
 
-Shearing box setups (see :ref:`shearingbox-flags`) can make use of shearing-periodic boundaries by by using ``-DSHEARINGBC`` in the ``.opt`` file.
+Shearing box setups can make use of shearing-periodic boundaries by by using ``-DSHEARINGBC`` in the ``.opt`` file.
 
 .. warning::
 	shearing-periodic boundaries only work on the CPU.
