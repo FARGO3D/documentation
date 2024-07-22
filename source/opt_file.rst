@@ -94,6 +94,7 @@ Note: Some fields are not available until one specific direction is activated.
 * SPHERICAL: x --> azimuthal angle, y --> spherical radius, z --> colatitude.
 
 ------------------------------------------------------------------
+
 .. _shearingbox-flags:
 
 **Shearing box**:
