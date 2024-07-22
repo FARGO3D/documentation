@@ -556,10 +556,10 @@ afterward.  Among them:
 * An incorrect centering.
 
 
-Shearing-periodic boundaries:
------------------------------
+Shearing-periodic boundaries
+----------------------------
 
-Shearing box setups (see :ref:`shearingbox-flags`) can make use of shearing-periodic boundaries by by using ``-DSHEARINGBC`` in the ``.opt`` file.
+Shearing box setups (see :ref:`shearingbox-flags` :ref:`parfile`) can make use of shearing-periodic boundaries by by using ``-DSHEARINGBC`` in the ``.opt`` file.
 
 .. warning::
 	shearing-periodic boundaries only work on the CPU.
