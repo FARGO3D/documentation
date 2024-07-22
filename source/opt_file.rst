@@ -95,8 +95,6 @@ Note: Some fields are not available until one specific direction is activated.
 
 ------------------------------------------------------------------
 
-.. _shearingbox-flags:
-
 **Shearing box**:
 
 Enable Cartesian coodinates (``-DCARTESIAN``) and then add
