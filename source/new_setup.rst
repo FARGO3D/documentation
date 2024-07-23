@@ -473,20 +473,14 @@ Backends
 --------
 
 Matplotlib uses the concept of backend to refer to some specific set
-of widgets used for rendering the plot (eg: qt, tkinter, wx,
-etc). This is very important for us because not all the backends (at
-least for now) are compatible with interactive non-blocking plots. If
-the main widget that appears after the execution of FARGO3D does not
-work for you, you can try with another backend. (More details can be
-found in the matplotlib official documentation). There is a file in
-the main directory of FARGO3D, called matplotibrc that contains all
-the useful configurations related with matplotlib that will be used at
-run-time. This file is matplotlib-standard, and is
-version-dependent. If you want to modify the aspect of the widget, or
-change the backend, it is a good idea to start modifying this file. We
-work on a daily basis with the backend TKAgg.
-
-If you want to use the default ``matplotlibrc`` configured in your
-environment instead of the one we provide, it should be enough to
-rename the ``matplotlibrc`` file provided with FARGO3D with any
-arbitrary name.
+of widgets used for rendering the plot (eg: qt, tkinter, wx, etc). Not
+all the backends are compatible with interactive non-blocking
+plots. If the main widget that appears after the execution of FARGO3D
+does not work, you can try with another backend (see matplotlib
+official documentation for more details).  You could consider adding
+the file ``matplotibrc`` to the main FARGO3D directory to configure
+matplotlib before running a simulation. This file is
+matplotlib-standard (see more details `here <https://matplotlib.org/stable/users/explain/customizing.html>`_), and is version-dependent. If you want to modify
+the aspect of the widget, or change the backend, it is a good idea to
+start modifying this file.  On linux systems, we tipically use the
+backend TKAgg.
