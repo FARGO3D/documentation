@@ -40,7 +40,9 @@ These options are mandatory (see :ref:`ref_multifluid`)
 
 * DRAGFORCE: Activates the drag force between fluids.
 * STOKESNUMBER: The collision rate is computed assuming fluids with constant Stokes Number (in linear regime).
-  
+
+* COLLISIONPREDICTOR: Not mandatory. It enables a partial update of the velocities by a half collision step after the source step (see Fig. 1 of `Benítez-Llambay et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019ApJS..241...25B/abstract>`_). It might help reducing artifacts when CFL condition is close to the stability limit.
+
 ------------------------------------------------------------------
 
 **Performance**:
