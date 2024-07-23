@@ -1,20 +1,17 @@
 Defining a new SETUP
 =====================
 
-This section is a small tutorial on how to define a setup from
+This section is a small tutorial about how to define a setup from
 scratch. In this tutorial we will implement a hydrodynamics
-setup. The setup we will define is "blob", that comes implemented in
-the public version of FARGO3D.
+setup. The name of setup will be "blob".
 
 Blob test
 ----------
 
-This is a 2D test characterized by a uniform fluid, with a denser
-fluid disk embedded. The system is force-balanced (ie in pressure
-equilibrium) if there is no velocity between the two fluids. The
-disk is moving at a supersonic speed. In order to compare our
-results, we will develop the same parameters as
-http://www.astrosim.net/code/doku.php?id=home:codetest:hydrotest:wengen:wengen3.
+This is a 2D test where there is a background uniform fluid and a denser
+fluid disk or blob embedded. The system is force-balanced (i.e. in pressure
+equilibrium) when there is no velocity between the two fluids. We will simulate 
+the blob moving at a supersonic speed.
 
 Parameters of the test:
 
