@@ -48,7 +48,12 @@ As an example, we show a snapshot of this setup after 50 orbits:
    :align: center
 
    The density of each fluid is shown using a log10 color scale from -6 to -3.
-   
+
+
+.. note::
+	In some cases it may be needed to use `-DCOLLISIONPREDICTOR` in the `.opt` file to perform a partial update of the velocities by a half collision step after the source step (see Fig. 1 of `Benítez-Llambay et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019ApJS..241...25B/abstract>`_). This option helps reducing artifacts when CFL condition is close to the stability limit. You could also consider decreasing the `CFL` factor in the `.par` file (the default value can be found in `std/stdpar.par`.
+
+
 Setups
 ------
 
