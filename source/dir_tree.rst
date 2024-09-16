@@ -15,7 +15,7 @@ idea (yes, you can, but this is ugly, error-prone and wreaks havoc
 with versioning systems). This kind of problem is solved using the
 concept of SETUPS, and with the help of the *VPATH* Makefile
 variable. If you know the RAMSES code
-(http://www.ics.uzh.ch/~teyssier/ramses/RAMSES.html), you will see
+(https://bitbucket.org/rteyssie/ramses), you will see
 that we use the same patch concept.
 
 .. warning:: In practice, when using FARGO3D you do not need to know
