@@ -705,4 +705,14 @@ This section describes the most common errors at compilation time using the pars
   square brackets, because they are considered as macrocommands. You
   can use ``substep1_x.c`` as a template for that.
 
+* Leaving an empty line within the EXTERNAL block::
+
+    <EXTERNAL>
+        some variable
+        ___           ----> wrong
+    <\EXTERNAL>
+    <EXTERNAL>
+        some variable ----> ok
+    <\EXTERNAL>
+
 This list may be completed as we receive users' feedback.
