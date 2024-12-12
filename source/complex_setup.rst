@@ -142,12 +142,10 @@ grain temporal resolution of the code. It is not the time step imposed
 by the CFL condition, which is usually (which should be, at least)
 much shorter than DT.
 
-The loop of time steps of total length DT is performed in ``AlgoGas
-()``, in the file ``src/algogas.c``.
-``AlgoGas()`` is invoked in ``src/main.c``, so we need to call our
-explosions just there, after the execution of AlgoGas. You can see that
-``AlgoGas()`` is invoked with the pointer ``&PhysicalTime`` (so that
-the value of this variable can be modified from within the routine).
+The loop of time steps of total length ``DT`` is performed in the ``main()`` function, 
+in the file ``src/main.c``. We need to call our explosions within this loop. 
+It can be called before the ``Sources()`` step, or after the ``Transport()`` step.
+The variable that stores the current simulation date or physical time is ``PhysicalTime``.
 
 Here we want an explosion rate that is constant in time, so that the
 date does not matter to determine whether an explosion takes place or
@@ -160,23 +158,19 @@ So, the invocation of our new routine in ``src/main.c`` should be similar to::
 
   ...
 
-  AlgoGas(&PhysicalTime);
+  MULTIFLUID(Transport(dt));
 
   OurNewRoutine();  // Actually: Explode (); (see below)
 
-  MonitorGlobal...
-
   ...
 
-Since we want to amend ``main.c`` and ``algogas.c``, it is a good idea
-to copy these files to out setup directory in order not to interfere
-with the main version of FARGO3D. This way, everything we develop for
-this complex kernel is self-contained within the setup
-directory. There is a drawback, however: if we improve the main file
-``src/algogas.c`` at some later stage, this improvement will not be
-reflected in the file ``setups/explosions/algogas.c`` until we
+Since we are modifying ``main.c``, it is a good idea
+to copy it to out setup directory in order not to interfere
+with the standard source files in ``src/``. This way, our new development 
+is self-contained within the setup directory. There is a drawback, however: 
+if we change the main file ``src/main.c`` later, this improvement will not be
+reflected in the file ``setups/explosions/main.c`` until we
 implement it manually in this file.
-
 
 The name of the new routine will be ``Explode()``, and will be stored
 in the ``setups/explosions/condinit.c`` file::
@@ -480,7 +474,8 @@ We eventually add the following line into the ``func_arch.cfg`` file::
   Edamp	     		     GPU
 
 Finally, we change the invocation of the energy damping into a more
-general invocation (before substep3(), inside algogas.c)::
+general invocation (before substep3(), inside ``src/algogas.c``, or its copy in 
+``setups/explosions/algogas.c``)::
 
   Edamp(dt);  //Calls either _cpu or _gpu, depending on its value
  
