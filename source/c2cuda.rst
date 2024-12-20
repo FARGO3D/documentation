@@ -243,26 +243,26 @@ We can make an abstract portrait of a general FARGO3D's C mesh function::
 
   function_name_cpu(arguments) {  // <== the name MUST end in ``_cpu``
     
-    //<USER_DEFINED>
+  //<USER_DEFINED>
       Some general instructions. 
-    //<\USER_DEFINED>
+  //<\USER_DEFINED>
 
-    //<EXTERNAL>
+  //<EXTERNAL>
       type internal_name = external_variable;
       type* internal_pointer = external_pointer_cpu; // <== the name MUST end in ``_cpu``.
-    //<\EXTERNAL>
+  //<\EXTERNAL>
 
-    //<INTERNAL>
+  //<INTERNAL>
       type internal_name1 = initialization;
       type internal_name2;
-    //<\INTERNAL>
+  //<\INTERNAL>
   
-    //<CONSTANT>
+  //<CONSTANT>
       //type internal_name1(1);    //Note: these lines begin with a ``//``
       //type array_name2(size);
-    //<\CONSTANT>
+  //<\CONSTANT>
 
-    //<MAIN_LOOP>
+  //<MAIN_LOOP>
     #ifdef Z
        for (k=0; k<size_z; k++) {
     #endif
@@ -272,9 +272,9 @@ We can make an abstract portrait of a general FARGO3D's C mesh function::
     #ifdef X
 	    for (i=0; i<size_x; i++ ) {
     #endif
-    <#>
+  <#>
            Anything you want here.
-    <\#>
+  <\#>
     #ifdef X
             }
     #endif
@@ -284,11 +284,11 @@ We can make an abstract portrait of a general FARGO3D's C mesh function::
     #ifdef Z
        }
     #endif
-    //<\MAIN_LOOP>
+  //<\MAIN_LOOP>
 
-    //<LAST_BLOCK>
+  //<LAST_BLOCK>
       Some final instruction(s).
-    //<\LAST_BLOCK>
+  //<\LAST_BLOCK>
 
   }
 
