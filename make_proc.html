@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Make Process &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'make_proc';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Boundaries" href="boundaries.html" />
+    <link rel="prev" title="Directory tree" href="dir_tree.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/make_proc.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Make Process</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile-stage1">Makefile (Stage1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts-make-py-stage2">scripts/make.py (Stage2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#src-makefile-stage3">src/makefile (Stage3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fargo-arch-environment-variable">FARGO_ARCH environment variable</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="make-process">
+<span id="makepro"></span><h1>Make Process<a class="headerlink" href="#make-process" title="Link to this heading">#</a></h1>
+<p>Building the code is achieved simply by invoking the Makefile in the
+main directory. The Makefile contains the set of instructions that
+build the executable, normally called “fargo3d” according to a
+specific setup and with proper instructions for generating a CPU, GPU,
+sequential or parallel built. This Makefile is not standalone. A set
+of scripts was developed in order to simplify the building
+process. These scripts do all the hard work.
+Most users will not need to know the different stages of a build, but
+we give here the detail of what happens when you issue <code class="docutils literal notranslate"><span class="pre">make</span>
+<span class="pre">[options]</span></code> in the main directory.</p>
+<p>A schematic view of the make process is:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/make.png"><img alt="_images/make.png" src="_images/make.png" style="width: 536.1999999999999px; height: 321.29999999999995px;" />
+</a>
+</figure>
+<p>We can see that the make process involves three main steps. When we
+type <code class="docutils literal notranslate"><span class="pre">make</span></code> in the main directory, we spawn the first step, that is
+we execute the Makefile. All the shortcut rules, cleaning rules, and
+testing rules are defined within. The second step is spawned by the
+Makefile itself, and amounts to running the <code class="docutils literal notranslate"><span class="pre">scripts/make.py</span></code> file,
+that works as a link between the main Makefile and the
+<code class="docutils literal notranslate"><span class="pre">src/makefile</span></code> file.  The third and last step corresponds to
+the execution of the <code class="docutils literal notranslate"><span class="pre">src/makefile</span></code> . All the scripts are managed
+at this stage (automatic conversion of C to CUDA, analysis of boundary
+conditions and scaling rules, etc.)</p>
+<section id="makefile-stage1">
+<h2>Makefile (Stage1)<a class="headerlink" href="#makefile-stage1" title="Link to this heading">#</a></h2>
+<p>As we have just seen the first file related with the make process is
+“Makefile” in the main directory. Inside, there is a set of
+instructions that manages the build variables (such as GPU, PARALLEL, etc.)
+This makefile works as a
+wrapper that further invokes <code class="docutils literal notranslate"><span class="pre">scripts/param.py</span></code>. There are two
+ways to define a build variable from the command line: using
+shortcut rules, or defining the value of the variables manually. The
+set of variables allowed are:</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PROFILING:</span> <span class="pre">[0,1]</span></code> The profiler flags and a set of timers will be
+activated. Useful for benchmarks and development.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RESCALE:</span> <span class="pre">[0,1]</span></code> Activates a rescaling of the (real) parameters of the
+parameter file to certain units. The numerical values used for this
+rescaling depends on the value of the build variable <code class="docutils literal notranslate"><span class="pre">UNITS</span></code>. The
+output are all done with the new units.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SETUP</span></code>: Selects the proper directory where your setup is. A list
+will be shown if you type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">list</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MPICUDA:</span> <span class="pre">[0,1]</span></code> Activates the peer2peer/uva MPI-Communications
+between different devices. Only compatible with MVAPICH2 2.0 and
+OpenMPI 1.7. (Strongly recommended)</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FARGO_DISPLAY:</span> <span class="pre">[NONE,MATPLOTLIB]</span></code> Run time visualization of your
+fields using python-numpy-matplotlib packages.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DEBUG:</span> <span class="pre">[0,1]</span></code> The code will be compiled in debug mode. The main
+change is the flag “-g” at compilation time. No optimization is
+performed in this mode.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FULLDEBUG:</span> <span class="pre">[0,1]</span></code> The code runs in full debug mode. Similar to
+debug mode, but the merge flag (<code class="docutils literal notranslate"><span class="pre">-m</span></code>) is not allowed. All the
+fields are dumped with their ghosts cells (<em>buffers</em>).</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UNITS:</span> <span class="pre">[0,MKS,CGS]</span></code> How the units are interpreted by the
+code. See the unit section for further details.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GPU:</span> <span class="pre">[0,1]</span></code> Activates a GPU compilation.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PARALLEL:</span> <span class="pre">[0,1]</span></code> Activates the use of the MPI Libraries.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BIGMEM:</span> <span class="pre">[0,1]</span></code> Activates the use of the global GPU memory to
+store light (1D) arrays (which are otherwise stored in the so-called
+<em>constant memory</em> on board the GPU). Normally, it is needed when
+your simulation exceeds ~750 cells in some direction. This feature
+is device-dependent. Typically, a 3D run with mesh size 500*500*500
+does <strong>not</strong> require <code class="docutils literal notranslate"><span class="pre">BIGMEM=1</span></code>, but a 2D run with mesh size
+50*1000 <strong>does</strong>. However, when <code class="docutils literal notranslate"><span class="pre">BIGMEM=1</span></code> is not required, you
+may activate it. Perform some benchmarking to check which choice
+yields faster results. This is problem and platform dependent.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>jobs/JOBS: [N] where N is the number of processes that you want to
+spawn for building the code. By default N=8. This option is much
+needed when working with CUDA. The building process of CUDA object
+files is by far the most expensive stage of building a GPU instance
+of FARGO3D, as you will soon realize.</p></li>
+</ul>
+<hr class="docutils" />
+<p>All these variables must be defined by: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">VARIABLE=VALUE</span></code>.</p>
+<p>The shortcut rules are invoked with the command <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">option</span></code>, where
+option can be:</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>cuda/nocuda, gpu/nogpu –&gt; GPU=1/0</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>bigmem/nobigmem –&gt; BIGMEM=1/0</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>seq/para –&gt; PARALLEL=0/1</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>debug/nodebug –&gt; DEBUG=1/0</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>fulldebug/nofulldebug –&gt; FULLDEBUG=1/0</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>prof/noprof –&gt; PROFILING=1/0</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>mpicuda/nompicuda –&gt; MPICUDA=1/0</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>view/noview –&gt; FARGO_DISPLAY=MATPLOTLIB/NONE</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>cgs/mks/scalefree –&gt; UNITS=CGS/MKS/0</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>rescale/norescale –&gt; RESCALE=1/0</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>testlist –&gt; A list of the tests implemented.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>testname –&gt; the test called <code class="docutils literal notranslate"><span class="pre">name.py</span></code>, found in <code class="docutils literal notranslate"><span class="pre">test_suite</span></code>,
+will be executed.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>blocks –&gt; special syntax: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">blocks</span> <span class="pre">setup=SETUPNAME</span></code>. Performs
+a detailed study of the performance of your graphics card with
+respect to the size of the CUDA blocks. This test will be done for
+each GPU function. The result is stored in
+setups/SETUPNAME/SETUPNAME.blocks (go to the section “Increasing the
+GPU performance”). A build is performed with a default block size if
+this file does not exist, so you do not have to worry about this
+feature at this stage. However, remember that it may increase the
+performance up to ~20 %.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>clean –&gt; Cleans the <code class="docutils literal notranslate"><span class="pre">bin/</span></code> directory. Recommended when you switch
+to another SETUP.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>mrproper –&gt; Removes all the data related to some specific make
+configuration. All the code is restored to its default. The
+<code class="docutils literal notranslate"><span class="pre">outputs</span></code> directory will not be touched.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="scripts-make-py-stage2">
+<h2>scripts/make.py (Stage2)<a class="headerlink" href="#scripts-make-py-stage2" title="Link to this heading">#</a></h2>
+<p>The second step in the building process is to call <code class="docutils literal notranslate"><span class="pre">make.py</span></code>. This
+file does not need a manual invocation, and is launched from the main
+Makefile (stage1).  In general, the compilation process is expensive
+when you are working with CUDA files. For this reason, a parallel make
+process is highly desirable. Normally, a general Makefile can handle
+parallel compilation, but in the FARGO3D case (that uses a lot of
+scripting) some race conditions could appear in parallel
+Makefiles. Since the GNU make utility does not have a proper way to
+avoid such problem, we developed an interface between Makefile and
+src/makefile to do all the building process in the right order: first
+invoking the scripts to build all the headers and variable
+declarations and then a parallel execution of <code class="docutils literal notranslate"><span class="pre">src/makefile</span></code>. Also,
+<code class="docutils literal notranslate"><span class="pre">make.py</span></code> keeps track of the last flags used in the last built
+(sticky options). All this information is stored in the hidden file
+<code class="docutils literal notranslate"><span class="pre">std/.lastflags</span></code>.</p>
+</section>
+<section id="src-makefile-stage3">
+<h2>src/makefile (Stage3)<a class="headerlink" href="#src-makefile-stage3" title="Link to this heading">#</a></h2>
+<p>The third and last step in the building process is to call
+<code class="docutils literal notranslate"><span class="pre">src/makefile</span></code>, which is done by <code class="docutils literal notranslate"><span class="pre">scripts/make.py</span></code>. The role of
+this makefile is to build the executable, normally called <code class="docutils literal notranslate"><span class="pre">fargo3d</span></code>
+in the main directory. All the calls to scripts are done here. Inside
+there are a set of rules for making the executable in the correct
+sequence. You may have a look through these different rules,
+which are self-documented by their
+names.</p>
+<p>There is a set of system-configuration blocks, that allows building
+FARGO3D on different platforms with the same makefile. This
+configuration blocks are selected by using the environment variable
+called FARGO_ARCH (the same as for the FARGO code). Also, inside this
+makefile are defined a lot of useful variables. Here is where the
+structure of the code is defined, and where the variable VPATH is
+specified. This variable is extremely powerful, and if you want to
+extend the FARGO3D directory structure, you should learn about the use
+of this variable (GNU Make Reference Guide).</p>
+<p>Another important set of variables are:</p>
+<ul class="simple">
+<li><p>MAINOBJ: The name of all the CPU objects that will be linked with
+the final executable. All new source file in the code must be
+included in this variable (with the .o extension, instead of .c)</p></li>
+<li><p>GPU_OBJ: The name of the static kernels used in the code. In
+practice, you will never need to touch it. By static we mean
+that these few kernels are not generated automatically from the C
+code by a Python script.</p></li>
+<li><p>GPU_OBJBLOCKS: The name of the objects that will be generated by the
+script c2cuda.py. Note all of them must have the suffix _gpu.o, with a
+prefix that is the one of the corresponding C file. This is very
+important, because the rule that generates CUDA-files from
+C-files uses the suffix of the object name. In the tutorial on how to
+develop a GPU-Routine (function) this will be presented in more detail.
+All the functions that must be generated automatically from C code
+at build time must appear as a list in this variable.</p></li>
+</ul>
+</section>
+<section id="fargo-arch-environment-variable">
+<h2>FARGO_ARCH environment variable<a class="headerlink" href="#fargo-arch-environment-variable" title="Link to this heading">#</a></h2>
+<p>FARGO3D is a multi-platform code, and can run on a modern cluster of
+GPUs but also on your personal computer, even without a GPU. For
+the ease of use, we adopt a computer-dependent
+makefile scheme, managed by the environment variable <em>FARGO_ARCH</em>.</p>
+<p>You can see in <code class="docutils literal notranslate"><span class="pre">src/makefile</span></code> a group of lines similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#LINUX PLATFORM (GENERIC)
+#FARGO_ARCH must be set to LINUX
+CC_LINUX      = gcc
+SEQOPT_LINUX  = -O3 -ffast-math
+PARAOPT_LINUX = ${SEQOPT_LINUX}
+PARACC_LINUX  = mpicc
+LIBS_LINUX    = -lm
+INC_LINUX     =
+NVCC_LINUX    = nvcc
+PARAINC_LINUX =
+PARALIB_LINUX =
+</pre></div>
+</div>
+<p>These lines are telling the makefile where the libraries are and which
+compilers will be used. In the LINUX case (default case), we are not
+including any parallel library to PARALIB and any header to PARAINC
+because we are assuming they are in your LD_LIBRARY_PATH, or they are
+installed in the default places. In general, in your cluster, you
+should have something similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#FARGO_ARCH must be set to MYCLUSTER
+CC_MYCLUSTER      = /bin/gcc
+SEQOPT_MYCLUSTER  = -O3 -ffast-math
+PARAOPT_MYCLUSTER = ${SEQOPT_LINUX}
+PARACC_MYCLUSTER  = /bin/mpicc
+LIBS_MYCLUSTER    = -lm
+INC_MYCLUSTER     =
+NVCC_MYCLUSTER    = ${CUDA}/bin/nvcc
+PARAINC_MYCLUSTER = -I/${MPIDIR}/include
+PARALIB_MYCLUSTER = -L/${MPIDIR}/lib64
+</pre></div>
+</div>
+<p>Where <em>MPIDIR</em> and <em>CUDA</em> are variables pointing to the place where MPI and Cuda are installed.</p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">FARGO_ARCH</span></code> variable, you have two options:</p>
+<ul class="simple">
+<li><p>define FARGO_ARCH before compiling the code.</p></li>
+<li><p>define FARGO_ARCH in your personal <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> or <code class="docutils literal notranslate"><span class="pre">.tcshrc</span></code> file
+(depending on your shell).</p></li>
+</ul>
+<p>If you do not have a standard Linux distribution, do not forget to
+export the variable FARGO_ARCH in your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: vi USER_DIR/.bashrc
+</pre></div>
+</div>
+<p>and add the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">FARGO_ARCH</span><span class="o">=</span><span class="n">MYCLUSTER</span>
+</pre></div>
+</div>
+<p>where <em>MYCLUSTER</em> is only an example name. You should modify it to
+match the name that you defined in the <code class="docutils literal notranslate"><span class="pre">src/makefile</span></code>. This file is
+provided as is with a few examples that you may adapt to your own needs.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dir_tree.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Directory tree</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="boundaries.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Boundaries</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile-stage1">Makefile (Stage1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts-make-py-stage2">scripts/make.py (Stage2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#src-makefile-stage3">src/makefile (Stage3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fargo-arch-environment-variable">FARGO_ARCH environment variable</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

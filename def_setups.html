@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Default SETUPS &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'def_setups';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title=".opt files" href="opt_file.html" />
+    <link rel="prev" title="Mesh and Fields" href="mesh_fields.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/def_setups.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Default SETUPS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fargo">fargo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-options">Make options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundaries">boundaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orszag-tang-vortex">Orszag-Tang Vortex</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Make options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-run">Suggested run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sod-shock-tube-1d">Sod shock tube 1D</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri">MRI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Make options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-file">Parameter file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-test">Hands on test</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="default-setups">
+<h1>Default SETUPS<a class="headerlink" href="#default-setups" title="Link to this heading">#</a></h1>
+<p>FARGO3D was developed with simulations of protoplanetary disks in mind
+but it is a sufficiently general code to tackle a lot of different
+problems. This property makes that its ancestor, the public code FARGO,
+is simply a particular case of the wide range of possible setups
+that can be designed.</p>
+<p>This section contains a brief summary of the setups that come with
+the public version of FARGO3D. We develop in more detail the
+setup called <code class="docutils literal notranslate"><span class="pre">fargo</span></code>.</p>
+<p>We emphasize that a setup must not be confused with a set of
+parameters, those being provided in a so-called parameter files (with
+extension <code class="docutils literal notranslate"><span class="pre">.par</span></code>, by convention). A setup corresponds to a given
+physical problem and geometry: in a setup we specify the grid
+geometry, the equation of state to be used, whether we use the MHD
+module. etc. In the parameter file we give specific values for a given
+setup, such as the mesh size, parameters specific of the initial
+conditions, etc. A given setup can be run with many different
+parameter files without recompiling. Usually one file only is required
+to run FARGO3D once it has been build for a given setup. This file is
+the parameter file. There is an exception with some setups, like the
+<code class="docutils literal notranslate"><span class="pre">fargo</span></code> setup, which in addition require a file in which the
+planetary system initial configuration is specified. The planet files
+(which by convention have the extension <code class="docutils literal notranslate"><span class="pre">.cfg</span></code>) have the exact same syntax
+as in the former FARGO code, so planetary systems designed for a prior FARGO
+calculation can be used straight away. There are located in the
+sub-directory <code class="docutils literal notranslate"><span class="pre">planets</span></code> of the main directory. Their name and path
+must be passed to the code through the string parameter <code class="docutils literal notranslate"><span class="pre">PLANETCONFIG</span></code>.</p>
+<section id="fargo">
+<span id="ref-setupfargo"></span><h2>fargo<a class="headerlink" href="#fargo" title="Link to this heading">#</a></h2>
+<p>This setup is a legacy setup. The public FARGO code, ancestor of
+FARGO3D, amounts to this particular setup of FARGO3D. This is the
+default setup, and the initial conditions are taken from one of the EU
+comparison setups. The setup is strictly comparable to the template.par
+parameter file of the FARGO code.</p>
+<p>We explain some special characteristics of the fargo setup:</p>
+<section id="make-options">
+<h3>Make options<a class="headerlink" href="#make-options" title="Link to this heading">#</a></h3>
+<p>This setup uses the following physical options, which are selected in
+the file <code class="docutils literal notranslate"><span class="pre">setups/fargo/fargo.opt</span></code>:</p>
+<ul class="simple">
+<li><p>X</p></li>
+<li><p>Y</p></li>
+<li><p>CYLINDRICAL</p></li>
+<li><p>ISOTHERMAL</p></li>
+<li><p>VISCOSITY</p></li>
+<li><p>POTENTIAL</p></li>
+<li><p>STOCKHOLM</p></li>
+</ul>
+<p>It also activates the following flag:</p>
+<ul class="simple">
+<li><p>LEGACY</p></li>
+</ul>
+<p>which requests the output of two files dumped by the former FARGO
+code: <code class="docutils literal notranslate"><span class="pre">dims.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">used_rad.dat</span></code>, which can be needed by
+certain reduction scripts.</p>
+<p>As can be seen also in the .opt file, it has the monitoring of the:</p>
+<ul class="simple">
+<li><p>MASS</p></li>
+<li><p>MOM_X</p></li>
+<li><p>TORQ</p></li>
+</ul>
+<p>We shall come back to the <em>monitoring</em> of quantities later on in this
+manual</p>
+</section>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<p>The following parameters are essentially the same as those of the
+FARGO code. You can also browse the online help of that code to get
+the detail of each of them.</p>
+<ul>
+<li><p><strong>Setup</strong>: This keyword specifies the name of the setup that should
+be used to build the code in order to run this parameter file. If it
+is left unspecified, this parameter file can be run using a build of
+FARGO3D with <code class="docutils literal notranslate"><span class="pre">otvortex</span></code>, <code class="docutils literal notranslate"><span class="pre">mri</span></code>, etc., with potentially
+surprising error message and outcomes.</p></li>
+<li><p><strong>AspectRatio</strong>: (real). Sets the disk aspect ratio (<span class="math notranslate nohighlight">\(h_0 =
+H/R_0\)</span>) at <span class="math notranslate nohighlight">\(r=R_0\)</span>, where <span class="math notranslate nohighlight">\(R_0\)</span> is a characteristic
+length, defined in <cite>src/fondam.h</cite>. It is a natural choice to use
+<span class="math notranslate nohighlight">\(R_0=1\)</span> in a scale free setup. Physically, this parameter is
+related to the sound speed through:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\displaystyle{\frac{H}{r} = \frac{c_s}{\Omega_k r}}\]</div>
+</div></blockquote>
+<p>This parameter is a way to initialize a desired sound speed on the disk.</p>
+</li>
+<li><p><strong>Sigma0</strong>: (real) Sets the numerical value of the surface density at <span class="math notranslate nohighlight">\(r=R0\)</span>.</p></li>
+<li><p><strong>SigmaSlope</strong>: (real) Sets the exponent of the density profile,
+assumed to be a power law of radius:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\displaystyle{\Sigma(r) = \text{Sigma0}\left(\frac{r}{R_0}\right)^{\text{-SigmaSlope}}}\]</div>
+<ul class="simple">
+<li><p><strong>FlaringIndex</strong> (real) Sets the flaring of the disk. If it is null, the aspect ratio of the disk is constant (ie, the disk height scales linearly with <em>r</em>). The dependence of the the aspect ratio with the flaring index is:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\displaystyle{h(r) = \frac{H}{r} = h_0\left(\frac{r}{R_0}\right)^{\text{FlaringIndex}}=\text{AspectRatio} \left(\frac{r}{R_0}\right)^{\text{FlaringIndex}}}\]</div>
+<ul class="simple">
+<li><p><strong>PlanetConfig</strong>: (string) The name the planetary file to be used. The
+path is relative to the location at which you launch the code.</p></li>
+<li><p><strong>ThicknessSmoothing</strong>: (real) Potential smoothing length for all
+the planets. The use of this parameter is mutually exclusive with
+the use of <strong>*RocheSmoothing*</strong>. The smoothing length <span class="math notranslate nohighlight">\(s\)</span> of the potential is “<span class="math notranslate nohighlight">\(\text{ThicknessSmoothing} \times H\)</span>”:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\displaystyle{s  = \text{AspectRatio} \times
+\left(\frac{r}{R_0}\right)^{\text{FlaringIndex}}\times r \times \text{ThicknessSmoothing}}\\\text{The potential of a planet of mass $m_p$ has the form:  }
+\displaystyle{\phi = -\frac{Gm_p}{\sqrt{r^2+s^2}}, \text{where $r$
+is here the distance to the planet.}}\end{aligned}\end{align} \]</div>
+<ul class="simple">
+<li><p><strong>RocheSmoothing</strong>: (real) Potential smoothing length for all the
+planets. The use of this parameter is mutually exclusive with the
+use of ThicknessSmoothing. The smoothing length of the potential
+over the mesh is “<span class="math notranslate nohighlight">\(\text{RocheSmoothing} \times R_h\)</span>”, there
+<span class="math notranslate nohighlight">\(R_h\)</span> is the Hill radius of the current planet:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\displaystyle{s  = \text{RocheSmoothing}\times r\times \left(\frac{m_p}{3M_{star}}\right)^{1/3}}\]</div>
+<ul>
+<li><p><strong>Eccentricity</strong>: (real) The initial eccentricity of all the planets.</p></li>
+<li><p><strong>ExcludeHill</strong>: (boolean) When this parameter is set to YES, a
+cut-off is introduced when the force is computed. The cut-off is calculated with the formula:</p>
+<blockquote>
+<div><blockquote>
+<div><div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}h_c = 0 \;\;\;\text{ if } r/r_{Hill} &lt; 0.5\\h_c = 1 \;\;\;\text{ if } r/r_{Hill} &gt; 1.0\\h_c = \sin^2\left[\pi \left(r/r_h - 1/2 \right)\right] \;\;\;\text{ otherwise }\end{aligned}\end{align} \]</div>
+</div></blockquote>
+<p>and the force is cut off prior to the torque calculation (see src/compute_force.c):</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[F_{\text{cut off}} = F \times h_c\]</div>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parameter needs the make option called HILLCUT
+to be activated in the .opt file (it is because this cut is somehow
+expensive on the GPU). This is achieved by adding this line to
+the <code class="docutils literal notranslate"><span class="pre">setups/fargo/fargo.opt</span></code> file: <strong>FARGO_OPT += -DHILLCUT</strong></p>
+</div>
+<p><strong>IndirectTerm</strong>: (boolean) Selects if the calculation of the
+potential indirect term that arises from the primary acceleration due
+to the planets’ (and possibly the disk’s) gravity is performed. In the
+<code class="docutils literal notranslate"><span class="pre">fargo</span></code> setup, the reference frame is by default centered on the
+central star (see also <a class="reference internal" href="nbody.html#ref-nodefaultstar"><span class="std std-ref">Removing the default central star</span></a>).  For this reason,
+this parameter should normally be set to <code class="docutils literal notranslate"><span class="pre">yes</span></code>.  If the preprocessor
+macro <code class="docutils literal notranslate"><span class="pre">GASINDIRECTTERM</span></code> is undefined, the indirect term only arises
+from the planet’s acceleration imparted to the primary. If, on the
+contrary, this macro is defined, the acceleration imparted to the
+primary by the disk is also taken into account. Defining this macro
+can be done in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file using the line: <strong>FARGO_OPT +=
+-DGASINDIRECTTERM</strong>.</p>
+<p><strong>Frame</strong>: (string) Sets the reference frame behavior: F (Fixed), C
+(Corotating) and G (Guiding center) (it is case insensitive). When it
+is set to F, the frame rotates at a constant angular speed, specified
+by <strong>OmegaFrame</strong>. When it is set to Corotating, the frame corotates
+with planet number 0. If this planet migrates or has an eccentric
+orbit, the frame angular speed is not constant in time. When it is set
+to Guiding-Center, the frame corotates with the guiding-center of
+planet 0. The frame angular speed, therefore, varies with time if the planet
+0 migrates, and it does so in a smoother manner than in the Corotating
+case.</p>
+<p><strong>OmegaFrame</strong>: (real) It is the angular velocity of the reference frame. It has sense only if the parameter <strong>Frame</strong> is equal to F (Fixed).</p>
+</section>
+<section id="boundaries">
+<h3>boundaries<a class="headerlink" href="#boundaries" title="Link to this heading">#</a></h3>
+<p>Because this problem is 2D in XY, only boundary conditions in Y are
+applied. The boundary conditions are an extrapolation of the Keplerian
+profile for the azimuthal velocity, the density is also extrapolated
+using its initial power law profile, and an antisymmetric boundary
+condition on the radial velocity is applied.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">STOCKHOLM</span></code> is activated (in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file), the wave-killing
+recipe of De Val-Borro (2006) is used to damp disturbances near the
+mesh boundaries in radius (or colatitude for more general setups such
+as <code class="docutils literal notranslate"><span class="pre">p3diso</span></code>).  The width of the margin over which a wave killing
+boundary condition is applied near a boundary is defined by the
+parameters <code class="docutils literal notranslate"><span class="pre">DampingZone</span></code> for the radial boundaries and
+<code class="docutils literal notranslate"><span class="pre">KillingBCColatitude</span></code> for the boundaries in colatitude.  The former
+represents the ratio of the orbital periods between the edge of the
+wave-killing zone and the corresponding edge of the mesh. The default
+value of 1.15 implies that the wave-killing zones have a width
+approximately equal to 10% of the radius of the mesh edge
+(<span class="math notranslate nohighlight">\(1.15^{2/3}\approx 1.10\)</span>).  <code class="docutils literal notranslate"><span class="pre">KillingBCColatitude</span></code> represents
+the fraction of the angle between the mesh limit and the midplane over
+which the damping prescription is applied. It defaults to 0.2. You can
+use a value smaller than one for <code class="docutils literal notranslate"><span class="pre">DampingZone</span></code> to suppress the
+wave-killing boundary condition at radial boundaries, and you can use
+a negative value for <code class="docutils literal notranslate"><span class="pre">KillingBCColatitude</span></code> to suppress this
+prescription in the boundary in colatitude.</p>
+<p>In Cylindrical setups, no damping is applied in the Z-boundary if the
+setup is periodic along that direction (such as in unstratified MRI),
+and a 10% margin is applied otherwise. This is hardcoded in
+<code class="docutils literal notranslate"><span class="pre">src/stockholm.c</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not recommended to use a wave-killing boundary
+condition in colatitude when a gap-opening planet is present
+in the disk: replenishing the  gas at high altitude tends to
+prevent the opening of the gap. At the very least, if a
+wave-killing boundary condition is used in this case, it
+should not be applied on the density (the corresponding line
+should be commented out in <code class="docutils literal notranslate"><span class="pre">src/stockholm.c</span></code>).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the default value of 1.15 for <cite>DampingZone</cite> is smaller than
+the recommended value of 1.5 found by Benitez-Llambay et al. (2016,
+ApJ,  826, 13). Using this value would require much larger
+radial ranges for the meshes of the public setups provided
+in the distribution. As a consequence, a minute amount of
+wave reflection may be noticed with these setups even when
+the wave-killing prescription is activated.</p>
+</div>
+</section>
+</section>
+<section id="orszag-tang-vortex">
+<h2>Orszag-Tang Vortex<a class="headerlink" href="#orszag-tang-vortex" title="Link to this heading">#</a></h2>
+<p>This setup corresponds to the well known 2D periodic MHD setup of
+Orszag and Tang, widely used to assess the properties of MHD solvers.
+We briefly go through the make options of the .opt file and through
+the parameter file.</p>
+<section id="id1">
+<h3>Make options<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Here are the options activated in the .opt file:</p>
+<ul class="simple">
+<li><p>X</p></li>
+<li><p>Y</p></li>
+<li><p>Z</p></li>
+<li><p>MHD</p></li>
+<li><p>STRICTSYM</p></li>
+<li><p>ADIABATIC</p></li>
+<li><p>CARTESIAN</p></li>
+<li><p>STANDARD</p></li>
+<li><p>VANLEER</p></li>
+</ul>
+<p>The first four lines are self-explanatory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even though the Orszag-Tang setup is a 2D setup,  every time the MHD
+is included, all three dimensions should be defined. This is why
+we define here X, Y, and Z.</p>
+</div>
+<p>The flag <strong>STRICTSYM</strong> on the fifth line is meant to enforce a strict
+central symmetry of the scheme. Usually, after some time (the amount
+of time depends on the resolution) the central vortex begins to drift
+in some direction, breaking the initial central symmetry of the
+setup. It can be desirable to check whether this break of symmetry
+arises as a consequence of amplification of noise, or because the
+scheme contains a bug that renders it non-symmetric. We have found
+that, at least on the CPU, asymmetries in the scheme arise from
+additions of more than two terms, which are non-commutative. As the
+MHD solver implies, at several places, arithmetic averages of four
+variables, we need to group them by two in order to enforce
+symmetry. If the initial conditions are strictly symmetric, the fields
+will then remain symmetric forever. The interested reader may “grep”
+STRICTSYM in the sources. This trick does not work on the GPUs on
+which we have tested it, however.</p>
+<p>The other make flags have already been discussed in the <code class="docutils literal notranslate"><span class="pre">fargo</span></code>
+setup.</p>
+</section>
+<section id="id2">
+<h3>Parameters<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>The parameter file is short and each of its variables is
+self-explanatory.</p>
+</section>
+<section id="suggested-run">
+<h3>Suggested run<a class="headerlink" href="#suggested-run" title="Link to this heading">#</a></h3>
+<p>You may activate run time visualization to see the vortex evolve (you
+must have installed <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> for that):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make SETUP=otvortex GPU=0 PARALLEL=1 view
+$ mpirun -np 4 ./fargo3d setups/otvortex/otvortex.par
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sod-shock-tube-1d">
+<h2>Sod shock tube 1D<a class="headerlink" href="#sod-shock-tube-1d" title="Link to this heading">#</a></h2>
+<p>This very simple setup is self-explanatory. You may obtain information
+about it by issuing at the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">describe</span> <span class="n">SETUP</span><span class="o">=</span><span class="n">sod1d</span>
+</pre></div>
+</div>
+<p>If you build it with run-time visualization, a graph of a field is
+displayed in a matplotlib window. This field is selected by the
+variable <strong>Field</strong> of the parameter file.</p>
+</section>
+<section id="mri">
+<h2>MRI<a class="headerlink" href="#mri" title="Link to this heading">#</a></h2>
+<p>The setup <code class="docutils literal notranslate"><span class="pre">mri</span></code> (lower case) corresponds to an MHD turbulent
+unstratified disk on a cylindrical mesh, periodic in Z, much similar
+to the setup of Papaloizou and Nelson 2003, MNRAS 339, 983. The data
+provided in this public release have the same coverage and resolution
+as the data by Baruteau et al. 2011 A&amp;A, 533, 84. We present hereafter
+in some detail the make options and the parameter file, and we provide
+a hands-on tutorial on reducing data from this setup.</p>
+<section id="id3">
+<h3>Make options<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>The file <code class="docutils literal notranslate"><span class="pre">setups/mri/mri.opt</span></code> shows that the following options are
+defined at build time:</p>
+<ul class="simple">
+<li><p>FLOAT</p></li>
+<li><p>X, Y, Z, MHD</p></li>
+<li><p>ISOTHERMAL</p></li>
+<li><p>CYLINDRICAL</p></li>
+<li><p>POTENTIAL</p></li>
+<li><p>VANLEER</p></li>
+</ul>
+<p>The FLOAT option runs everything that is related to the gas in single
+precision (should we have planets, their data would remain in double
+precision). This speeds up by a factor ~2x the simulation, both on
+CPUs and GPUs.</p>
+<p>The other flags have already been explained in the previous setups. We
+note that here, counter to what was set in <em>otvortex</em>, we do not
+request the <em>STANDARD</em> flag for orbital advection. Therefore, by
+default, the scheme will use the fast orbital advection (aka FARGO)
+described for hydrodynamics by Masset (2000), A&amp;ASS, 141, 165, and for
+the EMFs by Stone &amp; Gardiner, 2010, ApJS, 189, 142.</p>
+</section>
+<section id="parameter-file">
+<h3>Parameter file<a class="headerlink" href="#parameter-file" title="Link to this heading">#</a></h3>
+<p>This parameter file, as said earlier, corresponds to the “disks”
+contemplated in Baruteau et al (2011), with a radial range from 1 to 8
+and from -0.3 to 0.3 in z, half a disk in azimuth, and an “aspect
+ratio” of 0.1 (the word aspect ratio is misleading here; it merely
+imply that <span class="math notranslate nohighlight">\(c_s=0.1v_k\)</span> everywhere in the disk). Besides, the
+mesh is rotating so as to have its corotation at r=3. The initial
+<span class="math notranslate nohighlight">\(\beta\)</span> of the gas is 50, and the initial magnetic field is
+toroidal (see <code class="docutils literal notranslate"><span class="pre">setups/mri/condinit.c</span></code>). Some shot noise is
+introduced on the vertical and radial components of the velocity, with
+an amplitude of <em>NOISE</em> percent of the local sound speed (therefore
+here 5%).</p>
+<p>Some Ohmic resistivity is introduced (see
+<a class="reference internal" href="induction_equation.html#induction-equation"><span class="std std-ref">Induction equation</span></a>). As there is a file called
+<code class="docutils literal notranslate"><span class="pre">nimhd_ohmic_diffusion_coeff.c</span></code> in the setup directory, it
+supersedes the same file in the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory. We see that this
+file implements a linear ramp of resistivity near each radial
+boundary, of radial width 1/7th of the radial extent, hence here of
+radial width 1.</p>
+</section>
+<section id="hands-on-test">
+<h3>Hands on test<a class="headerlink" href="#hands-on-test" title="Link to this heading">#</a></h3>
+<p>We hereafter run the setup for 300 orbits at the disk’s inner edge,
+and examine some statistical properties of the turbulence that arises.</p>
+<p>To start with, we forget any prior build option of the code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">mrproper</span>
+</pre></div>
+</div>
+<p>We then build the <code class="docutils literal notranslate"><span class="pre">mri</span></code> setup. Owing to the computational cost, it is
+a good idea to run it on one or several GPUs. In what follows, we take
+the example of a run on one GPU. The run takes about 10 hours to
+complete on one Tesla C2050. You can degrade the resolution to speed
+things up during your first try.</p>
+<p>It is a good idea, also, to tune the CUDA block size prior to running
+the setup (you may skip this part if you wish). Execution will be
+10-20% faster.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">blocks</span> <span class="n">setup</span><span class="o">=</span><span class="n">mri</span>
+</pre></div>
+</div>
+<p>Note that everything is lower case in the line above. It will take a
+few minutes to complete. Upon completion, issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span>
+<span class="n">make</span> <span class="n">SETUP</span><span class="o">=</span><span class="n">mri</span> <span class="n">GPU</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>and the code is built using the block size information previously
+determined, or using a default block size (architecture independent)
+if you skipped the action above.</p>
+<p>We now start the run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">t</span> <span class="ow">in</span><span class="o">/</span><span class="n">mri</span><span class="o">.</span><span class="n">par</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">t</span></code> option above activates a timer that will give you an idea
+of the time it takes to complete a run.</p>
+<p>You can see that there are several files in the output directory
+(presumably <code class="docutils literal notranslate"><span class="pre">outputs/mri</span></code> if you have not changed this value of the
+variable OUTPUTDIR in the parameter file), called respectively:</p>
+<ul class="simple">
+<li><p>reynolds_1d_Y_raw.dat</p></li>
+<li><p>maxwell_1d_Y_raw.dat</p></li>
+<li><p>mass_1d_Y_raw.dat</p></li>
+</ul>
+<p>that grow in size progressively, every time a carriage return is issued
+after a line of “dots” <a class="footnote-reference brackets" href="#id5" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. This kind of file is presented in detail in
+the section <a class="reference internal" href="outputs.html#ref-monitoring"><span class="std std-ref">Monitoring</span></a> later on in this manual. For the
+time being, it suffices to know that these are raw, binary 2D files,
+to which a new row is added every <em>DT</em> (fine grain monitoring). This
+row contains radial information (as indicated by the _Y_ component of
+the file name: Y is the radius in cylindrical coordinates). Let us try
+and display one of these files (with Python). We start <em>ipython</em>
+directly from the output directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ipython --pylab
+...
+In[1]: n = 10  #assume you have reached 10 outputs. Your mileage may vary.
+In[2]: ny=320 #Radial resolution. Adapt to your needs if you altered the par file
+In[3]: m=(fromfile(&quot;reynolds_1d_Y_raw.dat&quot;,dtype=&#39;f4&#39;))[:n*10*ny].reshape(n*10,ny)
+In[4]: imshow(m,aspect=&#39;auto&#39;,origin=&#39;lower&#39;)
+In[5]: colorbar()
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A few comments about these instructions. In the third line
+we read the binary file “reynolds_1d_Y_raw.dat” and specify
+explicitly with the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> keyword that we are reading single
+precision floating point data (<code class="docutils literal notranslate"><span class="pre">fromfile</span></code> otherwise expects to
+read double precision data). The trailing <code class="docutils literal notranslate"><span class="pre">[:n*10*ny]</span></code> truncates
+the long 1D array of floating point values thus read up to the row
+value number n*10 (10 because this is the value of
+<code class="docutils literal notranslate"><span class="pre">NINTERM</span></code>). This 1D array is finally reshaped into a 2D array,
+plotted on the following line</p>
+</div>
+<p>You should see a figure such as:</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/reynolds.png"><img alt="_images/reynolds.png" src="_images/reynolds.png" style="width: 356.0px; height: 260.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><em>Figure obtained with the above Python instructions (here
+with n=150, ie upon run completion)</em></span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>On this plot, the x-direction represents the radius, whereas in the
+y-direction we pile up the radial profiles that have been dumped every
+<em>DT</em>. Therefore the y-direction represents the time. If we remember
+that the file name has radix <code class="docutils literal notranslate"><span class="pre">reynolds</span></code>, we are obviously looking at
+some quantity related to the Reynold’s stress tensor, and we see how
+turbulence develops in the inner regions and progresses toward larger
+radii as time goes on. But what is exactly the quantity that we plot ?</p>
+<p>It is:</p>
+<div class="math notranslate nohighlight">
+\[\displaystyle{R(r)\Delta r = \int_\phi rd\phi\int_z dz\rho
+v_r(v_\phi-\overline{v_\phi}) \Delta r}\]</div>
+<p>That is to say, it is the sum in <span class="math notranslate nohighlight">\(z\)</span> and in <span class="math notranslate nohighlight">\(\phi\)</span> of the
+quantity:</p>
+<div class="math notranslate nohighlight">
+\[\displaystyle{\rho v_r(v_\phi-\overline{v_\phi})\times\mbox{ cell
+volume} }\]</div>
+<p>This quantity is evaluated in <code class="docutils literal notranslate"><span class="pre">src/mon_reynolds.c</span></code> and it is
+subsequently passed to the systematic machinery of
+<a class="reference internal" href="outputs.html#ref-monitoring"><span class="std std-ref">Monitoring</span></a>.</p>
+<p>In the same vein, we can plot the quantities found respectively in
+<em>maxwell_1d_Y_raw.dat</em> and in <em>mass_1d_Y_raw.dat</em>.
+There are the vertical and azimuthal sum on all cells of the following
+quantities:</p>
+<div class="math notranslate nohighlight">
+\[\displaystyle{\frac{B_rB_\phi}{\mu_0}\times \mbox{ cell volume}}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\displaystyle{\rho\times \mbox{ cell volume}}\]</div>
+<p>We see that  the value of <span class="math notranslate nohighlight">\(\alpha\)</span> can therefore be obtained as
+follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">=</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="n">ny</span><span class="p">)</span><span class="o">+</span><span class="mf">.5</span><span class="p">)</span><span class="o">/</span><span class="n">ny</span><span class="o">*</span><span class="mi">7</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">cs2</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">/</span><span class="n">r</span>
+<span class="n">cs2array</span> <span class="o">=</span> <span class="n">cs2</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span><span class="mi">10</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">reyn</span><span class="o">=</span><span class="p">(</span><span class="n">fromfile</span><span class="p">(</span><span class="s2">&quot;reynolds_1d_Y_raw.dat&quot;</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f4&#39;</span><span class="p">))[:</span><span class="n">n</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span><span class="n">ny</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">maxw</span><span class="o">=</span><span class="p">(</span><span class="n">fromfile</span><span class="p">(</span><span class="s2">&quot;maxwell_1d_Y_raw.dat&quot;</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f4&#39;</span><span class="p">))[:</span><span class="n">n</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span><span class="n">ny</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">mass</span><span class="o">=</span><span class="p">(</span><span class="n">fromfile</span><span class="p">(</span><span class="s2">&quot;mass_1d_Y_raw.dat&quot;</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f4&#39;</span><span class="p">))[:</span><span class="n">n</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span><span class="n">ny</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">alpha_maxwell</span> <span class="o">=</span> <span class="o">-</span><span class="n">maxw</span> <span class="o">/</span> <span class="p">(</span><span class="n">mass</span> <span class="o">*</span> <span class="n">cs2array</span><span class="p">)</span>
+<span class="n">alpha_reynolds</span> <span class="o">=</span> <span class="n">reyn</span> <span class="o">/</span> <span class="p">(</span><span class="n">mass</span><span class="o">*</span> <span class="n">cs2array</span><span class="p">)</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha_maxwell</span> <span class="o">+</span> <span class="n">alpha_reynolds</span>
+<span class="n">imshow</span> <span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">);</span> <span class="n">colorbar</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>which gives the following picture:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/alpha2d.png"><img alt="_images/alpha2d.png" src="_images/alpha2d.png" style="width: 369.0px; height: 249.0px;" />
+</a>
+</figure>
+<p>We plot the different time averaged values of <span class="math notranslate nohighlight">\(\alpha\)</span> once the
+turbulence has reached a saturated state:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">alpha_maxwell</span><span class="p">[</span><span class="mi">500</span><span class="p">:,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">alpha_reynolds</span><span class="p">[</span><span class="mi">500</span><span class="p">:,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">alpha</span><span class="p">[</span><span class="mi">500</span><span class="p">:,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>which gives the following plot:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/alphavsr.png"><img alt="_images/alphavsr.png" src="_images/alphavsr.png" style="width: 384.0px; height: 253.0px;" />
+</a>
+</figure>
+<p>We finally plot the radially averaged value of <span class="math notranslate nohighlight">\(\alpha\)</span> between
+<em>r=2</em> and <em>r=6</em> (corresponding to bins 46 to 228 in Y) as a function
+of time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">1500</span><span class="p">)</span><span class="o">*</span><span class="mf">1.256</span><span class="p">,</span><span class="n">alpha</span><span class="p">[:,</span><span class="mi">46</span><span class="p">:</span><span class="mi">228</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>which gives the following plot:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/alphavst.png"><img alt="_images/alphavst.png" src="_images/alphavst.png" style="width: 386.0px; height: 249.0px;" />
+</a>
+</figure>
+<p>We see that we obtain a relatively substantial value for
+<span class="math notranslate nohighlight">\(\alpha\)</span> in this fiducial run (much larger than the one obtained
+with same parameters in the run with NIRVANA in Baruteau et
+al. (2011), at Fig. 6). One reason for that is the use of
+orbital advection, another one is the systematic use of the van
+Leer slopes in the upwind evaluation of all quantities involved
+in the MHD algorithm. Comparison with other code of the Orszag-Tang vortex at
+different resolutions corroborates this statement.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="outputs.html#ref-monitoring"><span class="std std-ref">Monitoring</span></a></p>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
+<p>Each dot stands for an elementary HD or MHD time step. The
+number of dots on a line (which has length <em>DT</em>) is given by
+the CFL condition.</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="mesh_fields.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Mesh and Fields</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="opt_file.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">.opt files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fargo">fargo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-options">Make options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundaries">boundaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orszag-tang-vortex">Orszag-Tang Vortex</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Make options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-run">Suggested run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sod-shock-tube-1d">Sod shock tube 1D</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri">MRI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Make options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-file">Parameter file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-test">Hands on test</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

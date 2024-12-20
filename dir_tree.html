@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Directory tree &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dir_tree';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Make Process" href="make_proc.html" />
+    <link rel="prev" title="First Steps" href="first_steps.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/dir_tree.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Directory tree</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">Directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src">src/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">scripts/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bin">bin/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">outputs/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setups">setups/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planets">planets/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#std">std/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-suite">test_suite/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utils">utils/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doc">doc/</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setups-setup-directory">setups/SETUP directory</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="directory-tree">
+<h1>Directory tree<a class="headerlink" href="#directory-tree" title="Link to this heading">#</a></h1>
+<p>FARGO3D was developed as a general code. It solves a set of coupled
+differential equations on a mesh. Because it was developed as a
+general solver, it is necessary to keep certain general features
+isolated from other, more specific ones (that correspond to a specific
+problem).</p>
+<p>A simple example of that is the initial condition (IC) of a
+problem. Obviously, the IC is a problem-dependent feature, and a
+mechanism is needed to keep it isolated from another problem. Touching
+the main structure of the code only to change the IC is not a good
+idea (yes, you can, but this is ugly, error-prone and wreaks havoc
+with versioning systems). This kind of problem is solved using the
+concept of SETUPS, and with the help of the <em>VPATH</em> Makefile
+variable. If you know the RAMSES code
+(<a class="reference external" href="https://bitbucket.org/rteyssie/ramses">https://bitbucket.org/rteyssie/ramses</a>), you will see
+that we use the same patch concept.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In practice, when using FARGO3D you do not need to know
+about the <code class="docutils literal notranslate"><span class="pre">VPATH</span></code> variable, but if you want to develop some new
+features, it is a good idea to keep in mind that it is used under
+the hood.</p>
+</div>
+<p>Another problem is related to the different modules of the code. For
+example, in some situations, we need to use the MHD module, but for
+another set of problems, the MHD is irrelevant. In order to avoid a
+lot of logical runtime tests inside the code (<code class="docutils literal notranslate"><span class="pre">if</span></code>’s), we prefer to
+use <em>MACROCOMMAND</em> variables. These variables are interpreted prior to
+compilation time, by the so-called <em>preprocessor</em>, and
+activate/deactivate certain features (lines) of the code, allowing a
+tailor-made executable, built for a specific problem. All these
+variables are activated from the Makefile (they are defined actually
+in the .opt files that we shall see below).</p>
+<p>The most important file to ultimately build a FARGO3D executable is
+obviously the Makefile.  For this reason, there is a section devoted
+to this particular file. But, because FARGO3D uses a lot of scripting
+at compilation time, the process of building the code does not simply
+reduce to the Makefile. We refer to the FARGO3D building process as
+“the make process”.</p>
+<p>A given instance of FARGO3D has many different properties, and storing
+each one in an organized manner is achieved through a number of
+different subdirectories.  In this section, we give a brief
+explanation of each one.</p>
+<section id="directories">
+<h2>Directories<a class="headerlink" href="#directories" title="Link to this heading">#</a></h2>
+<section id="src">
+<h3>src/<a class="headerlink" href="#src" title="Link to this heading">#</a></h3>
+<p>The directory where the main sources are stored is the <code class="docutils literal notranslate"><span class="pre">src/</span></code>
+directory. Inside it, you will find all the files related to the
+initialization, evolution, and visualization of the data. All the
+sources are pure C files, plus some headers and a very few CUDA
+files. Also, in this folder, you can find the main makefile
+(src/makefile).  This makefile should never be called directly. All
+the fundamental changes to the code must be done here.</p>
+</section>
+<section id="scripts">
+<h3>scripts/<a class="headerlink" href="#scripts" title="Link to this heading">#</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> directory you will find the fundamental
+python-scripts used at compilation time. There are scripts for:</p>
+<ul class="simple">
+<li><p>Defining the variables.</p></li>
+<li><p>Analyzing the boundary conditions.</p></li>
+<li><p>Analyzing and defining the units.</p></li>
+<li><p>Generating the CUDA files automatically.</p></li>
+<li><p>Improving the CUDA blocks.</p></li>
+<li><p>Accelerating the make process (executing the makefile in parallel).</p></li>
+<li><p>Making general tests (mandatory for new improvements).</p></li>
+</ul>
+</section>
+<section id="bin">
+<h3>bin/<a class="headerlink" href="#bin" title="Link to this heading">#</a></h3>
+<p>This directory is empty by default, but during compilation, this is
+where all the object files and script-residual data are stored. In
+practice, this directory is useful for avoiding a mixing between
+sources and objects, a very useful behavior when you are developing
+new routines.</p>
+</section>
+<section id="outputs">
+<h3>outputs/<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">outputs/</span></code> directory is the default output directory for all the
+FARGO3D standard setups. As you could see in the first run, the data
+were stored in <code class="docutils literal notranslate"><span class="pre">outputs/fargo</span></code>. By default all the data is stored in
+<code class="docutils literal notranslate"><span class="pre">outputs/setup_name</span></code>, where setup_name is one of the setups in the
+<code class="docutils literal notranslate"><span class="pre">setups/</span></code> directory.</p>
+</section>
+<section id="setups">
+<h3>setups/<a class="headerlink" href="#setups" title="Link to this heading">#</a></h3>
+<p>This directory is where all the different setups are. By default, the
+make process looks here if the setup is defined, eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: make SETUP=otvortex
+</pre></div>
+</div>
+<p>After that, the makefile will search inside <code class="docutils literal notranslate"><span class="pre">setups/</span></code> whether there
+is a directory called <code class="docutils literal notranslate"><span class="pre">setups/otvortex</span></code>. Inside the <code class="docutils literal notranslate"><span class="pre">otvortex/</span></code>
+directory we find all the files necessary to set up the problem and
+build the code.</p>
+</section>
+<section id="planets">
+<h3>planets/<a class="headerlink" href="#planets" title="Link to this heading">#</a></h3>
+<p>Inside this directory are the default planetary system files to run a
+simulation with one or several planets, considered as point-like
+masses that interact between them and with the disk (onto which they
+act as an external potential). The syntax of planetary files is for
+the former FARGO code.  It is not mandatory to store your planetary
+data here, but it is recommended.</p>
+</section>
+<section id="std">
+<h3>std/<a class="headerlink" href="#std" title="Link to this heading">#</a></h3>
+<p>the name <code class="docutils literal notranslate"><span class="pre">std</span></code> comes from “standard”. This directory stores all the
+standard configuration files. In this version, these are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">boundaries.txt</span></code>: where the boundary conditions are defined.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boundary_template.c</span></code>: A build helper for the boundaries
+scripting.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">centering.txt</span></code>: A file describing the centering of the different
+fields with respect to the mesh (helper for boundary conditions
+scripting).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">defaultflags</span></code>: A file with all the default flags for the make
+process.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">std.par</span></code>: Default parameters. It is used when you have not
+defined the value of a certain parameter in your parameter file. It
+is used for compatibility with some specific problems related to
+disks simulations and some plot-related parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">standard.units</span></code>: The scaling rules for all standard real
+variables of the code.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">func_arch.cfg</span></code>: The standard architecture file. This file selects
+where each function will run (CPU or GPU). It only makes sense if
+the compilation was done with GPU-Compatibility (GPU=1). By default,
+all the function run on the GPU, but this file is a great tool for
+debugging the code (one of the best tools to develop a kernel!).</p></li>
+</ul>
+</section>
+<section id="test-suite">
+<h3>test_suite/<a class="headerlink" href="#test-suite" title="Link to this heading">#</a></h3>
+<p>This directory was developed to ensure a stable development of the
+code. Here there is a set of test files written in python. All of them
+use the script test.py. They are easy to understand. The main idea is:
+if your recent developments pass all the tests, at least, your new
+improvements do not interfere with the main code and do not alter its
+behavior.</p>
+</section>
+<section id="utils">
+<h3>utils/<a class="headerlink" href="#utils" title="Link to this heading">#</a></h3>
+<p>Here is a set of routines to analyze the data. The content inside are
+self-documented. Feel free to explore it.</p>
+</section>
+<section id="doc">
+<h3>doc/<a class="headerlink" href="#doc" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory is where these documentation files
+reside. Also, here are some files related to the license of the
+code.</p>
+</section>
+</section>
+<section id="setups-setup-directory">
+<h2>setups/SETUP directory<a class="headerlink" href="#setups-setup-directory" title="Link to this heading">#</a></h2>
+<p>The directory <code class="docutils literal notranslate"><span class="pre">setups/SETUP</span></code> is one of the most complex directories
+in FARGO3D. The complexity arises because inside are stored all the
+information required for a given, specific problem. The extensive list
+of the files stored for each setup is:</p>
+<ul class="simple">
+<li><p>condinit.c: this is the file where the initial conditions are
+written. Thanks to the use of the <code class="docutils literal notranslate"><span class="pre">VPATH</span></code> variable in the
+makefile, this file supersedes the file <code class="docutils literal notranslate"><span class="pre">src/condinit.c</span></code> of the
+main source.</p></li>
+<li><p>SETUP.par: the parameters required for this setup.</p></li>
+<li><p>SETUP.opt: all the directives for the makefile (this is where you
+decide the number of dimensions, the equation of state, the
+geometry, whether you use orbital advection -aka FARGO algorithm-,
+MHD, etc.)</p></li>
+<li><p>SETUP.bound: set the boundary conditions used in the setup (taken
+from boundaries.txt).</p></li>
+<li><p>SETUP.mandatories: A list of parameters that must be always explicit
+in your .par files.</p></li>
+<li><p>SETUP.units: The scale rules for the parameters not explicit in
+<code class="docutils literal notranslate"><span class="pre">std/standard_units</span></code>.</p></li>
+<li><p>SETUP.objects: Additional objects you want to include. (Your own
+developments).</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Any file here has priority over the file with the same name in the
+<code class="docutils literal notranslate"><span class="pre">src/</span></code> directory. So, in theory, inside a SETUP directory, you
+could have a complete copy of the <code class="docutils literal notranslate"><span class="pre">src/</span></code> directory, and the make
+process will be done with this sources, but in practice, only a few
+files are needed, for example, depending on your needs:
+<code class="docutils literal notranslate"><span class="pre">resistivity.c</span></code>, <code class="docutils literal notranslate"><span class="pre">potential.c</span></code>, etc.</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="first_steps.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">First Steps</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="make_proc.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Make Process</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">Directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src">src/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">scripts/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bin">bin/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">outputs/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setups">setups/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planets">planets/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#std">std/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-suite">test_suite/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utils">utils/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doc">doc/</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setups-setup-directory">setups/SETUP directory</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

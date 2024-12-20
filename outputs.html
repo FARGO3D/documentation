@@ -1,0 +1,1154 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Outputs &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'outputs';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Communications" href="communications.html" />
+    <link rel="prev" title="Defining a new SETUP" href="new_setup.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/outputs.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Outputs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-fields">Scalar fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-files">Summary files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-files">Domain files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-files">Grid files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planet-files">Planet files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datacubes">Datacubes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mpi-input-output">MPI INPUT/OUTPUT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flavors-of-monitoring">Flavors of monitoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-a-quantity">Monitoring a quantity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-in-practice">Monitoring in practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-register-a-monitoring-function">How to register a monitoring function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-custom-monitoring-a-primer">Implementing custom monitoring: a primer</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="outputs">
+<h1>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h1>
+<p>FARGO3D has many different kinds of outputs, each one with different
+information. They are:</p>
+<ul class="simple">
+<li><p>Scalar fields.</p></li>
+<li><p>Summary files.</p></li>
+<li><p>Domain files.</p></li>
+<li><p>Variables file.</p></li>
+<li><p>Grid files.</p></li>
+<li><p>Legacy file.</p></li>
+<li><p>Planetary files.</p></li>
+<li><p>Monitoring files.</p></li>
+</ul>
+<p>This section is devoted to a brief explanation of each kind of files</p>
+<section id="scalar-fields">
+<h2>Scalar fields<a class="headerlink" href="#scalar-fields" title="Link to this heading">#</a></h2>
+<p>These files have a <code class="docutils literal notranslate"><span class="pre">.dat</span></code> extension. They are unformatted binary
+files. The structure of each file is a sequence of doubles (8 bytes),
+or floats (4 bytes) if the FLOAT option was activated at build time
+(see the section <a class="reference internal" href="opt_file.html#optfiles"><span class="std std-ref">.opt files</span></a>). The number of bytes stored in a field
+file is:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(8 \times N_x\times N_y\times N_z\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(4\times N_x\times N_y\times N_z\)</span> if the option FLOAT was
+activated.</p></li>
+</ul>
+<p>Remember that <span class="math notranslate nohighlight">\(N_x\)</span>, <span class="math notranslate nohighlight">\(N_y\)</span>, <span class="math notranslate nohighlight">\(N_z\)</span> are the global
+variables “NX NY NZ” defined in the .par file (the size of the mesh).</p>
+<p>For a correct reading of the file, you must be careful with the order
+of the data. The figure below shows how the data is stored in each
+file (for 2D simulations, but the concept is the same in 3D).</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/output.png"><img alt="_images/output.png" src="_images/output.png" style="width: 100%;" />
+</a>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The fast (“innermost”) index is always the x-index (index i inside the
+code). The next index is the y-index (j) and the last one is the
+z-index (k). If one direction is not used (eg: 2D YZ simulation), the
+indices used follow the same rule. Note that scalar fields files do
+not contain information about coordinates. It is only a cube of data,
+without any additional information. The coordinates of each cell are
+stored in additional files, called domain_[xyz].dat (see the section
+below).</p>
+<p>When you use MPI, the situation becomes more complex, because each
+processor writes its piece of mesh. If you want to merge the files
+manually, you need the information of the grid files, detailed
+below. In practice, all the runs are done with the run time flag
+<code class="docutils literal notranslate"><span class="pre">-m</span></code> (merge), in order to avoiding the need for a manual merge. If
+your cluster does not have a global storage, you have to do the merge
+manually after having copied all files to a common directory.</p>
+<p>The fields may be written with a different output format, called
+VTK-format. This format is a little bit more complicated and is
+discussed in the VTK section.</p>
+<p>Here you have some minimalist reading examples with different tools
+(additional material can be found in the First Steps section and in
+the utils/ directory):</p>
+<p><strong>c</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FILE</span> <span class="o">*</span><span class="n">fi</span><span class="p">;</span>
+<span class="n">double</span> <span class="n">f</span><span class="p">[</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="o">*</span><span class="n">nz</span><span class="p">];</span>
+<span class="n">fi</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">);</span>
+<span class="n">fread</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">sizeof</span><span class="p">(</span><span class="n">double</span><span class="p">),</span> <span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="o">*</span><span class="n">nz</span><span class="p">,</span> <span class="n">fi</span><span class="p">);</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>python</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">fromfile</span><span class="p">(</span><span class="s2">&quot;gasdens120.dat&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nz</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">nx</span><span class="p">)</span><span class="n">x</span>
+</pre></div>
+</div>
+<p><strong>GDL</strong> or <strong>IDL</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GDL</span><span class="o">&gt;</span> <span class="n">openr</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;gasdens10.dat&#39;</span>
+<span class="n">GDL</span><span class="o">&gt;</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">dblarr</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">GDL</span><span class="o">&gt;</span> <span class="n">readu</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">rho</span>
+<span class="n">GDL</span><span class="o">&gt;</span> <span class="n">close</span><span class="p">,</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p><strong>fortran</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">real</span><span class="o">*</span><span class="mi">8</span>  <span class="p">::</span> <span class="n">data</span><span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="o">*</span><span class="n">nz</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;old&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="o">&amp;</span>
+<span class="o">&amp;</span>     <span class="n">form</span><span class="o">=</span><span class="s2">&quot;unformatted&quot;</span><span class="p">,</span> <span class="n">access</span><span class="o">=</span><span class="s2">&quot;direct&quot;</span><span class="p">,</span> <span class="n">recl</span> <span class="o">=</span> <span class="n">NX</span><span class="o">*</span><span class="n">NY</span><span class="o">*</span><span class="n">NZ</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">read</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">rec</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p><strong>gnuplot</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="n">filename</span> <span class="n">binary</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%lf</span><span class="s2">&quot;</span> <span class="n">array</span><span class="o">=</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span> <span class="n">w</span> <span class="n">image</span>
+</pre></div>
+</div>
+</section>
+<section id="summary-files">
+<h2>Summary files<a class="headerlink" href="#summary-files" title="Link to this heading">#</a></h2>
+<p>Every time FARGO3D outputs coarse grain scalar fields, a
+<code class="docutils literal notranslate"><span class="pre">summary[i].dat</span></code> file is written to the output directory (where
+<code class="docutils literal notranslate"><span class="pre">[i]</span></code> stands for the output number). This file contains the
+following information:</p>
+<ul class="simple">
+<li><p>A section indicating the setup, the code version, the mesh size and
+geometry, the number of outputs scheduled, the number of planets (if
+any), and (if the sticky flag <code class="docutils literal notranslate"><span class="pre">LONGSUMMARY</span></code> is defined) the
+filename of the source tar file. The latter is made at build time
+and consists exclusively of the sources found in the VPATH used for
+the build. This archive is copied to the output directory upon the
+run start. Its naming convention is <code class="docutils literal notranslate"><span class="pre">sources[n].tar.bz2</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">[n]</span></code> is the smallest integer for which no such file name exists
+in the directory. Therefore, upon a fresh start in a new directory,
+the archive name will be <code class="docutils literal notranslate"><span class="pre">sources0.tar.bz2</span></code>. If a restart is
+issued, the subsequent archive file will be <code class="docutils literal notranslate"><span class="pre">sources1.tar.bz2</span></code> so
+as to not overwrite the previous source archive (the source may have
+changed between the initial run and the restart). The source archive
+may be expanded using the command <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">jxvf</span> <span class="pre">source[n].tar.bz2</span></code>,
+and it expands in a subdirectory <code class="docutils literal notranslate"><span class="pre">arch/</span></code>.</p></li>
+<li><p>A section giving the full set of compilation options of the code.</p></li>
+<li><p>A section giving the list of the sticky build flags (only if the
+sticky flag <code class="docutils literal notranslate"><span class="pre">LONGSUMMARY</span></code> is defined).</p></li>
+<li><p>A section giving runtime information such as the directory from which
+the run was launched, the command line used, the parameter file, the
+number of processes and the host names, together with the
+corresponding rank (and device number for GPU builts).</p></li>
+<li><p>A section indicating the time at which the output is performed.</p></li>
+<li><p>A section indicating the different preprocessor macros known to the
+code.</p></li>
+<li><p>A section listing all the parameters known to the code, in
+alphabetical order. This includes not only those declared in the
+parameter file, but also those which do not appear in that file and
+have a default value.</p></li>
+<li><p>A section giving the full content of the parameter file. This
+section should in most cases be redundant with the previous section,
+but the value of some parameters may evolve during execution.</p></li>
+<li><p>A section containing the boundary conditions used in the build (only
+if the sticky flag <code class="docutils literal notranslate"><span class="pre">LONGSUMMARY</span></code> is defined).</p></li>
+<li><p>For the runs which involve at least one planet, a section listing
+the 3 components of each planet position and velocity, as well as
+its mass, and a copy of the planetary system configuration file.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to keep the source archive and executable in sync, we
+append trailing information directly to the executable binary file
+(namely, among others, a tar file of the source), at build time
+(only if <code class="docutils literal notranslate"><span class="pre">LONGSUMMARY</span></code> is defined). Copying the source files to
+the output directory to keep a track of the code used to generate a
+given data could be misleading if the user edits the source but
+does not recompile the code. Our method is therefore more robust,
+but more involved. It works fine on a variety of
+platforms. However, it requires opening the executable file itself
+as an input stream during execution. This requires that the OS
+allows this type of operation, and that the correct full path to the
+executable is properly retrieved at run time. If you get the message:</p>
+<p><em>Attempting to use an MPI routine before initializing MPI
+Cannot open executable file to retrieve information appended.</em></p>
+<p>you should check the value of the variables
+<code class="docutils literal notranslate"><span class="pre">CurrentWorkingDirectory</span></code> and <code class="docutils literal notranslate"><span class="pre">FirstCommand</span></code> in
+<code class="docutils literal notranslate"><span class="pre">src/summary.c</span></code>, and fix them accordingly. In order to avoid
+potential problems, by default we have deactivated all logging
+which requires interfering manually with the executable (namely
+logging the source tar archive, the sticky flags used at build time
+and the set of boundary conditions). If you want to log this
+information, you must build <code class="docutils literal notranslate"><span class="pre">FARGO3D</span></code> with the sticky flag
+<code class="docutils literal notranslate"><span class="pre">LONGSUMMARY=1</span></code>.  Since the possibility of having long summaries
+is essentially platform dependent (rather than setup dependent),
+you may want to change the default behavior by editing the file
+<code class="docutils literal notranslate"><span class="pre">std/defaultflags</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even if the sticky flag <code class="docutils literal notranslate"><span class="pre">LONGSUMMARY</span></code> is not activated, a
+subdirectory named <code class="docutils literal notranslate"><span class="pre">arch/</span></code> is produced in <code class="docutils literal notranslate"><span class="pre">FARGO3D</span></code>’s main
+directory, which contains all the source effectively used to build the
+code. This includes all the boundary conditions C files derived from
+the setup, the CUDA files in case of a GPU build, etc. This directory
+can be copied for your records to the output directory by your batch
+scheduler.</p>
+</div>
+</section>
+<section id="domain-files">
+<h2>Domain files<a class="headerlink" href="#domain-files" title="Link to this heading">#</a></h2>
+<p>Another important piece of output is the domain files:</p>
+<ul class="simple">
+<li><p>domain_x.dat</p></li>
+<li><p>domain_y.dat</p></li>
+<li><p>domain_z.dat</p></li>
+</ul>
+<p>These three files are created after any run, except if they existed in
+the output directory before running your simulation.  The content of
+these files are the coordinates of the lower face of each cell
+([xyz]min inside the code). They can also be considered as the
+coordinates of the interfaces between cells. It is important to note
+that <code class="docutils literal notranslate"><span class="pre">domain_[yz].dat</span></code> are written <em>with the ghost cells</em>. The
+format is ASCII, and the total number of lines is:</p>
+<ul class="simple">
+<li><p>domain_x.dat: Nx lines</p></li>
+<li><p>domain_y.dat: Ny+2NGHY lines</p></li>
+<li><p>domain_z.dat: Nz+2NGHZ lines</p></li>
+</ul>
+<p>where NGHY=NGHZ=3 by default. The active mesh starts at line 4 and has
+Ny+1/Nz+1 lines (up to the upper boundary of the active mesh).</p>
+<p>If you want to use a logarithmic spacing of the domain, you could set
+the parameter <code class="docutils literal notranslate"><span class="pre">Spacing</span></code> to <code class="docutils literal notranslate"><span class="pre">log</span></code> (see the section “Default
+parameters”). If you include in the output directory files with the
+name <code class="docutils literal notranslate"><span class="pre">domain_[xyz].dat</span></code>, their content will be read, which enables
+you to handcraft any kind of non-constant zone size.</p>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
+<p>When you run the code, two files called <code class="docutils literal notranslate"><span class="pre">variables.par</span></code> and
+<code class="docutils literal notranslate"><span class="pre">IDL.var</span></code> are created inside the output directory. These files are
+ASCII files containing the same information in two different formats:
+the name of all parameters and their corresponding values. IDL.var is
+properly formatted to simplifying the reading process in an IDL/GDL
+script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IDL</span><span class="o">&gt;</span> <span class="nd">@IDL</span><span class="o">.</span><span class="n">var</span>
+<span class="n">IDL</span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">,</span> <span class="n">input_par</span><span class="o">.</span><span class="n">nx</span>
+         <span class="mi">384</span>
+<span class="n">IDL</span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">,</span><span class="n">input_par</span><span class="o">.</span><span class="n">xmax</span>
+      <span class="mf">3.14159</span>
+</pre></div>
+</div>
+<p>The standard .par format is used in
+variables.par. It may be used again as the input parameter file of
+FARGO3D, should you have erased the original parameter file.</p>
+</section>
+<section id="grid-files">
+<h2>Grid files<a class="headerlink" href="#grid-files" title="Link to this heading">#</a></h2>
+<p>One grid file is created <em>per processor</em>. Inside each file, there is
+information stored about the submesh relative to each processor.
+The current format is on 7 columns, with the data:</p>
+<ul class="simple">
+<li><p>CPU_Rank: Index of the cpu.</p></li>
+<li><p>Y0: Initial Y index for the submesh.</p></li>
+<li><p>YN: Final Y index for the submesh.</p></li>
+<li><p>Z0: Initial Z index for the submesh.</p></li>
+<li><p>ZN: Final Z index for the submesh.</p></li>
+<li><p>IndexY: The Y index of the processor in a 2D mesh of processors.</p></li>
+<li><p>IndexZ: The Z index of the processor in a 2D mesh of processors.</p></li>
+</ul>
+<p>For an explanation of the last two items, go to the section about MPI.</p>
+</section>
+<section id="planet-files">
+<span id="id1"></span><h2>Planet files<a class="headerlink" href="#planet-files" title="Link to this heading">#</a></h2>
+<p>These files are output whenever a given setup includes a planetary
+system (which may consist of one or several planets). This, among
+others, is the case of the <code class="docutils literal notranslate"><span class="pre">fargo</span></code> and <code class="docutils literal notranslate"><span class="pre">p3diso</span></code> setups. There are
+three such files per planet, named <code class="docutils literal notranslate"><span class="pre">planet[i].dat</span></code>,
+<code class="docutils literal notranslate"><span class="pre">bigplanet[i].dat</span></code> and <code class="docutils literal notranslate"><span class="pre">orbit[i].dat</span></code>, where <em>i</em> is the planet
+number in the planetary system file specified by the parameter
+<code class="docutils literal notranslate"><span class="pre">PLANETCONFIG</span></code>. This number starts at 0. For the vast majority of
+runs in which one planet only is considered, three files are therefore
+output: <code class="docutils literal notranslate"><span class="pre">planet0.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">bigplanet0.dat</span></code>, and <code class="docutils literal notranslate"><span class="pre">orbit0.dat</span></code>. The
+last two files correspond to fine grain sampling (that is, they are
+updated every <code class="docutils literal notranslate"><span class="pre">DT</span></code>, see also <a class="reference internal" href="#ref-monitoring"><span class="std std-ref">Monitoring</span></a>). In contrast,
+<code class="docutils literal notranslate"><span class="pre">planet[i].dat</span></code> is updated at each coarse grain output (every time
+the 3D arrays are dumped), for restart purposes. This file is
+essentially a subset of <code class="docutils literal notranslate"><span class="pre">bigplanet[i].dat</span></code>.</p>
+<p>At each update, a new line is appended to each of these files. In the
+file <code class="docutils literal notranslate"><span class="pre">bigplanet[i].dat</span></code>, a line contains the 10 following columns:</p>
+<blockquote>
+<div><blockquote>
+<div><ol class="arabic simple">
+<li><p>An integer which corresponds to the current output number.</p></li>
+<li><p>The <em>x</em> coordinate of the planet.</p></li>
+<li><p>The <em>y</em> coordinate of the planet.</p></li>
+<li><p>The <em>z</em> coordinate of the planet.</p></li>
+<li><p>The <em>x</em> component of the planet velocity.</p></li>
+<li><p>The <em>y</em> component of the planet velocity.</p></li>
+<li><p>The <em>z</em> component of the planet velocity.</p></li>
+<li><p>The mass of the planet.</p></li>
+<li><p>The date.</p></li>
+<li><p>The instantaneous rotation rate of the frame.</p></li>
+</ol>
+</div></blockquote>
+<p>In the file <code class="docutils literal notranslate"><span class="pre">orbit[i].dat</span></code>, a line contains the 10 following
+columns:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>the date <span class="math notranslate nohighlight">\(t\)</span>,</p></li>
+<li><p>the eccentricity <span class="math notranslate nohighlight">\(e\)</span>,</p></li>
+<li><p>the semi-major axis <span class="math notranslate nohighlight">\(a\)</span>,</p></li>
+<li><p>the mean anomaly <span class="math notranslate nohighlight">\(M\)</span> (in radians),</p></li>
+<li><p>the true anomaly <span class="math notranslate nohighlight">\(V\)</span> (in radians),</p></li>
+<li><p>the argument of periastron <span class="math notranslate nohighlight">\(\psi\)</span> (in radians, measured
+from the ascending node),</p></li>
+<li><p>the angle <span class="math notranslate nohighlight">\(\varphi\)</span> between the actual and initial
+position of the <em>x</em> axis (in radians; useful to keep track of
+how much a rotating frame, in particular with varying rotation
+rate, has rotated in total).</p></li>
+<li><p>The inclination <span class="math notranslate nohighlight">\(i\)</span> of the orbit (in radians),</p></li>
+<li><p>the longitude <span class="math notranslate nohighlight">\(\omega\)</span> of the ascending node (with
+respect to the actual <em>x</em> axis),</p></li>
+<li><p>the position angle <span class="math notranslate nohighlight">\(\alpha\)</span> of perihelion (the angle of
+the projection of perihelion onto the <em>x-y</em> plane, with
+respect to the -actual- <em>x</em> axis)</p></li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+<p>Note that in the limit of vanishing inclination, we have</p>
+<div class="math notranslate nohighlight">
+\[\alpha \approx \omega+\psi\]</div>
+<p>The information of column 7 is very useful to determine precession
+rates, whenever the frame is non-inertial. For instance, the precession
+rate of the line of nodes is given by <span class="math notranslate nohighlight">\(d(\varphi+\omega)/dt\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The file(s) <code class="docutils literal notranslate"><span class="pre">planet[i].dat</span></code> are emptied every time a new
+run is started. This is because these files are needed for a
+restart, so we want to avoid that out of date, incorrect
+information be used upon the restart. In contrast, lines accumulate
+in the files <code class="docutils literal notranslate"><span class="pre">orbit[i].dat</span></code> and <code class="docutils literal notranslate"><span class="pre">bigplanet[i].dat</span></code> until those
+(or the directory containing them) are manually suppressed.</p>
+</div>
+</section>
+<section id="datacubes">
+<h2>Datacubes<a class="headerlink" href="#datacubes" title="Link to this heading">#</a></h2>
+<p>All the primitive variables (density, velocity components, internal
+energy density (or sound speed for isothermal setups), and magnetic
+field components (for MHD setups) are written every <code class="docutils literal notranslate"><span class="pre">NINTERM</span></code> steps
+of length <code class="docutils literal notranslate"><span class="pre">DT</span></code> (each of those being sliced in as many timesteps as
+required by the CFL condition). The files are labeled first by the
+fluid name (e.g. <code class="docutils literal notranslate"><span class="pre">gas</span></code>), followed by the field name, plus the output
+number <code class="docutils literal notranslate"><span class="pre">N</span></code>: <code class="docutils literal notranslate"><span class="pre">gasdensN.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">gasenergyN.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">gasvxN.dat</span></code>,
+<code class="docutils literal notranslate"><span class="pre">gasvyN.dat</span></code>, etc. If the SETUP is 3D, the vertical velocity will
+also be written (<code class="docutils literal notranslate"><span class="pre">gasvz</span></code>).  In addition, some selected arrays can be
+written every <code class="docutils literal notranslate"><span class="pre">NSNAP</span></code> steps of length <code class="docutils literal notranslate"><span class="pre">DT</span></code>. These arrays names are
+controlled by the boolean parameters <code class="docutils literal notranslate"><span class="pre">WriteDensity</span></code>,
+<code class="docutils literal notranslate"><span class="pre">WriteEnergy</span></code>, <code class="docutils literal notranslate"><span class="pre">WriteVx</span></code>, <code class="docutils literal notranslate"><span class="pre">WriteVy</span></code>, <code class="docutils literal notranslate"><span class="pre">WriteVz</span></code>, <code class="docutils literal notranslate"><span class="pre">WriteBx</span></code>,
+<code class="docutils literal notranslate"><span class="pre">WriteBy</span></code>, <code class="docutils literal notranslate"><span class="pre">WriteBz</span></code>. These allow the user either to oversample
+one of these fields (e.g., for an animation), or to dump to the disk
+only some primitive variables (by setting <code class="docutils literal notranslate"><span class="pre">NINTERM</span></code> to a very large
+value and using <code class="docutils literal notranslate"><span class="pre">NSNAP</span></code> instead). The files created through the
+<code class="docutils literal notranslate"><span class="pre">NSNAP</span></code> mechanism obey the same numbering convention as those
+normally written. In order to avoid conflicts with filenames, the
+files created through <code class="docutils literal notranslate"><span class="pre">NSNAP</span></code> are written in the subdirectory
+<code class="docutils literal notranslate"><span class="pre">snaps</span></code> in the output directory.</p>
+<p>Besides, the runtime graphical representation with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is
+performed using the files created in the <code class="docutils literal notranslate"><span class="pre">snaps</span></code> directory.</p>
+</section>
+<section id="mpi-input-output">
+<h2>MPI INPUT/OUTPUT<a class="headerlink" href="#mpi-input-output" title="Link to this heading">#</a></h2>
+<p>A routine to enable MPI Input/Output was implemented in the version
+2.0. This Input/Output method should be used when running the code on
+several processes.</p>
+<p>To activate this feature, use the option:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FARGO_OPT</span> <span class="pre">+=</span> <span class="pre">-DMPIIO</span></code></p></li>
+</ul>
+<p>In this case, the output files are labeled: <code class="docutils literal notranslate"><span class="pre">fluidname_N.mpio</span></code>. Each
+of these files stores in raw format the domain of the mesh, the
+density, the energy, and all the velocity components of the given
+fluid. In addition, if the compilation option <code class="docutils literal notranslate"><span class="pre">MHD</span></code> is enabled, the
+magnetic field components are written in the output file corresponding
+to the fluid with <code class="docutils literal notranslate"><span class="pre">Fluidtype</span> <span class="pre">=</span> <span class="pre">GAS</span></code>. In the file
+<code class="docutils literal notranslate"><span class="pre">outputsfluidname.dat</span></code>, the file position indicator for each scalar
+field can be obtained.</p>
+<p>To read the data from a <code class="docutils literal notranslate"><span class="pre">.mpio</span></code> file, a simple python script is
+provided (see <code class="docutils literal notranslate"><span class="pre">utils/python/reader_mpiio.py</span></code>). Open a python terminal
+(e.g. ipython ), import the script and execute the following lines</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">reader_mpiio</span> <span class="k">as</span> <span class="nn">reader</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">Fields</span><span class="p">(</span><span class="n">output</span> <span class="n">directory</span><span class="p">,</span><span class="s2">&quot;fluidname&quot;</span><span class="p">,</span> <span class="n">output</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s2">&quot;field name&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The possible name of the fields are <code class="docutils literal notranslate"><span class="pre">dens</span></code> for the density, <code class="docutils literal notranslate"><span class="pre">vx</span></code>,
+<code class="docutils literal notranslate"><span class="pre">vy</span></code> and <code class="docutils literal notranslate"><span class="pre">vz</span></code> for the velocities and <code class="docutils literal notranslate"><span class="pre">energy</span></code> for the sound
+speed in the isothermal case or internal energy density in the
+adiabatic case.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can add <code class="docutils literal notranslate"><span class="pre">fargo3d/utils/python</span></code> to your
+<code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> environment variable (in your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>) to
+make the script reader.py globally available from any
+directory. You can also copy the script <code class="docutils literal notranslate"><span class="pre">reader_mpiio.py</span></code>
+inside your current working directory.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">reader_mpiio</span> <span class="k">as</span> <span class="nn">reader</span>
+<span class="n">fluidname</span> <span class="o">=</span> <span class="s2">&quot;the fluid name goes here&quot;</span>
+<span class="n">dens</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">Fields</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">fluidname</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s2">&quot;dens&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nz</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">dens</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="monitoring">
+<span id="ref-monitoring"></span><h2>Monitoring<a class="headerlink" href="#monitoring" title="Link to this heading">#</a></h2>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
+<p>FARGO3D, much as its predecessor FARGO, has two kinds of outputs:
+coarse grain outputs, in which the data cubes of primitive variables
+are dumped to the disk, and fine grain outputs, in which a variety of
+other (usually lightweight) data is written to the disk. As their
+names indicate, fine grain outputs are more frequent than coarse grain
+outputs. Note that a coarse grain output is required to restart a
+run. In this manual we refer to the fine grain output as <em>monitoring</em>.
+The time interval between two fine grain outputs is given by the real
+parameter DT. This time interval is sliced in as many smaller
+intervals as required to fulfill the <em>Courant</em> (or CFL)
+condition. Note that the last sub-interval may be smaller than what is
+allowed by the CFL condition, so that the time difference between two
+fine grain outputs is <em>exactly</em> DT. As for its predecessor FARGO,
+NINTERM fine grain outputs are performed for each coarse grain output,
+where NINTERM is an integer parameter. Fine grain outputs or
+monitoring may be used to get the torque onto a planet with a high
+temporal resolution, or it may be used to get the evolution of
+Maxwell’s or Reynolds’ stress tensor, or it may be used to monitor the
+total mass, momentum or energy of the system as a function of time,
+etc. The design of the monitoring functions in FARGO3D is such that a
+lot of flexibility is offered, and the user can in no time write new
+functions to monitor the data of his choice. The monitoring functions
+provided with the distribution can run on the GPU, and it is extremely
+easy to implement a new monitoring function that will run
+straightforwardly on the GPU, using the functions already provided as
+templates.</p>
+</section>
+<section id="flavors-of-monitoring">
+<h3>Flavors of monitoring<a class="headerlink" href="#flavors-of-monitoring" title="Link to this heading">#</a></h3>
+<p>The monitoring of a quantity can be done in several flavors:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>scalar monitoring, in which the sum (or average) of the quantity over
+the whole computational domain is performed. The corresponding
+output is a unique, two-column file, the left column being the date
+and the right column being the integrated or averaged scalar. A new
+line is appended to this file at each fine grain output.</p></li>
+<li><p>1D monitoring, either in Y (<em>i.e.</em> radius in cylindrical or
+spherical coordinates) or Z (<em>i.e.</em> colatitude in spherical
+coordinates). In this case, the integral or average is done over the
+two other dimensions only, so as to get, respectively, radial or
+vertical profiles in each output. Besides, the 1D monitoring comes
+itself in two flavors:</p>
+<ul>
+<li><p>a raw format, for which a unique file is written, in which a row
+of bytes is appended at every fine grain output. This file can be
+readily used for instance with IDL (using <code class="docutils literal notranslate"><span class="pre">openr</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">readu</span></code>
+commands) or Python (using numpy’s <code class="docutils literal notranslate"><span class="pre">fromfile</span></code> command). For
+example, this allows to plot a map of the vertically and
+azimuthally averaged Maxwell’s tensor, as a function of time and
+radius. This map allows to estimate when the turbulence has
+reached a saturated state at all radii. In another vein, one can
+imagine a map of the azimuthally and radially averaged torque,
+which provides the averaged torque dependence on time and on <em>z</em>.</p></li>
+<li><p>a formatted output. In this case a new file is written at each
+fine grain output. It is a two-column file, in which the first
+column represents the Y or Z value, as appropriate, and the
+second column the integrated or averaged value. The simultaneous
+use of both formats is of course redundant. They have been
+implemented for the user’s convenience.</p></li>
+</ul>
+</li>
+<li><p>2D monitoring. In this case the integral (or averaging) is
+performed exclusively in X (or azimuth),so that 2D maps in Y and Z
+of the quantity are produced. In this case, a new file in raw
+format is written at each fine grain output.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="monitoring-a-quantity">
+<h3>Monitoring a quantity<a class="headerlink" href="#monitoring-a-quantity" title="Link to this heading">#</a></h3>
+<p>Thus far in this section we have vaguely used the expression “the
+quantity”. What is the quantity and how is it evaluated?</p>
+<p>The quantity is any scalar value, which is stored in a <em>dedicated 3D
+array</em>. It is the user’s responsibility to determine an adequate
+expression for the quantity, and to write a routine that fills, for
+each zone, the array with the corresponding quantity. For instance, if
+one is interested in monitoring the mass of the system, the quantity
+of interest is the product of the density in a zone by the volume of
+the zone. The reader may have a look at the C file
+<code class="docutils literal notranslate"><span class="pre">mon_dens.c</span></code>. Toward the end of that file, note how the <code class="docutils literal notranslate"><span class="pre">interm[]</span></code>
+array is precisely filled with this value. This array will further be
+integrated in X, and, depending on what has been requested by the
+user, possibly in Y and/or Z, as explained above. <em>Note that the same
+function is used for the three flavors of monitoring (scalar, 1D
+profiles and 2D maps)</em>.</p>
+</section>
+<section id="monitoring-in-practice">
+<h3>Monitoring in practice<a class="headerlink" href="#monitoring-in-practice" title="Link to this heading">#</a></h3>
+<p>We now know the principles of monitoring: it simply consists in having
+a C function that evaluates some quantity of interest for each
+cell. No manual averaging or integration is required if you program
+your custom function. But how do we request the monitoring of given
+quantities, what are the names of the corresponding files, and how do
+we include new monitoring functions to the code ? We start by
+answering the first question.</p>
+<p>The monitoring (quantities and flavors) is requested <em>at build time</em>,
+through the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file. There, you can define up to 6 variables, which
+are respectively:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MONITOR_SCALAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MONITOR_Y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MONITOR_Y_RAW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MONITOR_Z</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MONITOR_Z_RAW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MONITOR_2D</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Each of these variables is a bitwise OR of the different quantities of
+interest that are defined in <code class="docutils literal notranslate"><span class="pre">define.h</span></code> around line 100. These
+variables are labeled with a short, self-explanatory, uppercase
+preprocessor variable.</p>
+<p>For instance, assume that you want to monitor the total mass (scalar
+monitoring) and total angular momentum (also scalar monitoring), that
+you want to have a formatted output of the radial torque density, plus
+a 2D map of the azimuthally averaged angular momentum. You would have
+to write in your .opt file the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MONITOR_SCALAR</span> <span class="o">=</span> <span class="n">MASS</span> <span class="o">|</span> <span class="n">MOM_X</span>
+<span class="n">MONITOR_Y</span>     <span class="o">=</span> <span class="n">TORQ</span>
+<span class="n">MONITOR_2D</span>     <span class="o">=</span> <span class="n">MOM_X</span>
+</pre></div>
+</div>
+<p>Note the pipe symbol <code class="docutils literal notranslate"><span class="pre">|</span></code> on the first line, which stands for the
+bitwise OR. It can be thought of as “switching on” simultaneously
+several bits in the binary representation of <code class="docutils literal notranslate"><span class="pre">MONITOR_SCALAR</span></code>, which
+triggers the corresponding request for each bit set to one. The
+condition for that, naturally, is that the different variables defined
+around line 100 in <code class="docutils literal notranslate"><span class="pre">define.h</span></code> are in geometric progression with a
+factor of 2: each of them corresponds to a given specific bit set to
+one. In our example we therefore activate the scalar monitoring of the
+mass and of the angular momentum (we will check in a minute that
+<code class="docutils literal notranslate"><span class="pre">MOM_X</span></code> corresponds to the angular momentum in cylindrical and
+spherical coordinates). This example also shows that a given variable
+may be used simultaneously for different flavors of monitoring:
+<code class="docutils literal notranslate"><span class="pre">MOM_X</span></code> (the angular momentum) is used both for scalar monitoring
+and 2D maps.</p>
+<p>The answer to the second question above (file naming conventions) is
+as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Unique files are written directly in the directory
+<code class="docutils literal notranslate"><span class="pre">monitor/fluidname</span></code> inside the output directory
+(e.g. <code class="docutils literal notranslate"><span class="pre">outputs/fargo/monitor/gas/</span></code>).  Their names have a radix which
+indicates which quantity is monitored (<em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">mass</span></code>, <code class="docutils literal notranslate"><span class="pre">momx</span></code>,
+etc.), then a suffix which indicates the kind of integration or
+averaging performed ( <code class="docutils literal notranslate"><span class="pre">_1d_Z_raw</span></code> or <code class="docutils literal notranslate"><span class="pre">_1d_Y_raw</span></code>, or nothing
+for scalar monitoring) and the extension <code class="docutils literal notranslate"><span class="pre">.dat</span></code>.</p></li>
+<li><p>Monitoring flavors that require new files at each fine grain output
+do not write the files directly in the output directory, in order
+not to clutter this directory. Instead, they are written in
+subdirectories which are named <code class="docutils literal notranslate"><span class="pre">FG000...</span></code>, like “Fine Grain”,
+plus the number of the <em>current coarse grain output</em>, with a zero
+padding on the left. In these directories, the files are written
+following similar conventions as above, plus a unique (zero padded)
+fine grain output number. It is a good idea to have a look at one
+of the outputs of the public distribution (choose a setup that
+requests some monitoring, by looking at its <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file), in
+order to understand in depth these file naming conventions.</p></li>
+<li><p>Some monitoring functions depend on the planet (such as the
+torque). In this case, the code performs automatically a loop on
+the different planets and the corresponding file name has a suffix
+which indicates in a self-explanatory manner the planet it
+corresponds to.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="how-to-register-a-monitoring-function">
+<h3>How to register a monitoring function<a class="headerlink" href="#how-to-register-a-monitoring-function" title="Link to this heading">#</a></h3>
+<p>You may now stop reading if you are not interested in implementing
+your own monitoring functions, and simply want to use the ones
+provided in the public distribution.</p>
+<p>However, if you want to design custom monitoring functions for your
+own needs, let us explain how you include such functions to the
+code. Let us recall that a monitoring function is a function that
+fills a dedicated 3D arrays with some value of interest, left to the
+user. This function has no argument and must return a void. Have a
+look at the the file <code class="docutils literal notranslate"><span class="pre">mon_dens.c</span></code> and the function <code class="docutils literal notranslate"><span class="pre">void</span>
+<span class="pre">mon_dens_cpu()</span></code> defined in it. Note that the temporary array
+dedicated to the storage of the monitoring variable is the <code class="docutils literal notranslate"><span class="pre">Slope</span></code>
+array. As we enter the monitoring stage after a (M)HD time step, the
+<code class="docutils literal notranslate"><span class="pre">Slope</span></code> array is no longer used and we may use it as a temporary
+storage.  Any custom monitoring function will have to use the
+<code class="docutils literal notranslate"><span class="pre">Slope</span></code> array to store the monitoring variable.</p>
+<p>The monitoring function is then registered in the function
+<code class="docutils literal notranslate"><span class="pre">InitMonitoring()</span></code> in the file <code class="docutils literal notranslate"><span class="pre">monitor.c</span></code>. There, we call a
+number of times the function <code class="docutils literal notranslate"><span class="pre">InitFunctionMonitoring</span> <span class="pre">()</span></code> to register
+successively all the monitoring functions defined in the code.</p>
+<blockquote>
+<div><ul>
+<li><p>The first argument is the integer (power of two) that is associated
+to the function, and which we use to request monitoring at build
+time in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file.</p></li>
+<li><p>The second argument is the function name itself (the observant
+reader will notice that this is not exactly true: in <code class="docutils literal notranslate"><span class="pre">mon_dens.c</span></code>
+the function is <code class="docutils literal notranslate"><span class="pre">mon_dens_cpu()</span></code>, whereas in <code class="docutils literal notranslate"><span class="pre">InitMonitoring()</span></code>
+we have:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">InitFunctionMonitoring</span> <span class="p">(</span><span class="n">MASS</span><span class="p">,</span> <span class="n">mon_dens</span><span class="p">,</span> <span class="s2">&quot;mass&quot;</span><span class="p">,</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>instead of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">InitFunctionMonitoring</span> <span class="p">(</span><span class="n">MASS</span><span class="p">,</span> <span class="n">mon_dens_cpu</span><span class="p">,</span> <span class="s2">&quot;mass&quot;</span><span class="p">,</span><span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<p>The reason for that is that <code class="docutils literal notranslate"><span class="pre">mon_dens</span></code> is a function pointer itself,
+that points to <code class="docutils literal notranslate"><span class="pre">mon_dens_cpu()</span></code> or to <code class="docutils literal notranslate"><span class="pre">mon_dens_gpu()</span></code>, depending
+of whether the monitoring runs on the CPU or the GPU).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The third argument is a string which constitutes the radix of the
+corresponding output file.</p></li>
+<li><p>The fourth argument is either <code class="docutils literal notranslate"><span class="pre">TOTAL</span></code> or <code class="docutils literal notranslate"><span class="pre">AVERAGE</span></code> (self-explanatory).</p></li>
+<li><p>The fifth argument is a 4-character string which specifies the
+centering of the quantity in Y and Z. The first and third
+characters are always respectively Y and Z, and the second and
+fourth characters are either S (staggered) or C (centered). This
+string is used to provide the correct values of Y or Z in the
+formatted  1D profiles. For instance, the zone mass determined in
+<code class="docutils literal notranslate"><span class="pre">mom_dens.c</span></code> is obviously centered both in Y and Z.</p></li>
+<li><p>The sixth and last argument indicates whether the monitoring
+function depends on the coordinates of the planet (<code class="docutils literal notranslate"><span class="pre">DEP_PLANET</span></code>) or
+not (<code class="docutils literal notranslate"><span class="pre">INDEP_PLANET</span></code>). In the distribution provided only the <code class="docutils literal notranslate"><span class="pre">torq</span></code>
+function depends on the planet.</p></li>
+</ul>
+</div></blockquote>
+<p>The call of the <code class="docutils literal notranslate"><span class="pre">InitFunctionMonitoring()</span></code> therefore associates a
+variable such as <code class="docutils literal notranslate"><span class="pre">MASS</span></code> or <code class="docutils literal notranslate"><span class="pre">MAXWELL</span></code> to a given function. It
+specifies the radix of the file name to be used, and gives further
+details about how to evaluate the monitored value (loop on the
+planets, integration versus averaging, etc.)  We may now check that
+requesting <code class="docutils literal notranslate"><span class="pre">MOM_X</span></code> in any of the six variables of the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file
+does indeed allow a monitoring of the angular momentum. We see in
+<code class="docutils literal notranslate"><span class="pre">InitMonitoring()</span></code> that the <code class="docutils literal notranslate"><span class="pre">MOM_X</span></code> variable is associated to
+<code class="docutils literal notranslate"><span class="pre">mon_momx()</span></code>. The latter is defined in the file <code class="docutils literal notranslate"><span class="pre">mon_momx.c</span></code> where
+we can see that in cylindrical or spherical coordinates the quantity
+evaluated is the linear azimuthal velocity in a non-rotating frame,
+multiplied by the cylindrical radius and by the density.</p>
+</section>
+<section id="implementing-custom-monitoring-a-primer">
+<h3>Implementing custom monitoring: a primer<a class="headerlink" href="#implementing-custom-monitoring-a-primer" title="Link to this heading">#</a></h3>
+<p>In this distribution, we adhere to the convention that monitoring
+functions are defined in files that begin with <code class="docutils literal notranslate"><span class="pre">mon_</span></code>. If you define
+your own monitoring function and you want it to run indistinctly on
+the CPU or on the GPU, you want to define in the <code class="docutils literal notranslate"><span class="pre">mon_foo.c</span></code> file
+the function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">mon_foo_cpu</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>then in <code class="docutils literal notranslate"><span class="pre">global.h</span></code> you define a function pointer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">mon_foo</span><span class="p">)();</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">change_arch.c</span></code> this pointer points either to the CPU function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mon_foo</span> <span class="o">=</span> <span class="n">mon_foo_cpu</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or to the GPU function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mon_foo</span> <span class="o">=</span> <span class="n">mon_foo_gpu</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>depending on whether you want the monitoring to run on the CPU or the
+GPU. Finally, the syntax of the <code class="docutils literal notranslate"><span class="pre">mon_foo.c</span></code> file must obey the
+syntax described elsewhere in this manual so that its content be
+properly parsed into a CUDA kernel and its associated wrapper, and the
+object files <code class="docutils literal notranslate"><span class="pre">mon_foo.o</span></code> and <code class="docutils literal notranslate"><span class="pre">mon_foo_gpu.o</span></code> must be added
+respectively to the variables MAINOBJ and GPU_OBJBLOCKS of the
+<code class="docutils literal notranslate"><span class="pre">makefile</span></code>. A good starting point to implement your new
+<code class="docutils literal notranslate"><span class="pre">mon_foo_cpu()</span></code> function is to use <code class="docutils literal notranslate"><span class="pre">mon_dens.c</span></code> as a template.</p>
+<p>Both the <code class="docutils literal notranslate"><span class="pre">_cpu()</span></code> and <code class="docutils literal notranslate"><span class="pre">_gpu()</span></code> functions need to be declared in
+prototypes.h:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ex</span> <span class="n">void</span> <span class="n">mon_foo_cpu</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>in the section dedicated to the declaration of CPU prototypes, and:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ex</span> <span class="n">void</span> <span class="n">mon_foo_gpu</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>in the section dedicated to the declaration of GPU prototypes. Be sure
+that the declaration is not at the same place in the file. The second
+one <strong>must</strong> be after the <code class="docutils literal notranslate"><span class="pre">#ifndef</span> <span class="pre">__NOPROTO</span></code> statement</p>
+<p>In order to be used, you new monitoring function needs to be
+registered inside the function <code class="docutils literal notranslate"><span class="pre">InitMonitoring</span> <span class="pre">()</span></code> of the file
+<code class="docutils literal notranslate"><span class="pre">monitor.c</span></code>, using a syntax as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">InitFunctionMonitoring</span> <span class="p">(</span><span class="n">FOO</span><span class="p">,</span> <span class="n">mon_foo</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">TOTAL</span><span class="p">,</span> <span class="s2">&quot;YCZC&quot;</span><span class="p">,</span> <span class="n">INDEP_PLANET</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>or similar, as described above. In this sentence, <code class="docutils literal notranslate"><span class="pre">FOO</span></code> is an
+integer power of 2 that must be defined in <code class="docutils literal notranslate"><span class="pre">define.h</span></code>. Be sure that
+it is unique so that it does not interfere with any other predefined
+monitoring variable. You are now able to request a fine grain output
+of your ‘’foo’’ variable, using in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file expressions such
+as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MONITOR_SCALAR</span> <span class="o">=</span> <span class="n">MASS</span> <span class="o">|</span> <span class="n">FOO</span> <span class="o">|</span> <span class="n">MOM_Z</span>
+<span class="n">MONITOR_2D</span>     <span class="o">=</span> <span class="n">BXFLUX</span> <span class="o">|</span> <span class="n">FOO</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="new_setup.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Defining a new SETUP</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="communications.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Communications</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-fields">Scalar fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-files">Summary files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-files">Domain files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-files">Grid files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planet-files">Planet files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datacubes">Datacubes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mpi-input-output">MPI INPUT/OUTPUT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flavors-of-monitoring">Flavors of monitoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-a-quantity">Monitoring a quantity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-in-practice">Monitoring in practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-register-a-monitoring-function">How to register a monitoring function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-custom-monitoring-a-primer">Implementing custom monitoring: a primer</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

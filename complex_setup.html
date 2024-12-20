@@ -1,0 +1,1075 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Developing a complex setup &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'complex_setup';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tips, Tricks, Todos and Troubleshooting" href="ttt.html" />
+    <link rel="prev" title="GPU vs CPU Benchmarking" href="benchmark.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/complex_setup.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Developing a complex setup</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-folder">Setup folder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-condition">Initial Condition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-dependent-explosions">Time dependent explosions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#damping-function">Damping function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporating-our-kernel">Incorporating our kernel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-fargo-debug">Using FARGO_DEBUG</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="developing-a-complex-setup">
+<h1>Developing a complex setup<a class="headerlink" href="#developing-a-complex-setup" title="Link to this heading">#</a></h1>
+<p>This is the advanced part of the manual. After this section, you will
+be able to develop kernels, and complex routines inside FARGO3D.</p>
+<p>One of the most useful features of FARGO3D is the fact that you do not
+have to develop CUDA kernels yourself, neither even learn CUDA. All
+the CUDA code is written automatically with the help of
+<code class="docutils literal notranslate"><span class="pre">scripts/c2cuda.py</span></code>.</p>
+<p>But developing FARGO3D is not only a matter of kernels. We will not
+write an extensive documentation on each topic, but instead, we will
+develop a routine in detail and, at the same time, give a brief
+explanation .</p>
+<p>We will develop routines for simulating an exploding 2D periodic
+media, where the explosions are governed by a random generator, and we
+will develop a cooling function for the gas. This cooling function
+will be a kernel. The explosions will be modeled by energy spheres,
+appearing at random positions, and at random times. Also, we will
+include a magnetic field.</p>
+<p>The name of our setup will be “explosions”.</p>
+<section id="setup-folder">
+<h2>Setup folder<a class="headerlink" href="#setup-folder" title="Link to this heading">#</a></h2>
+<p>The very first step is to create the directory to store the setup. We
+will store all the files inside setups/explosions. This setup is
+similar to the otvortex setup, so we can copy all the files inside
+this setup and modify them.  We need to keep <code class="docutils literal notranslate"><span class="pre">explosions.bound.0,explosions.opt,</span> <span class="pre">explosions.par</span></code> and <code class="docutils literal notranslate"><span class="pre">condinit.c</span></code> files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd setups
+$ mkdir explosions
+$ cp otvortex/* explosions/
+$ cd explosions
+$ mv otvortex.par explosions.par
+$ mv otvortex.opt explosions.opt ... etc for all files that begin with &#39;otvortex&#39;
+</pre></div>
+</div>
+<p>Do not forget to change the <code class="docutils literal notranslate"><span class="pre">outputdir</span></code> and the <code class="docutils literal notranslate"><span class="pre">SetUp</span></code> parameter
+of the .par file (OutputDir outputs/explosions, SetUp
+explosions). Also, we will add some viscosity and resistivity to our
+setup (add the option <code class="docutils literal notranslate"><span class="pre">-DVISCOSITY</span></code> to the .opt file, and set
+nu=0.001 and eta=0.001 in the parfile).</p>
+<p>We can check that the setup can run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make SETUP=explosions view
+$ ./fargo3d setups/explosions/explosions.par
+</pre></div>
+</div>
+<p>We see the otvortex setup, but with the name explosions.</p>
+</section>
+<section id="initial-condition">
+<h2>Initial Condition<a class="headerlink" href="#initial-condition" title="Link to this heading">#</a></h2>
+<p>Because we want explosions at random times, this kind of setup cannot
+be entirely dealt with in <code class="docutils literal notranslate"><span class="pre">condinit.c</span></code>. We will develop in the next
+section an additional routine, called from the main loop, to handle
+explosions. In the initial conditions we define a first explosion, at
+a random position.  The routine that we will create in the next
+section will resemble this one, which we write in the file
+<code class="docutils literal notranslate"><span class="pre">setups/explosions/condinit.c</span></code>. It should be similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;fargo3d.h&quot;</span>
+
+<span class="n">void</span> <span class="n">Init</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nb">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">;</span>
+  <span class="n">real</span>  <span class="n">yr</span><span class="p">,</span> <span class="n">zr</span><span class="p">,</span> <span class="n">yr0</span><span class="p">,</span> <span class="n">zr0</span><span class="p">;</span>
+  <span class="nb">int</span>   <span class="n">yi</span><span class="p">,</span> <span class="n">zi</span><span class="p">;</span>
+
+  <span class="n">real</span><span class="o">*</span> <span class="n">vx</span> <span class="o">=</span> <span class="n">Vx</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">Vy</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">vz</span> <span class="o">=</span> <span class="n">Vz</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">Bx</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">by</span> <span class="o">=</span> <span class="n">By</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">bz</span> <span class="o">=</span> <span class="n">Bz</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">Density</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Energy</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+
+  <span class="n">real</span> <span class="n">sphere_radius</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span>
+
+  <span class="n">yr</span> <span class="o">=</span> <span class="n">YMIN</span><span class="o">+</span><span class="n">drand48</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">YMAX</span><span class="o">-</span><span class="n">YMIN</span><span class="p">);</span>
+  <span class="n">zr</span> <span class="o">=</span> <span class="n">ZMIN</span><span class="o">+</span><span class="n">drand48</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">ZMAX</span><span class="o">-</span><span class="n">ZMIN</span><span class="p">);</span>
+  <span class="n">yr0</span> <span class="o">=</span> <span class="n">yr</span><span class="p">;</span>
+  <span class="n">zr0</span> <span class="o">=</span> <span class="n">zr</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">yr</span> <span class="o">&gt;</span> <span class="n">YMIN</span> <span class="o">+</span> <span class="p">(</span><span class="n">YMAX</span><span class="o">-</span><span class="n">YMIN</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+     <span class="n">yr</span> <span class="o">-=</span> <span class="p">(</span><span class="n">YMAX</span><span class="o">-</span><span class="n">YMIN</span><span class="p">);</span>
+  <span class="k">else</span>
+     <span class="n">yr</span> <span class="o">+=</span> <span class="p">(</span><span class="n">YMAX</span><span class="o">-</span><span class="n">YMIN</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">zr</span> <span class="o">&gt;</span> <span class="n">ZMIN</span> <span class="o">+</span> <span class="p">(</span><span class="n">ZMAX</span><span class="o">-</span><span class="n">ZMIN</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+     <span class="n">zr</span> <span class="o">-=</span> <span class="p">(</span><span class="n">ZMAX</span><span class="o">-</span><span class="n">ZMIN</span><span class="p">);</span>
+  <span class="k">else</span>
+     <span class="n">zr</span> <span class="o">+=</span> <span class="p">(</span><span class="n">ZMAX</span><span class="o">-</span><span class="n">ZMIN</span><span class="p">);</span>
+
+  <span class="n">sphere_radius</span> <span class="o">*=</span> <span class="n">sphere_radius</span><span class="p">;</span> <span class="o">//</span><span class="n">we</span> <span class="n">take</span> <span class="n">the</span> <span class="n">square</span><span class="o">.</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">Nz</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHZ</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">Ny</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHY</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">Nx</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rho</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="n">vx</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">vy</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">vz</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="n">bx</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">by</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="n">bz</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sphere_radius</span><span class="p">)</span>
+          <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sphere_radius</span><span class="p">)</span>
+          <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr0</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sphere_radius</span><span class="p">)</span>
+          <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr0</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sphere_radius</span><span class="p">)</span>
+          <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">CondInit</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">Fluids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">CreateFluid</span><span class="p">(</span><span class="s2">&quot;gas&quot;</span><span class="p">,</span><span class="n">GAS</span><span class="p">);</span>
+   <span class="n">SelectFluid</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+   <span class="n">Init</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the four tests account for the periodicity of the mesh, as they
+take into account the main explosion and its replica in the
+neighboring domains.</p>
+</div>
+</section>
+<section id="time-dependent-explosions">
+<h2>Time dependent explosions<a class="headerlink" href="#time-dependent-explosions" title="Link to this heading">#</a></h2>
+<p>Now, we want to add explosions at random times in our simulation. This
+should be done at the end of each DT.  Remember that <code class="docutils literal notranslate"><span class="pre">DT</span></code> is a
+parameter chosen by the user in the parameter file, that sets the fine
+grain temporal resolution of the code. It is not the time step imposed
+by the CFL condition, which is usually (which should be, at least)
+much shorter than DT.</p>
+<p>The loop of time steps of total length <code class="docutils literal notranslate"><span class="pre">DT</span></code> is performed in the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function,
+in the file <code class="docutils literal notranslate"><span class="pre">src/main.c</span></code>. We need to call our explosions within this loop.
+It can be called before the <code class="docutils literal notranslate"><span class="pre">Sources()</span></code> step, or after the <code class="docutils literal notranslate"><span class="pre">Transport()</span></code> step.
+The variable that stores the current simulation date or physical time is <code class="docutils literal notranslate"><span class="pre">PhysicalTime</span></code>.</p>
+<p>Here we want an explosion rate that is constant in time, so that the
+date does not matter to determine whether an explosion takes place or
+not. Our new routine therefore just needs to know the time interval at
+which it is called, which is <code class="docutils literal notranslate"><span class="pre">DT</span></code>. There is normally no need to pass
+this variable as an argument, since it is a global upper case variable
+that can be invoked anywhere in the C code.</p>
+<p>So, the invocation of our new routine in <code class="docutils literal notranslate"><span class="pre">src/main.c</span></code> should be similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+
+<span class="n">MULTIFLUID</span><span class="p">(</span><span class="n">Transport</span><span class="p">(</span><span class="n">dt</span><span class="p">));</span>
+
+<span class="n">OurNewRoutine</span><span class="p">();</span>  <span class="o">//</span> <span class="n">Actually</span><span class="p">:</span> <span class="n">Explode</span> <span class="p">();</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Since we are modifying <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, it is a good idea
+to copy it to out setup directory in order not to interfere
+with the standard source files in <code class="docutils literal notranslate"><span class="pre">src/</span></code>. This way, our new development
+is self-contained within the setup directory. There is a drawback, however:
+if we change the main file <code class="docutils literal notranslate"><span class="pre">src/main.c</span></code> later, this improvement will not be
+reflected in the file <code class="docutils literal notranslate"><span class="pre">setups/explosions/main.c</span></code> until we
+implement it manually in this file.</p>
+<p>The name of the new routine will be <code class="docutils literal notranslate"><span class="pre">Explode()</span></code>, and will be stored
+in the <code class="docutils literal notranslate"><span class="pre">setups/explosions/condinit.c</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">void</span> <span class="n">Explode</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">INPUT</span><span class="p">(</span><span class="n">Energy</span><span class="p">);</span>
+    <span class="n">OUTPUT</span><span class="p">(</span><span class="n">Energy</span><span class="p">);</span>
+
+    <span class="nb">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">;</span>
+    <span class="n">real</span>  <span class="n">yr</span><span class="p">,</span> <span class="n">zr</span><span class="p">;</span>
+    <span class="nb">int</span>   <span class="n">yr0</span><span class="p">,</span> <span class="n">zr0</span><span class="p">;</span>
+    <span class="n">real</span>  <span class="n">p</span><span class="p">;</span>
+    <span class="n">real</span><span class="o">*</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Energy</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+
+    <span class="n">real</span> <span class="n">Rate</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="o">//</span><span class="n">Average</span> <span class="n">number</span> <span class="n">of</span> <span class="n">explosions</span> <span class="n">per</span> <span class="n">unit</span> <span class="n">time</span>
+    <span class="n">real</span> <span class="n">sphere_radius</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span>
+
+    <span class="n">sphere_radius</span> <span class="o">*=</span> <span class="n">sphere_radius</span><span class="p">;</span> <span class="o">//</span><span class="n">we</span> <span class="n">take</span> <span class="n">the</span> <span class="n">square</span><span class="o">.</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">drand48</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="o">-</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DT</span><span class="o">*</span><span class="n">Rate</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">real</span> <span class="n">sphere_radius</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+    <span class="n">yr</span> <span class="o">=</span> <span class="n">YMIN</span><span class="o">+</span><span class="n">drand48</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">YMAX</span><span class="o">-</span><span class="n">YMIN</span><span class="p">);</span>
+    <span class="n">zr</span> <span class="o">=</span> <span class="n">ZMIN</span><span class="o">+</span><span class="n">drand48</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">ZMAX</span><span class="o">-</span><span class="n">ZMIN</span><span class="p">);</span>
+    <span class="n">yr0</span> <span class="o">=</span> <span class="n">yr</span><span class="p">;</span>
+    <span class="n">zr0</span> <span class="o">=</span> <span class="n">zr</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">yr</span> <span class="o">&gt;</span> <span class="n">YMIN</span> <span class="o">+</span> <span class="p">(</span><span class="n">YMAX</span><span class="o">-</span><span class="n">YMIN</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+       <span class="n">yr</span> <span class="o">-=</span> <span class="p">(</span><span class="n">YMAX</span><span class="o">-</span><span class="n">YMIN</span><span class="p">);</span>
+    <span class="k">else</span>
+       <span class="n">yr</span> <span class="o">+=</span> <span class="p">(</span><span class="n">YMAX</span><span class="o">-</span><span class="n">YMIN</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">zr</span> <span class="o">&gt;</span> <span class="n">ZMIN</span> <span class="o">+</span> <span class="p">(</span><span class="n">ZMAX</span><span class="o">-</span><span class="n">ZMIN</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+       <span class="n">zr</span> <span class="o">-=</span> <span class="p">(</span><span class="n">ZMAX</span><span class="o">-</span><span class="n">ZMIN</span><span class="p">);</span>
+    <span class="k">else</span>
+       <span class="n">zr</span> <span class="o">+=</span> <span class="p">(</span><span class="n">ZMAX</span><span class="o">-</span><span class="n">ZMIN</span><span class="p">);</span>
+
+    <span class="n">sphere_radius</span> <span class="o">*=</span> <span class="n">sphere_radius</span><span class="p">;</span> <span class="o">//</span><span class="n">we</span> <span class="n">take</span> <span class="n">the</span> <span class="n">square</span><span class="o">.</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">Nz</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHZ</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">Ny</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHY</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">Nx</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">((</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sphere_radius</span><span class="p">)</span>
+            <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+          <span class="k">if</span> <span class="p">((</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sphere_radius</span><span class="p">)</span>
+            <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+          <span class="k">if</span> <span class="p">((</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr0</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sphere_radius</span><span class="p">)</span>
+            <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+          <span class="k">if</span> <span class="p">((</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ymed</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">yr0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Zmed</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">zr0</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sphere_radius</span><span class="p">)</span>
+            <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">Rate</span></code> selects the rate at which explosions take
+place. In the case in which <span class="math notranslate nohighlight">\(\textrm{Rate*DT} \ll 1\)</span>, we tend
+towards a Poissonian statistics of explosions. When this condition
+is not fulfilled, the statistics departs from Poisson’s statistics
+because we can only have one explosion per DT.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We work on the physical coordinates rather than on the
+indices so that the size of the spheres is independent of
+resolution, and so that the output is independent on the number of
+processors (this requires however that they all have the same
+sequence of random numbers, hence that they have the same initial
+seed).</p>
+</div>
+<p>Now, if you type <code class="docutils literal notranslate"><span class="pre">make</span></code>, all the code will be rebuilt.</p>
+<p>Note we have added the INPUT/OUTPUT directives. INPUT/OUTPUT are
+useful macrocommands that synchronizes the host and device memory if
+it is needed (see <a class="reference internal" href="communications.html#gpucomm"><span class="std std-ref">GPU/CPU communications</span></a>.). For example, if you run this setup
+on the CPU, all the data is all the time on the CPU, but instead if
+you run this setup on the GPU, before the execution of Explode(), it
+is possible that the Field Energy is not fresh on the CPU, because all
+the calculation was done on the GPU.</p>
+<p>We could develop this routine as a kernel routine, with some suitable
+structure for c2cuda.py; but in practice, this routine only works with
+a few threads (all the threads inside a small circle), and the
+remaining threads will stay idle. So, we can pay the cost of a
+communication without committing a big mistake, and run the routine on
+the CPU. Besides, and more importantly, it does not run within the
+hydro/MHD loop, but once in a while.</p>
+<p>Anyway, you can try a better implementation if you wish, but it is
+not very important here.</p>
+<p>Next, we develop a massively parallel function for the cooling
+(damping of internal energy).</p>
+<section id="damping-function">
+<h3>Damping function<a class="headerlink" href="#damping-function" title="Link to this heading">#</a></h3>
+<p>In this section, we will develop a routine to cool the fluid with a
+simple-minded, exponential damping law for the internal energy, in
+order to simulate some kind of energy extraction from the system. The
+law we want to apply is:</p>
+<div class="math notranslate nohighlight">
+\[d_t e(t) = -\alpha e(t) \longrightarrow e(t) = C\exp{(-\alpha t)}\]</div>
+<p>of which the implicit solution is:</p>
+<div class="math notranslate nohighlight">
+\[e^{n+1}_i = \frac{e^n_i}{1+\alpha \Delta t}\]</div>
+<p>which is stable for all <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
+<p>First, we will create a file called <code class="docutils literal notranslate"><span class="pre">edamp.c</span></code> in
+<code class="docutils literal notranslate"><span class="pre">setups/explosion/</span></code>. Inside, you should have something similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//&lt;</span><span class="n">FLAGS</span><span class="o">&gt;</span>
+<span class="o">//</span><span class="c1">#define __GPU</span>
+<span class="o">//</span><span class="c1">#define __NOPROTO</span>
+<span class="o">//&lt;</span>\<span class="n">FLAGS</span><span class="o">&gt;</span>
+
+<span class="o">//&lt;</span><span class="n">INCLUDES</span><span class="o">&gt;</span>
+<span class="c1">#include &quot;fargo3d.h&quot;</span>
+<span class="o">//&lt;</span>\<span class="n">INCLUDES</span><span class="o">&gt;</span>
+
+<span class="n">void</span> <span class="n">Edamp_cpu</span><span class="p">(</span><span class="n">real</span> <span class="n">dt</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="o">//&lt;</span><span class="n">USER_DEFINED</span><span class="o">&gt;</span>
+  <span class="n">INPUT</span><span class="p">(</span><span class="n">Energy</span><span class="p">);</span>
+  <span class="n">OUTPUT</span><span class="p">(</span><span class="n">Energy</span><span class="p">);</span>
+<span class="o">//&lt;</span>\<span class="n">USER_DEFINED</span><span class="o">&gt;</span>
+
+<span class="o">//&lt;</span><span class="n">INTERNAL</span><span class="o">&gt;</span>
+  <span class="nb">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">j</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">k</span><span class="p">;</span>
+<span class="o">//&lt;</span>\<span class="n">INTERNAL</span><span class="o">&gt;</span>
+
+<span class="o">//&lt;</span><span class="n">EXTERNAL</span><span class="o">&gt;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Energy</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span> <span class="n">edamp</span> <span class="o">=</span> <span class="n">EDAMP</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">pitch</span>  <span class="o">=</span> <span class="n">Pitch_cpu</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">stride</span> <span class="o">=</span> <span class="n">Stride_cpu</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size_x</span> <span class="o">=</span> <span class="n">Nx</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size_y</span> <span class="o">=</span> <span class="n">Ny</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHY</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size_z</span> <span class="o">=</span> <span class="n">Nz</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHZ</span><span class="p">;</span>
+<span class="o">//&lt;</span>\<span class="n">EXTERNAL</span><span class="o">&gt;</span>
+
+<span class="o">//&lt;</span><span class="n">MAIN_LOOP</span><span class="o">&gt;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">size_z</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">size_y</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_x</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="o">//&lt;</span><span class="c1">#&gt;</span>
+        <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="n">edamp</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
+<span class="o">//&lt;</span>\<span class="c1">#&gt;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="o">//&lt;</span>\<span class="n">MAIN_LOOP</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, you must add this new routine to the makefile. In order to do
+this without breaking the generality of the code, a file called
+setup.objects was created. This file must to has two make variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MAINOBJ</span> <span class="o">+=</span> <span class="n">routine_filename</span><span class="o">.</span><span class="n">o</span>
+<span class="n">GPUOBJ</span>  <span class="o">+=</span> <span class="n">routine_filename_gpu</span><span class="o">.</span><span class="n">o</span>
+</pre></div>
+</div>
+<p>where the second line is only needed if the routine will run on a GPU. For this particular example, the lines should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MAINOBJ</span> <span class="o">+=</span> <span class="n">edamp</span><span class="o">.</span><span class="n">o</span>
+<span class="n">GPUOBJ</span>  <span class="o">+=</span> <span class="n">edamp_gpu</span><span class="o">.</span><span class="n">o</span>
+</pre></div>
+</div>
+<p>Before the compilation, do not forget to add in the parameter file
+(<code class="docutils literal notranslate"><span class="pre">setups/explosions/explosions.par</span></code>) the variable called
+<code class="docutils literal notranslate"><span class="pre">EDAMP</span></code>. Its first value could be 0.1.</p>
+<p>Finally, we must add the execution line. In <code class="docutils literal notranslate"><span class="pre">algogas.c</span></code>, before the
+invocation substep3(), we can add an invocation to our newly created
+function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Edamp_cpu</span><span class="p">(</span><span class="n">dt</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The code should compile in both CPU (sequential &amp; MPI) and GPU
+platforms, including a cluster of GPU’s.  If you compile and run the
+code in GPU mode, you will see some lines similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>OUTPUTS 0 at Physical Time t = 0.000000 OK
+TotalMass = 2.0000000000
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+</pre></div>
+</div>
+<p>All the “!” symbols mean that at every time step, you have “volumic”
+communications host&lt;–&gt;device (see sections <a class="reference internal" href="communications.html#gpucomm"><span class="std std-ref">GPU/CPU communications</span></a> and
+<a class="reference internal" href="communications.html#mpicuda"><span class="std std-ref">CUDA aware MPI implementations</span></a>.) This is very expensive. This is because we force the
+invocation of the <strong>CPU</strong> version of our new function, because we call
+<code class="docutils literal notranslate"><span class="pre">Edamp_cpu(dt)</span></code>, which triggers device to host and host to device
+communications by means of the INPUT/OUTPUT directives.  If you want
+to avoid this, we must call the automatically generated CUDA kernel. Until
+now, we are running the CPU version of our kernel.</p>
+</section>
+</section>
+<section id="incorporating-our-kernel">
+<h2>Incorporating our kernel<a class="headerlink" href="#incorporating-our-kernel" title="Link to this heading">#</a></h2>
+<p>Now, we will incorporate our new kernel into all the GPU-machinery
+inside FARGO3D. The set of rules here is very general, and in theory,
+if you follow them you should be able to develop any complex kernel.</p>
+<p>First, we will keep a clean version of FARGO3D. In order to do that
+you must to copy the file std/func_arch.cfg to your setup directory
+(setups/explosions/). Also, we will need the file src/change_arch.c:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp std/func_arch.cfg setups/explosions/
+$ cp src/change_arch.c setups/explosions/
+</pre></div>
+</div>
+<p>We will alter the files of the setup directory, but we will leave the
+files of the main distribution untouched.</p>
+<p>If we issue an “ls” command inside setups/explosions, we should see
+something similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">algogas</span><span class="o">.</span><span class="n">c</span>
+<span class="n">condinit</span><span class="o">.</span><span class="n">c</span>
+<span class="n">explosions</span><span class="o">.</span><span class="n">bound</span><span class="mf">.0</span>
+<span class="n">explosions</span><span class="o">.</span><span class="n">opt</span>
+<span class="n">explosions</span><span class="o">.</span><span class="n">units</span>
+<span class="n">change_arch</span><span class="o">.</span><span class="n">c</span>
+<span class="n">edamp</span><span class="o">.</span><span class="n">c</span>
+<span class="n">explosions</span><span class="o">.</span><span class="n">objects</span>
+<span class="n">explosions</span><span class="o">.</span><span class="n">par</span>
+<span class="n">func_arch</span><span class="o">.</span><span class="n">cfg</span>
+<span class="n">main</span><span class="o">.</span><span class="n">c</span>
+</pre></div>
+</div>
+<p>Now, we will add the prototype of this function in <code class="docutils literal notranslate"><span class="pre">src/prototypes.h</span></code>.</p>
+<p>After the line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ex</span> <span class="n">void</span> <span class="n">init_var</span><span class="p">(</span><span class="n">char</span><span class="o">*</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ex</span> <span class="n">void</span> <span class="n">Edamp_cpu</span><span class="p">(</span><span class="n">real</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>and after the line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ex</span> <span class="n">void</span> <span class="n">addviscosity_sph_gpu</span><span class="p">(</span><span class="n">real</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ex</span> <span class="n">void</span> <span class="n">Edamp_gpu</span><span class="p">(</span><span class="n">real</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The declaration of the <code class="docutils literal notranslate"><span class="pre">_gpu</span></code> must not be in the same block as
+the <code class="docutils literal notranslate"><span class="pre">_cpu</span></code> functions, otherwise the code will not build. Keep
+them grouped as they are.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We cannot copy the file <code class="docutils literal notranslate"><span class="pre">prototypes.h</span></code> to out setup
+directory because in the present version header files are parsed
+from the <code class="docutils literal notranslate"><span class="pre">src/</span></code> directory. However, it is harmless to declare
+extra functions in prototypes.h. If they are unused with other
+setups, no error nor warning message is issued.</p>
+</div>
+<p>Now, we need to be able to select which function is called (<code class="docutils literal notranslate"><span class="pre">_gpu()</span></code>
+or <code class="docutils literal notranslate"><span class="pre">_cpu()</span></code>) by means of a function pointer. In the file
+<code class="docutils literal notranslate"><span class="pre">src/global.h</span></code>, add the following line at the end:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">Edamp</span><span class="p">)(</span><span class="n">real</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We now have all the variables required to edit the <code class="docutils literal notranslate"><span class="pre">ChangeArch()</span></code>
+function. This function allows to you to switch between a CPU or GPU
+execution of your new kernel, without recompiling the code. In the
+file <code class="docutils literal notranslate"><span class="pre">change_arch.c</span></code>, add the following lines:</p>
+<p>Before the line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">MAXLINELENGTH</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">func_arch</span><span class="p">)</span> <span class="o">!=</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+</div>
+<p>add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Edamp</span> <span class="o">=</span> <span class="n">Edamp_cpu</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This line set the defaults value of the function pointer Edamp (it
+calls the <code class="docutils literal notranslate"><span class="pre">_cpu</span></code> function). If we want to use the GPU version of our
+function, we need to point to <code class="docutils literal notranslate"><span class="pre">Edamp_gpu()</span></code>. In practice this is
+done with the <code class="docutils literal notranslate"><span class="pre">func_arch.cfg</span></code> file. To activate this possibility,
+add the following lines at the end (before the last #endif):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;edamp&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">strval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;g&#39;</span><span class="p">){</span>
+    <span class="n">Edamp</span> <span class="o">=</span> <span class="n">Edamp_gpu</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Edamp runs on the GPU</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We eventually add the following line into the <code class="docutils literal notranslate"><span class="pre">func_arch.cfg</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Edamp</span>                      <span class="n">GPU</span>
+</pre></div>
+</div>
+<p>Finally, we change the invocation of the energy damping into a more
+general invocation (before substep3(), inside <code class="docutils literal notranslate"><span class="pre">src/algogas.c</span></code>, or its copy in
+<code class="docutils literal notranslate"><span class="pre">setups/explosions/algogas.c</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Edamp</span><span class="p">(</span><span class="n">dt</span><span class="p">);</span>  <span class="o">//</span><span class="n">Calls</span> <span class="n">either</span> <span class="n">_cpu</span> <span class="ow">or</span> <span class="n">_gpu</span><span class="p">,</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">its</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>If you run the code again, you will see that nothing changed: “!” are
+issued, indicating expensive communications, which are a clue that our
+new function still runs on the CPU. This is because the
+<code class="docutils literal notranslate"><span class="pre">funch_arch.cfg</span></code> file is taken by default from <code class="docutils literal notranslate"><span class="pre">std/</span></code>. In order to
+change that, you must include the value of the <code class="docutils literal notranslate"><span class="pre">FuncArchFile</span></code>
+parameter in explosions.par:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FuncArchFile</span>          <span class="n">setups</span><span class="o">/</span><span class="n">explosions</span><span class="o">/</span><span class="n">func_arch</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+<p>Now, if you run the code, you will see lines similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>OUTPUTS 0 at Physical Time t = 0.000000 OK
+TotalMass = 2.0000000000
+!::::::::::::::::::::::::::::
+</pre></div>
+</div>
+<p>And we have no more communications device&lt;-&gt;host between outputs. The
+“::” means that actually we still have some less expensive
+communications between host and device for the periodicity. This can be avoided
+with a proper build, but no further implementation is required at this
+stage. See <a class="reference internal" href="communications.html#mpicuda"><span class="std std-ref">CUDA aware MPI implementations</span></a>.</p>
+<figure class="align-center" id="id1" style="width: 450px">
+<a class="reference internal image-reference" href="_images/explosions.png"><img alt="_images/explosions.png" src="_images/explosions.png" style="width: 280px;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><em>A snapshot of the density field with the  ‘explosions’ setup.</em></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="using-fargo-debug">
+<span id="fargodebug"></span><h2>Using FARGO_DEBUG<a class="headerlink" href="#using-fargo-debug" title="Link to this heading">#</a></h2>
+<p>We can use the macrocommand <code class="docutils literal notranslate"><span class="pre">FARGO_DEBUG</span></code> to check that the GPU
+kernel and its CPU counterpart yield same results to machine
+accuracy. Here this is done as follows: you simply have to wrap the
+invocation of <code class="docutils literal notranslate"><span class="pre">Edamp(dt)</span></code> in <code class="docutils literal notranslate"><span class="pre">algogas.c</span></code> within the
+macrocommand. As for the macrocommand <code class="docutils literal notranslate"><span class="pre">FARGO_SPEEDUP</span></code> presented in
+the section <a class="reference internal" href="benchmark.html#benchmark"><span class="std std-ref">GPU vs CPU Benchmarking</span></a>, we need to insert a comma at the end of
+the function name, so as to help the C preprocessor which cannot do
+string analysis:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FARGO_DEBUG</span> <span class="p">(</span><span class="n">Edamp</span><span class="p">,(</span><span class="n">dt</span><span class="p">))</span> <span class="o">//</span> <span class="o">&lt;&lt;===</span> <span class="n">Notice</span> <span class="n">the</span> <span class="n">comma</span>
+</pre></div>
+</div>
+<p>We then compile the code with a GPU built (<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">SETUP=explosions</span>
+<span class="pre">GPU=1</span></code>) and run it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./fargo3d setups/explosions/explosions.par
+....
+....
+
+******
+Check point created
+******
+
+Executing Edamp_cpu(dt)
+Dumping at #999 divb Emfy bz by bx QRight gasenergy gasdens Pressure Qs DensStar potential Moment_Minus_Z Moment_Plus_Z Vz_temp gasvz Moment_Minus_Y Moment_Plus_Y Vy_temp gasvy Moment_Minus_X Moment_Plus_X Vx_temp gasvx
+
+
+******
+Secondary Check point created
+******
+
+
+
+******
+Check point restored
+*******
+
+Executing Edamp_gpu(dt)
+Dumping at #998 divb Emfy bz by bx QRight gasenergy gasdens Pressure Qs DensStar potential Moment_Minus_Z Moment_Plus_Z Vz_temp gasvz Moment_Minus_Y Moment_Plus_Y Vy_temp gasvy Moment_Minus_X Moment_Plus_X Vx_temp gasvx
+List of fields that differ:
+Skipping comparison of field Emfz used as a temporary work array
+in file  (as declared at line 0)
+Skipping comparison of field DivRho used as a temporary work array
+in file ../src/reduction_generic_gpu.cu (as declared at line 86)
+</pre></div>
+</div>
+<p>What the code does is as follows:</p>
+<blockquote>
+<div><ul>
+<li><p>Prior to entering <code class="docutils literal notranslate"><span class="pre">Edamp_cpu(dt)</span></code>, it creates a checkpoint of
+all HD/MHD arrays.</p></li>
+<li><p>It then executes Edamp_cpu(dt) and dumps all arrays with the
+arbitrary output number 999 (so that we can examine it in case of
+problem). <em>All</em> arrays are dumped, not only the primitive
+variables.</p></li>
+<li><p>It creates a secondary checkpoint with all the data updated by
+<code class="docutils literal notranslate"><span class="pre">Edamp_cpu(dt)</span></code>.</p></li>
+<li><p>It “rewinds” the execution flow by restoring the first checkpoint
+created prior to the execution of <code class="docutils literal notranslate"><span class="pre">Edamp_cpu(dt)</span></code>.</p></li>
+<li><p>It now executes <code class="docutils literal notranslate"><span class="pre">Edamp_gpu(dt)</span></code> (note that automatic GPU-CPU
+communication is dealt with thanks to the INPUT/OUTPUT directives
+as explained in <a class="reference internal" href="communications.html#gpucomm"><span class="std std-ref">GPU/CPU communications</span></a>).</p></li>
+<li><p>It dumps all arrays, this time in  output number 998. These arrays
+should be the same as those dumped in 999, if the CPU and GPU
+calculations yield indistinguishable results.</p></li>
+<li><p>It performs a comparison of the arrays with the secondary
+checkpoint created previously. If any difference is found, a
+message is printed on the terminal. Some arrays are skipped from
+the comparison because they are used as temporary work arrays and
+may be different on the CPU and GPU, without any impact on the
+calculation. Here we see that all arrays are the same: GPU and CPU
+yield indistinguishable results.</p></li>
+<li><p>In some other cases we may have differences to the machine
+accuracy. The example below shows the output when wrapping
+<code class="docutils literal notranslate"><span class="pre">Substep1_x</span></code> in <code class="docutils literal notranslate"><span class="pre">FARGO_DEBUG</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fields</span> <span class="n">Vx_temp</span> <span class="n">differ</span><span class="p">:</span>
+<span class="n">Minimum</span> <span class="n">on</span> <span class="n">GPU</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.2721583979362551e-22</span>
+<span class="n">Minimum</span> <span class="n">on</span> <span class="n">CPU</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Maximum</span> <span class="n">on</span> <span class="n">GPU</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Maximum</span> <span class="n">on</span> <span class="n">CPU</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Minimum</span> <span class="n">of</span> <span class="n">GPU</span><span class="o">/</span><span class="n">CPU</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">Maximum</span> <span class="n">of</span> <span class="n">GPU</span><span class="o">/</span><span class="n">CPU</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">Minimum</span> <span class="n">of</span> <span class="n">GPU</span><span class="o">-</span><span class="n">CPU</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Maximum</span> <span class="n">of</span> <span class="n">GPU</span><span class="o">-</span><span class="n">CPU</span><span class="p">:</span> <span class="mf">5.27216e-22</span>
+<span class="p">(</span><span class="n">Minimum</span> <span class="n">of</span> <span class="n">GPU</span><span class="o">-</span><span class="n">CPU</span><span class="p">)</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">CPU</span><span class="p">))</span> <span class="mi">0</span>
+<span class="p">(</span><span class="n">Maximum</span> <span class="n">of</span> <span class="n">GPU</span><span class="o">-</span><span class="n">CPU</span><span class="p">)</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">CPU</span><span class="p">)):</span> <span class="mi">1</span>
+<span class="o">**********</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<p>We show hereafter how the macrocommand is expanded at build time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="n">SaveState</span> <span class="p">();</span>
+  <span class="n">printf</span> <span class="p">(</span><span class="s2">&quot;Executing </span><span class="si">%s</span><span class="s2">_cpu</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;Edamp&quot;</span><span class="p">,</span><span class="s2">&quot;(dt)&quot;</span><span class="p">);</span>
+  <span class="n">Edamp_cpu</span> <span class="p">(</span><span class="n">dt</span><span class="p">);</span>
+  <span class="n">DumpAllFields</span> <span class="p">(</span><span class="mi">999</span><span class="p">);</span>
+  <span class="n">SaveStateSecondary</span> <span class="p">();</span>
+  <span class="n">RestoreState</span> <span class="p">();</span>
+  <span class="n">printf</span> <span class="p">(</span><span class="s2">&quot;Executing </span><span class="si">%s</span><span class="s2">_gpu</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;Edamp&quot;</span><span class="p">,</span><span class="s2">&quot;(dt)&quot;</span><span class="p">);</span>
+  <span class="n">Edamp_gpu</span> <span class="p">(</span><span class="n">dt</span><span class="p">);</span>
+  <span class="n">DumpAllFields</span> <span class="p">(</span><span class="mi">998</span><span class="p">);</span>
+  <span class="n">CompareAllFields</span> <span class="p">();</span>
+  <span class="n">prs_exit</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+ <span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Why would GPU and CPU routines give different results if the GPU
+kernel is produced automatically from the CPU function ? Apart from
+issues related to passing values to the kernel (in particular the
+&lt;CONSTANT&gt; block), it may happen if you have a <em>race condition</em>
+inherent to your kernel. What is a race condition? It happens
+whenever the outcome of your kernel depends on the order in which
+threads are executed. If the INPUT and OUTPUT fields of your kernel
+are different, it is impossible to have a race condition. If,
+however, a field appears both as INPUT and OUTPUT, the values of its
+cells are used in the kernel, and also modified by it. This is the
+case of the kernel of <code class="docutils literal notranslate"><span class="pre">Edamp()</span></code>. In this case, however,
+everything is local: the final value of one zone only depends on
+the value of that zone only, so it does not matter in which order
+the CUDA threads process the mesh. If this value also depended on
+the neighbors, we would have race conditions, and we would need to
+split the kernel in two and use an intermediary array. For instance,
+this is what we have done with <code class="docutils literal notranslate"><span class="pre">SubStep2()</span></code>.</p>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>We have developed a somehow complex routine, interacting with the main
+parts of FARGO3D. This example shows how to write a kernel in five
+minutes, only taking care of prototypes and function pointers. Here is
+a brief summary of this process:</p>
+<ol class="arabic simple">
+<li><p>make a directory for the setup</p></li>
+<li><p>copy the important files you need into the new directory.</p></li>
+<li><p>If you will include routines, add the setup.objects file.</p></li>
+<li><p>Add the prototypes (to the file <code class="docutils literal notranslate"><span class="pre">src/directory.h</span></code>).</p></li>
+<li><p>Add the global function pointer (to <code class="docutils literal notranslate"><span class="pre">global.h</span></code>).</p></li>
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">change_arch.c</span></code></p></li>
+<li><p>Add the function to <code class="docutils literal notranslate"><span class="pre">func_arch.cfg</span></code> and point correctly to this
+file in your parameter file with <code class="docutils literal notranslate"><span class="pre">FuncArchFile()</span></code>.</p></li>
+<li><p>Validate your new kernel using <code class="docutils literal notranslate"><span class="pre">FARGO_DEBUG</span></code>.</p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="benchmark.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GPU vs CPU Benchmarking</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ttt.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tips, Tricks, Todos and Troubleshooting</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-folder">Setup folder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-condition">Initial Condition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-dependent-explosions">Time dependent explosions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#damping-function">Damping function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporating-our-kernel">Incorporating our kernel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-fargo-debug">Using FARGO_DEBUG</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1137 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cuda translator (C2CUDA.py) &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c2cuda';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Execution flags" href="exec_flags.html" />
+    <link rel="prev" title="Communications" href="communications.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/c2cuda.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cuda translator (C2CUDA.py)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fargo3d-mesh-functions">FARGO3D Mesh Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-script-works">How the script works</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flags">FLAGS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#includes">INCLUDES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name">Function name:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined">USER DEFINED:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external">EXTERNAL:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal">INTERNAL:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant">CONSTANT:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-loop">MAIN LOOP:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-contain">LOOP CONTAIN:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#last-block">LAST_BLOCK</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-errors">Common errors:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="cuda-translator-c2cuda-py">
+<h1>Cuda translator (C2CUDA.py)<a class="headerlink" href="#cuda-translator-c2cuda-py" title="Link to this heading">#</a></h1>
+<p>One of the most interesting features of FARGO3D is that it can run on
+GPUs. If you look the <code class="docutils literal notranslate"><span class="pre">src/</span></code> directory, there are only very few
+routines related with CUDA. The philosophy of the development of
+FARGO3D was to avoid the kernel-writing process. Instead, following a
+set of very simple rules, we were able to develop a python script that
+translates the time-consuming C routines into CUDA kernels.</p>
+<p>This section is a brief description of the rules and the process of
+building CUDA kernels from  C functions.</p>
+<section id="fargo3d-mesh-functions">
+<h2>FARGO3D Mesh Functions<a class="headerlink" href="#fargo3d-mesh-functions" title="Link to this heading">#</a></h2>
+<p>In FARGO3D all the time-consuming functions that are called during a
+hydro or MHD time step involve, without exception, a 3D nested loop
+over the computational mesh. We call hereafter these functions “mesh
+functions”. The C to CUDA translator has been developed to convert
+these “mesh functions” to CUDA kernels.</p>
+<p>The components of any mesh function are:</p>
+<ul class="simple">
+<li><p>A header</p></li>
+<li><p>A function type and name</p></li>
+<li><p>Arguments</p></li>
+<li><p>Global variables</p></li>
+<li><p>Local variables</p></li>
+<li><p>A loop over the mesh</p></li>
+</ul>
+<p>In some cases, the structure is a bit more complicated, including some
+additional lines at the end of the main loop, but this will be discussed below.</p>
+<p>The easiest example of a mesh function is the Pressure computation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;fargo3d.h&quot;</span>
+
+<span class="n">void</span> <span class="n">ComputePressureFieldIso_cpu</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">real</span><span class="o">*</span> <span class="n">dens</span> <span class="o">=</span> <span class="n">Density</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">cs</span>   <span class="o">=</span> <span class="n">Energy</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">pres</span> <span class="o">=</span> <span class="n">Pressure</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+
+  <span class="nb">int</span> <span class="n">pitch</span>  <span class="o">=</span> <span class="n">Pitch_cpu</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">stride</span> <span class="o">=</span> <span class="n">Stride_cpu</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size_x</span> <span class="o">=</span> <span class="n">Nx</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size_y</span> <span class="o">=</span> <span class="n">Ny</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHY</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size_z</span> <span class="o">=</span> <span class="n">Nz</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHZ</span><span class="p">;</span>
+
+  <span class="nb">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">j</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">k</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">size_z</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">size_y</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_x</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">pres</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">dens</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">cs</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">cs</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As you see, the general structure is very simple. Here is the
+explanation of the different blocks:</p>
+<p><strong>Header</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;fargo3d.h&quot;</span>
+</pre></div>
+</div>
+<p>This block contains all the includes required to compile the code.</p>
+<p><strong>A function type</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">ComputePressureFieldIso_cpu</span> <span class="p">()</span> <span class="p">{</span>
+</pre></div>
+</div>
+<p>All the mesh functions must return a void. This is very important
+because CUDA kernels cannot but return a void (this is one of CUDA
+kernels limitations). Until now, the name of the function is not
+important, but you can see that its suffix is (must be, actually) <code class="docutils literal notranslate"><span class="pre">_cpu</span></code>.</p>
+<p><strong>Arguments</strong></p>
+<p>In this simple case, the function has no argument, but in general, you
+can have a wide range of arguments. The most commons are integers,
+reals &amp; Field variables.</p>
+<p><strong>Global variables</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">real</span><span class="o">*</span> <span class="n">dens</span> <span class="o">=</span> <span class="n">Density</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+<span class="n">real</span><span class="o">*</span> <span class="n">cs</span>   <span class="o">=</span> <span class="n">Energy</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+<span class="n">real</span><span class="o">*</span> <span class="n">pres</span> <span class="o">=</span> <span class="n">Pressure</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">pitch</span>  <span class="o">=</span> <span class="n">Pitch_cpu</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">stride</span> <span class="o">=</span> <span class="n">Stride_cpu</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">size_x</span> <span class="o">=</span> <span class="n">Nx</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">size_y</span> <span class="o">=</span> <span class="n">Ny</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHY</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">size_z</span> <span class="o">=</span> <span class="n">Nz</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHZ</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This block is related to all the global variables that are not passed
+by argument to the function. In practice, here you have all the fields
+required to achieve the calculation, the size of each loop, and some
+useful variables related to indices.</p>
+<p><strong>Local variables</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">j</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">k</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This block is devoted to variables that are neither passed as arguments nor global. Indices of the loop are always here, but it is possible to add any variable you want.</p>
+<p><strong>Main Loop</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">size_z</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">size_y</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_x</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+       <span class="n">pres</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">dens</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">cs</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">cs</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This block is where all the expensive computation is done, and all the
+parsing process was developed to pass this job to the GPU. Remember
+that index <code class="docutils literal notranslate"><span class="pre">l</span></code> is a function of (i,j,k, pitch &amp; stride), defined in
+<code class="docutils literal notranslate"><span class="pre">src/define.h</span></code>. There is no need to define nor calculate it here, it is
+done automatically at build time.</p>
+</section>
+<section id="how-the-script-works">
+<h2>How the script works<a class="headerlink" href="#how-the-script-works" title="Link to this heading">#</a></h2>
+<p>In order to develop a general GPU “function”, there are a few problems that must be solved:</p>
+<ul class="simple">
+<li><p>Develop a proper CUDA header.</p></li>
+<li><p>Develop the kernel function, that is the core of the calculation.</p></li>
+<li><p>Develop a launcher (or wrapper) function, which is called from the C
+code and constitutes the interface between the mainstream of
+FARGO3D and the CUDA kernel.</p></li>
+<li><p>Perform communications between host and device (between CPU and GPU).</p></li>
+<li><p>Split the main loop into a lot of threads that are given to the CUDA cores.</p></li>
+<li><p>Develop a method for passing global variables to the kernel.</p></li>
+<li><p>Develop a method for passing complex structures (eg: Field) to a kernel.</p></li>
+<li><p>A method for switching between the C function and the CUDA function,
+are run-time (so that we can, among other things, compare the results of execution on the
+CPU to those on the GPU, in order to validate the correct GPU built).</p></li>
+</ul>
+<p>You can see the structure of a mesh function is really very simple,
+and you can see that in all the code, the structure of mesh functions
+is the essentially the same. This allows us to develop an automatic
+process to generate CUDA code.  A series of special lines were
+developed for simplifying the parsing process:</p>
+<p>Here you have a complete example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//&lt;</span><span class="n">FLAGS</span><span class="o">&gt;</span>
+<span class="o">//</span><span class="c1">#define __GPU</span>
+<span class="o">//</span><span class="c1">#define __NOPROTO</span>
+<span class="o">//&lt;</span>\<span class="n">FLAGS</span><span class="o">&gt;</span>
+
+<span class="o">//&lt;</span><span class="n">INCLUDES</span><span class="o">&gt;</span>
+<span class="c1">#include &quot;fargo3d.h&quot;</span>
+<span class="o">//&lt;</span>\<span class="n">INCLUDES</span><span class="o">&gt;</span>
+
+<span class="n">void</span> <span class="n">ComputePressureFieldIso_cpu</span> <span class="p">()</span> <span class="p">{</span>
+
+<span class="o">//&lt;</span><span class="n">USER_DEFINED</span><span class="o">&gt;</span>
+  <span class="n">INPUT</span><span class="p">(</span><span class="n">Energy</span><span class="p">);</span>
+  <span class="n">INPUT</span><span class="p">(</span><span class="n">Density</span><span class="p">);</span>
+  <span class="n">OUTPUT</span><span class="p">(</span><span class="n">Pressure</span><span class="p">);</span>
+<span class="o">//&lt;</span>\<span class="n">USER_DEFINED</span><span class="o">&gt;</span>
+
+
+<span class="o">//&lt;</span><span class="n">EXTERNAL</span><span class="o">&gt;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">dens</span> <span class="o">=</span> <span class="n">Density</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">cs</span>   <span class="o">=</span> <span class="n">Energy</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span><span class="o">*</span> <span class="n">pres</span> <span class="o">=</span> <span class="n">Pressure</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">pitch</span>  <span class="o">=</span> <span class="n">Pitch_cpu</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">stride</span> <span class="o">=</span> <span class="n">Stride_cpu</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size_x</span> <span class="o">=</span> <span class="n">Nx</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size_y</span> <span class="o">=</span> <span class="n">Ny</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHY</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size_z</span> <span class="o">=</span> <span class="n">Nz</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHZ</span><span class="p">;</span>
+<span class="o">//&lt;</span>\<span class="n">EXTERNAL</span><span class="o">&gt;</span>
+
+<span class="o">//&lt;</span><span class="n">INTERNAL</span><span class="o">&gt;</span>
+  <span class="nb">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">j</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">k</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">ll</span><span class="p">;</span>
+<span class="o">//&lt;</span>\<span class="n">INTERNAL</span><span class="o">&gt;</span>
+
+<span class="o">//&lt;</span><span class="n">MAIN_LOOP</span><span class="o">&gt;</span>
+
+  <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">#ifdef Z</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">size_z</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">#endif</span>
+<span class="c1">#ifdef Y</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">size_y</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">#endif</span>
+<span class="c1">#ifdef X</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_x</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+<span class="c1">#endif</span>
+<span class="o">//&lt;</span><span class="c1">#&gt;</span>
+        <span class="n">ll</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+        <span class="n">pres</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span> <span class="o">=</span> <span class="n">dens</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">*</span><span class="n">cs</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">*</span><span class="n">cs</span><span class="p">[</span><span class="n">ll</span><span class="p">];</span>
+<span class="o">//&lt;</span>\<span class="c1">#&gt;</span>
+<span class="c1">#ifdef X</span>
+      <span class="p">}</span>
+<span class="c1">#endif</span>
+<span class="c1">#ifdef Y</span>
+    <span class="p">}</span>
+<span class="c1">#endif</span>
+<span class="c1">#ifdef Z</span>
+  <span class="p">}</span>
+<span class="c1">#endif</span>
+<span class="o">//&lt;</span>\<span class="n">MAIN_LOOP</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As you see, all the main blocks are identified by some special
+comments (C comments on one line begin with <code class="docutils literal notranslate"><span class="pre">//</span></code>), but also there
+are two additional blocks.</p>
+<p>We can make an abstract portrait of a general FARGO3D’s C mesh function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>//&lt;FLAGS&gt;
+  Your preprocessor variables here (with a heading ``//``
+  sign). __GPU and __NOPROTO must be defined, as in the example.
+//&lt;\FLAGS&gt;
+
+//&lt;INCLUDES&gt;
+  your includes here (&quot;fargo3d.h&quot; must be in the list)
+//&lt;\INCLUDES&gt;
+
+function_name_cpu(arguments) {  // &lt;== the name MUST end in ``_cpu``
+
+//&lt;USER_DEFINED&gt;
+    Some general instructions.
+//&lt;\USER_DEFINED&gt;
+
+//&lt;EXTERNAL&gt;
+    type internal_name = external_variable;
+    type* internal_pointer = external_pointer_cpu; // &lt;== the name MUST end in ``_cpu``.
+//&lt;\EXTERNAL&gt;
+
+//&lt;INTERNAL&gt;
+    type internal_name1 = initialization;
+    type internal_name2;
+//&lt;\INTERNAL&gt;
+
+//&lt;CONSTANT&gt;
+    //type internal_name1(1);    //Note: these lines begin with a ``//``
+    //type array_name2(size);
+//&lt;\CONSTANT&gt;
+
+//&lt;MAIN_LOOP&gt;
+  #ifdef Z
+     for (k=0; k&lt;size_z; k++) {
+  #endif
+  #ifdef Y
+       for (j=0; j&lt;size_y; j++) {
+  #endif
+  #ifdef X
+          for (i=0; i&lt;size_x; i++ ) {
+  #endif
+&lt;#&gt;
+         Anything you want here.
+&lt;\#&gt;
+  #ifdef X
+          }
+  #endif
+  #ifdef Y
+       }
+  #endif
+  #ifdef Z
+     }
+  #endif
+//&lt;\MAIN_LOOP&gt;
+
+//&lt;LAST_BLOCK&gt;
+    Some final instruction(s).
+//&lt;\LAST_BLOCK&gt;
+
+}
+</pre></div>
+</div>
+<p>Below, there is an explanation of each field, and how to use it. You
+can browse the source files of mesh functions to see examples. You can
+have the list of the corresponding files by having a look at
+<code class="docutils literal notranslate"><span class="pre">src/makefile</span></code>. There, you see a block called GPU_OBJBLOCKS. All the
+mesh functions are found in the files that have the same prefix as
+those found in this list, but with a <code class="docutils literal notranslate"><span class="pre">.c</span></code> suffix instead of
+<code class="docutils literal notranslate"><span class="pre">_gpu.o</span></code>.</p>
+<section id="flags">
+<h3>FLAGS<a class="headerlink" href="#flags" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">FLAGS</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span>\<span class="n">FLAGS</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Textually</span><span class="p">,</span> <span class="k">with</span> <span class="n">heading</span> <span class="n">comment</span> <span class="n">sign</span> <span class="n">removal</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Normally</span><span class="p">,</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span> <span class="n">a</span>  <span class="n">C</span> <span class="n">file</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>There are two flags that must be always included:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="c1">#define __GPU</span>
+<span class="o">//</span><span class="c1">#define __NOPROTO</span>
+</pre></div>
+</div>
+<p>They are important for a proper header building.</p>
+<p>The __GPU  can be used inside a C mesh function to issue specific
+lines that should be run only on the GPU version, with the help of the
+macrocommand:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifdef __GPU</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="includes">
+<h3>INCLUDES<a class="headerlink" href="#includes" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">INCLUDES</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span>\<span class="n">INCLUDES</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Textually</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Normally</span><span class="p">,</span> <span class="n">after</span> <span class="n">the</span> <span class="n">FLAGS</span> <span class="n">block</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The INCLUDES block is the block where all the headers are.
+This block must contain at least:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;fargo3d.h&quot;</span>
+</pre></div>
+</div>
+<p>You may include any other header file.</p>
+</section>
+<section id="function-name">
+<h3>Function name:<a class="headerlink" href="#function-name" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Implicit</span><span class="p">,</span> <span class="n">only</span> <span class="n">a</span> <span class="n">string</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_name_cpu</span> <span class="o">--&gt;</span> <span class="n">function_name_gpu</span> <span class="p">(</span><span class="k">for</span> <span class="n">the</span> <span class="n">wrapper</span> <span class="ow">or</span> <span class="n">launcher</span><span class="p">)</span>
+                  <span class="o">--&gt;</span> <span class="n">function_name_kernel</span> <span class="p">(</span><span class="k">for</span> <span class="n">the</span> <span class="n">associated</span> <span class="n">CUDA</span> <span class="n">kernel</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Normally</span><span class="p">,</span> <span class="n">after</span> <span class="n">the</span> <span class="n">INCLUDES</span> <span class="n">block</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="arguments">
+<h3>Arguments:<a class="headerlink" href="#arguments" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Implicit</span><span class="p">,</span> <span class="n">only</span> <span class="n">a</span> <span class="n">string</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Field</span><span class="o">*</span> <span class="n">f</span> <span class="o">--&gt;</span> <span class="n">real</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">field_gpu</span>
+<span class="n">non</span> <span class="n">pointer</span> <span class="n">argument</span> <span class="o">--&gt;</span> <span class="n">textually</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Normally</span><span class="p">,</span> <span class="n">after</span> <span class="n">the</span> <span class="n">INCLUDES</span> <span class="n">block</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Any built-in type is allowed, including FARGO3D’s real type. The only
+structure allowed is the “Field” structure.</p>
+<p>There are two constraints about the arguments field:</p>
+<ul class="simple">
+<li><p>All must be on the same line.</p></li>
+<li><p>The Field structures are the last arguments.</p></li>
+</ul>
+</section>
+<section id="user-defined">
+<h3>USER DEFINED:<a class="headerlink" href="#user-defined" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">USER_DEFINED</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span>\<span class="n">USER_DEFINED</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Textually</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">After</span> <span class="n">the</span> <span class="n">function</span> <span class="n">name</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This block can be very general. You can do here a lot of things,
+because there is no limitation on syntax, everything inside is parsed
+textually. In practice, we use this block mainly to do memory
+transfers between host &amp; device when they are needed, by issuing INPUT
+and OUTPUT directives.</p>
+<p>This block is a kind of pre kernel-execution instructions, will be
+executed before the kernel launch, by the launcher (or wrapper)
+function.</p>
+<p>In a similar way, the post kernel-execution is the block called
+LAST_BLOCK.</p>
+</section>
+<section id="external">
+<h3>EXTERNAL:<a class="headerlink" href="#external" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">EXTERNAL</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span>\<span class="n">EXTERNAL</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">All</span> <span class="n">the</span> <span class="n">external</span> <span class="n">variables</span> <span class="n">are</span> <span class="n">parsed</span> <span class="k">as</span> <span class="n">arguments</span> <span class="n">of</span> <span class="n">the</span> <span class="n">kernel</span><span class="o">.</span>
+<span class="nb">type</span> <span class="n">variable</span> <span class="o">=</span> <span class="n">global_variable_cpu</span> <span class="o">--&gt;</span> <span class="n">function_name_kernel</span><span class="p">(</span><span class="nb">type</span> <span class="n">global_variable_gpu</span><span class="p">)</span>
+<span class="nb">type</span><span class="o">*</span> <span class="n">variable</span> <span class="o">=</span> <span class="n">global_variable_cpu</span> <span class="o">--&gt;</span> <span class="n">function_name_kernel</span><span class="p">(</span><span class="nb">type</span><span class="o">*</span> <span class="n">global_variable_gpu</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">After</span> <span class="n">the</span> <span class="n">USER_DEFINED</span> <span class="n">block</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The CUDA kernels cannot see the global host variables. This block is
+meant to grant access to these variables to the kernels so that all
+the variables dealt with in this block are global. The main rule when
+your draw a list of global variables inside the EXTERNAL block is:</p>
+<ul class="simple">
+<li><p>Avoid the use of all capital variables. Instead, declare another
+variable with the same name but without capitals, and declare the
+variable equal to the global variable. example: (real omegaframe =
+OMEGAFRAME).</p></li>
+</ul>
+</section>
+<section id="internal">
+<h3>INTERNAL:<a class="headerlink" href="#internal" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">INTERNAL</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span>\<span class="n">INTERNAL</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Textually</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Normally</span><span class="p">,</span> <span class="n">after</span> <span class="n">the</span> <span class="n">EXTERNAL</span> <span class="n">block</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>All the internal variables are work variables, with a very local
+scope. You find here the indices of the loops, but you could include
+any other variable that you need. Maybe, one of the most interesting
+examples on how to use this block is found in <code class="docutils literal notranslate"><span class="pre">compute_force.c</span></code>.</p>
+</section>
+<section id="constant">
+<h3>CONSTANT:<a class="headerlink" href="#constant" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">CONSTANT</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span>\<span class="n">CONSTANT</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">variables</span> <span class="n">inside</span> <span class="n">are</span> <span class="n">moved</span> <span class="n">to</span> <span class="n">the</span> <span class="n">constant</span> <span class="n">memory</span> <span class="k">if</span> <span class="n">BIGMEM</span>
+<span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span><span class="o">.</span> <span class="n">If</span> <span class="n">BIGMEM</span> <span class="ow">is</span> <span class="n">defined</span><span class="p">,</span> <span class="n">the</span> <span class="n">variables</span> <span class="n">are</span> <span class="n">moved</span> <span class="n">instead</span> <span class="n">to</span> <span class="n">the</span>
+<span class="n">device</span><span class="s1">&#39;s global memory.  Example:</span>
+
+<span class="o">&lt;</span><span class="n">CONSTANT</span><span class="o">&gt;</span>
+<span class="o">//</span> <span class="n">real</span> <span class="n">ymin</span><span class="p">(</span><span class="n">Ny</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHY</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="o">&lt;</span>\<span class="n">CONSTANT</span><span class="o">&gt;</span>
+
+<span class="n">Is</span> <span class="n">parsed</span> <span class="k">as</span><span class="p">:</span>
+
+<span class="c1">#define ymin(i) ymin_s[(i)]</span>
+
+<span class="o">...</span>
+
+<span class="n">CONSTANT</span><span class="p">(</span><span class="n">real</span><span class="p">,</span> <span class="n">ymin_s</span><span class="p">,</span> <span class="n">some_number</span><span class="p">);</span>
+
+<span class="n">Here</span><span class="p">,</span> <span class="n">some_number</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">the</span> <span class="n">constant</span> <span class="n">memory</span> <span class="n">size</span><span class="p">,</span> <span class="n">calculated</span>
+<span class="n">by</span> <span class="n">the</span> <span class="n">parser</span><span class="o">.</span>
+
+<span class="o">...</span>
+
+<span class="c1">#ifdef BIGMEM</span>
+<span class="c1">#define ymin_d &amp;Ymin_d</span>
+<span class="c1">#endif</span>
+<span class="n">CUDAMEMCPY</span><span class="p">(</span><span class="n">ymin_s</span><span class="p">,</span> <span class="n">ymin_d</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">real</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ny</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHY</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cudaMemcpyDeviceToDevice</span><span class="p">);</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Normally</span><span class="p">,</span> <span class="n">after</span> <span class="n">the</span> <span class="n">INTERNAL</span> <span class="n">block</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This is one of the most complex blocks. It is very complex because the
+process is complex. We need a way to pass our light arrays to the
+constant memory of the GPU (for performance reasons). But there are
+some cases where the problem is too big and the constant memory is not
+enough. In this case, one can define the build flag BIGMEM. The main
+portrait of the process is:</p>
+<p>Declare as constant some global variables you want to use without
+passing it as external, or use this block for light arrays, similar to
+<code class="docutils literal notranslate"><span class="pre">xmin</span></code>, <code class="docutils literal notranslate"><span class="pre">sxk</span></code>, etc. This block reserves a constant memory segment
+and copy the data to this segment. If BIGMEM is activated, the
+constant memory is not used but instead, the global memory is
+used. CUDAMEMCPY macrocommand is expanded in a manner that depends on
+whether BIGMEM is defined and therefore performs the copy to the
+correct location (constant or global memory). You can see this in
+<code class="docutils literal notranslate"><span class="pre">src/define.h</span></code>. Note that there is a subtlety here: in case you use
+BIGMEM, the constant memory is still used to store the pointer to the
+array. In the other case, it stores directly the array itself. The
+variables for this block are created in <code class="docutils literal notranslate"><span class="pre">src/light_global_dev.c</span></code>.</p>
+<p>The scalar variables are passed as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="nb">type</span> <span class="n">variable</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>While the array variables are passed as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="nb">type</span> <span class="n">variable</span><span class="p">(</span><span class="n">size_of_the_array</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that all this block is commented out in the C file, with <code class="docutils literal notranslate"><span class="pre">//</span></code> at
+the beginning of each line.</p>
+</section>
+<section id="main-loop">
+<h3>MAIN LOOP:<a class="headerlink" href="#main-loop" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">MAIN_LOOP</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span>\<span class="n">MAIN_LOOP</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">loops</span> <span class="ow">is</span> <span class="n">read</span> <span class="ow">and</span> <span class="n">parsed</span><span class="o">.</span> <span class="n">Also</span><span class="p">,</span> <span class="n">the</span> <span class="n">indices</span> <span class="n">are</span> <span class="n">initialized</span><span class="p">:</span>
+
+<span class="n">Example</span><span class="p">:</span>
+
+      <span class="c1">#ifdef Z</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">NGHZ</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">size_z</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">#endif</span>
+      <span class="c1">#ifdef Y</span>
+          <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="n">NGHY</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">size_y</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">#endif</span>
+      <span class="c1">#ifdef X</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_x</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">#endif</span>
+
+<span class="ow">is</span> <span class="n">parsed</span> <span class="n">to</span><span class="p">:</span>
+
+      <span class="c1">#ifdef X</span>
+      <span class="n">i</span> <span class="o">=</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">blockDim</span><span class="o">.</span><span class="n">x</span><span class="p">;</span>
+      <span class="c1">#else</span>
+      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="c1">#endif</span>
+      <span class="c1">#ifdef Y</span>
+      <span class="n">j</span> <span class="o">=</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">blockDim</span><span class="o">.</span><span class="n">y</span><span class="p">;</span>
+      <span class="c1">#else</span>
+      <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="c1">#endif</span>
+      <span class="c1">#ifdef Z</span>
+      <span class="n">k</span> <span class="o">=</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">z</span> <span class="o">*</span> <span class="n">blockDim</span><span class="o">.</span><span class="n">z</span><span class="p">;</span>
+      <span class="c1">#else</span>
+      <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="c1">#endif</span>
+
+      <span class="c1">#ifdef Z</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">k</span><span class="o">&gt;=</span><span class="n">NGHZ</span> <span class="o">&amp;&amp;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">size_z</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">#endif</span>
+      <span class="c1">#ifdef Y</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">&gt;=</span><span class="n">NGHY</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span><span class="n">size_y</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">#endif</span>
+      <span class="c1">#ifdef X</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">size_x</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">#endif</span>
+
+<span class="n">The</span> <span class="n">content</span> <span class="n">of</span> <span class="n">the</span> <span class="n">loop</span> <span class="ow">is</span> <span class="n">parsed</span> <span class="n">textually</span><span class="p">,</span> <span class="n">but</span> <span class="n">formally</span><span class="p">,</span> <span class="n">the</span>
+<span class="n">content</span> <span class="ow">is</span> <span class="n">part</span> <span class="n">of</span> <span class="n">another</span> <span class="n">block</span><span class="p">:</span> <span class="s2">&quot;&lt;#&gt; &lt;\#&gt;&quot;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Before</span> <span class="n">the</span> <span class="n">initialization</span> <span class="n">of</span> <span class="n">the</span> <span class="n">indices</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This block is very particular because it must to be closed after the
+close of the outermost loop. Remember that the content of the main
+loop block, defined by <code class="docutils literal notranslate"><span class="pre">&lt;#&gt;..&lt;\#&gt;</span></code>, nested within the MAIN_LOOP
+block, is parsed textually, so you cannot use global variables inside
+it or the generated CUDA code will not work.</p>
+</section>
+<section id="loop-contain">
+<h3>LOOP CONTAIN:<a class="headerlink" href="#loop-contain" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="c1">#&gt; ... &lt;\#&gt;</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Textually</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">After</span> <span class="n">the</span> <span class="n">innermost</span> <span class="n">loop</span> <span class="ow">or</span> <span class="n">where</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">textual</span>
+<span class="n">parsing</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">main_loop</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>If you put the beginning of this block not exactly after the innermost
+loop, you can make some interesting things. With this technique, you
+can skip some lines devoted to the CPU. You can also achieve this with
+the <code class="docutils literal notranslate"><span class="pre">_GPU</span></code> flag declared at the beginning, as shown earlier.</p>
+</section>
+<section id="last-block">
+<h3>LAST_BLOCK<a class="headerlink" href="#last-block" title="Link to this heading">#</a></h3>
+<p><strong>Identifier</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">LAST_BLOCK</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span>\<span class="n">LAST_BLOCK</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Parsed as</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Textually</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Location</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">last</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">routine</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This block will be executed after the kernel execution. Useful for
+reductions, for instance.</p>
+</section>
+</section>
+<section id="common-errors">
+<h2>Common errors:<a class="headerlink" href="#common-errors" title="Link to this heading">#</a></h2>
+<p>This section describes the most common errors at compilation time using the parser:</p>
+<ul>
+<li><p>The name of a block has white spaces: all blocks declarations must
+be closed and after that white spaces are not allowed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">BLOCK</span><span class="o">&gt;</span><span class="n">__</span>  <span class="o">--&gt;</span> <span class="n">wrong</span>
+<span class="o">&lt;</span><span class="n">BLOCK</span><span class="o">&gt;</span>    <span class="o">--&gt;</span> <span class="n">ok</span>
+</pre></div>
+</div>
+</li>
+<li><p>The pointer type is not a type: For the parser, the type of a
+variable is a string without spaces. A pointer variables must be
+declared as the pointer type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">real</span> <span class="o">*</span><span class="n">rho</span>  <span class="o">--&gt;</span> <span class="n">wrong</span>
+<span class="n">real</span><span class="o">*</span> <span class="n">rho</span>  <span class="o">--&gt;</span> <span class="n">ok</span> <span class="p">(</span><span class="n">the</span> <span class="nb">type</span> <span class="ow">is</span> <span class="n">real</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Some block was not properly closed: if you have not closed a block,
+undefined behavior may result:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">BLOCK</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">BLOCK</span><span class="o">&gt;</span>      <span class="o">--&gt;</span> <span class="n">wrong</span>
+
+<span class="o">&lt;</span><span class="n">BLOCK</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">BLOCK</span><span class="o">&gt;</span>     <span class="o">--&gt;</span> <span class="n">wrong</span>
+
+<span class="o">&lt;</span><span class="n">BLOCK</span><span class="o">&gt;</span>
+<span class="o">&lt;</span>\<span class="n">BLOCK</span><span class="o">&gt;</span>     <span class="o">--&gt;</span> <span class="n">ok</span>
+</pre></div>
+</div>
+</li>
+<li><p>The end of the name function is not _cpu: The parser cannot find
+the function name if it does not have a valid name, neither can it
+invent a rule to make the wrapper and kernel names.</p></li>
+<li><p>The order of the arguments in the function: Remember, pointers to
+Field structures are at the end.</p></li>
+<li><p>Only one variable per line may appear in the INTERNAL and EXTERNAL fields.</p></li>
+<li><p>Files which have been edited on a Windows machine, and in which
+lines end with ‘rn’ instead of ending with ‘n’, will fail to be
+converted to CUDA. Use a conversion procedure such as <code class="docutils literal notranslate"><span class="pre">tr</span> <span class="pre">-d</span> <span class="pre">'\d'</span> <span class="pre">&lt;</span>
+<span class="pre">original_file.c</span> <span class="pre">&gt;</span> <span class="pre">correct_line_ending.c</span></code> prior to the build.</p></li>
+<li><p>Values relative to the mesh (such as <code class="docutils literal notranslate"><span class="pre">zmin</span></code> or <code class="docutils literal notranslate"><span class="pre">xmed</span></code>, etc.)
+should be lowercase and should be followed by parentheses, not
+square brackets, because they are considered as macrocommands. You
+can use <code class="docutils literal notranslate"><span class="pre">substep1_x.c</span></code> as a template for that.</p></li>
+<li><p>Leaving an empty line within the EXTERNAL block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">EXTERNAL</span><span class="o">&gt;</span>
+    <span class="n">some</span> <span class="n">variable</span>
+    <span class="n">___</span>           <span class="o">----&gt;</span> <span class="n">wrong</span>
+<span class="o">&lt;</span>\<span class="n">EXTERNAL</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">EXTERNAL</span><span class="o">&gt;</span>
+    <span class="n">some</span> <span class="n">variable</span> <span class="o">----&gt;</span> <span class="n">ok</span>
+<span class="o">&lt;</span>\<span class="n">EXTERNAL</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Block opening/closing not in first column:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__</span><span class="o">&lt;</span><span class="n">EXTERNAL</span><span class="o">&gt;</span>
+    <span class="n">This</span> <span class="n">block</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">parsed</span>
+<span class="n">__</span><span class="o">&lt;</span>\<span class="n">EXTERNAL</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">EXTERNAL</span><span class="o">&gt;</span>
+    <span class="n">This</span> <span class="n">block</span> <span class="n">will</span> <span class="n">be</span> <span class="n">parsed</span>
+<span class="o">&lt;</span>\<span class="n">EXTERNAL</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>This list may be completed as we receive users’ feedback.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="communications.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Communications</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exec_flags.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Execution flags</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fargo3d-mesh-functions">FARGO3D Mesh Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-script-works">How the script works</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flags">FLAGS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#includes">INCLUDES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name">Function name:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined">USER DEFINED:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external">EXTERNAL:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal">INTERNAL:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant">CONSTANT:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-loop">MAIN LOOP:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-contain">LOOP CONTAIN:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#last-block">LAST_BLOCK</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-errors">Common errors:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

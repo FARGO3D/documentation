@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>.opt files &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'opt_file';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Non-uniform meshes" href="non_uniform_meshes.html" />
+    <link rel="prev" title="Default SETUPS" href="def_setups.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/opt_file.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>.opt files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="opt-files">
+<span id="optfiles"></span><h1>.opt files<a class="headerlink" href="#opt-files" title="Link to this heading">#</a></h1>
+<p>FARGO3D is a very versatile code. It can solve from a very simple
+sod shock tube test to a tridimensional problem with MHD. In order to
+keep the versatility without a performance penalty, we have adopted an
+extensive use of macrocommand variables. These variables allow one to
+activate/deactivate a lot of sections of the code depending on what we
+want to solve. For example, if we want to solve a 2D planetary disk
+without MHD, the code does not need to know anything about MHD. In this
+case, an “<code class="docutils literal notranslate"><span class="pre">if</span></code> run time sentence checking whether we want to use MHD
+or not, would be
+expensive. With the help of this <code class="docutils literal notranslate"><span class="pre">compiler</span></code> variables through
+<code class="docutils literal notranslate"><span class="pre">#ifdef</span></code> statements, all the
+job is done at compilation time.</p>
+<p>Most of these variables are defined in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file, but there
+are other ones (for example <em>FARGO_DISPLAY</em>), that are defined during the
+<a class="reference internal" href="make_proc.html#makepro"><span class="std std-ref">Make Process</span></a>.</p>
+<p>The variables must be defined inside a container variable, called
+<code class="docutils literal notranslate"><span class="pre">FARGO_OPT</span></code>, as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FARGO_OPT</span> <span class="o">+=</span> <span class="o">-</span><span class="n">DVARIABLE</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>In this version, the list of options/modules that can be activated from the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file is:</p>
+<hr class="docutils" />
+<p><strong>Fluids</strong></p>
+<p>These options are mandatory (see <a class="reference internal" href="multifluid.html#ref-multifluid"><span class="std std-ref">Multifluid</span></a>)</p>
+<ul class="simple">
+<li><p>FLUIDS := 0 1 2 (list starting from 0,…,N-1, with N the number of fluids)</p></li>
+<li><p>NFLUIDS = 3     (total number of fluids)</p></li>
+<li><p>FARGO_OPT += -DNFLUIDS=${NFLUIDS} (mandatory line in the .opt file)</p></li>
+<li><p>DRAGFORCE: Activates the drag force between fluids.</p></li>
+<li><p>STOKESNUMBER: The collision rate is computed assuming fluids with constant Stokes Number (in linear regime).</p></li>
+<li><p>COLLISIONPREDICTOR: Not mandatory. It enables a partial update of the velocities by a half collision step after the source step (see Fig. 1 of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJS..241...25B/abstract">Benítez-Llambay et al. (2019)</a>). It might help reducing artifacts when CFL condition is close to the stability limit.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Performance</strong>:</p>
+<ul class="simple">
+<li><p>FLOAT: Uses single precision floating point data. On GPUs,
+the code runs ~2x times faster. If FLOAT is not defined, the code will be run in double precision.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Dimensions</strong>:</p>
+<ul class="simple">
+<li><p>X: Activates the X direction.</p></li>
+<li><p>Y: Activates the Y direction.</p></li>
+<li><p>Z: Activates the Y direction.</p></li>
+</ul>
+<p>Note: Some fields are not available until one specific direction is activated.</p>
+<hr class="docutils" />
+<p><strong>Equation of state</strong>:</p>
+<ul class="simple">
+<li><p>ADIABATIC: The equation of state <span class="math notranslate nohighlight">\(P=(\gamma-1)e\)</span> will be
+used. The field <em>Energy</em> is the volumic internal energy <span class="math notranslate nohighlight">\(e\)</span>.</p></li>
+<li><p>ISOTHERMAL: The equation of state <span class="math notranslate nohighlight">\(P=cs^2\rho\)</span> will be used.
+The (ill-named) field Energy is then the sound speed of the fluid.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Additional Physics</strong>:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>MHD: Activates the MHD solver. The options X, Y &amp; Z must be all activated. The options below are enabled for MHD runs.</dt><dd><ul>
+<li><p>STRICTSYM: It enforces a strict symmetry of the MHD solver.</p></li>
+<li><p>OHMICDIFFUSION: Activates Ohmic resistivity.</p></li>
+<li><p>AMBIPOLARDIFFUSION: Activates ambipolar diffusion.</p></li>
+<li><p>HALLEFFECT: Activates the Hall effect.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>VISCOSITY: Activates the viscosity module with a constant kinematic viscosity defined by the parameter <code class="docutils literal notranslate"><span class="pre">NU</span></code>.</p></li>
+<li><p>ALPHAVISCOSITY: Activates the viscosity module with a constant alpha viscosity defined by the parameter <code class="docutils literal notranslate"><span class="pre">ALPHA</span></code> (Shakura-Sunyaev (1973) Viscosity Prescription).</p></li>
+<li><p>POTENTIAL: Activates the gravity module.</p></li>
+<li><p>STOCKHOLM: Activates wave killing boundary conditions in Y &amp; Z. Very
+useful for local studies where reflections on the edges must be avoided.</p></li>
+<li><p>HILLCUT: Activates a cut for the force computation. Must to be
+defined in order to accept <code class="docutils literal notranslate"><span class="pre">ExcludeHill</span></code> parameter file
+variable set to <code class="docutils literal notranslate"><span class="pre">yes</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Coordinates</strong>:</p>
+<ul class="simple">
+<li><p>CARTESIAN: x,y,z are Cartesian.</p></li>
+<li><p>CYLINDRICAL: x –&gt; azimuthal angle, y –&gt; cylindrical radius, z –&gt; z.</p></li>
+<li><p>SPHERICAL: x –&gt; azimuthal angle, y –&gt; spherical radius, z –&gt; colatitude.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Shearing box</strong>:</p>
+<p>Enable Cartesian coodinates (<code class="docutils literal notranslate"><span class="pre">-DCARTESIAN</span></code>) and then add</p>
+<ul class="simple">
+<li><p>SHEARINGBOX: Enables the shearing-box terms.</p></li>
+<li><p>SHEARINGBC: Enables shearing-periodic boundaries</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>shearing-periodic boundaries only work on the CPU.</p>
+</div>
+<hr class="docutils" />
+<p><strong>Transport</strong>:</p>
+<ul class="simple">
+<li><p>RAM: Enables the Rapid Advection Algorithm on Arbitrary Meshes (Benítez-Llambay et al. 2023).
+RAM is a time-explicit method to solve the advection equation in problems with large bulk velocity,
+allowing to increase the time step significantly on both uniform and non-uniform domains.</p></li>
+<li><p>STANDARD: Forces the standard advection algorithm in x. By default,
+the x-advection is done with the orbital advection (FARGO) algorithm.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Slopes</strong>:</p>
+<ul class="simple">
+<li><p>DONOR: Activates the donor cell flux limiter for the
+transport. Actually, deactivates the default van Leer’s second order
+upwind interpolation.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Artificial Viscosity</strong>:</p>
+<ul class="simple">
+<li><p>NOSUBSTEP2: If it not defined, the artificial viscosity module, called <code class="docutils literal notranslate"><span class="pre">Substep2()</span></code>, is invoked.</p></li>
+<li><p>STRONG_SHOCK: If strong shocks make the code crash, you may try
+using this variable. It is never used in the tests. It uses a
+linear, rather than quadratic, artificial pressure.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Boundaries</strong></p>
+<ul class="simple">
+<li><p>HARDBOUNDARIES: simplifies the creation of boundary files by hand (see <a class="reference internal" href="boundaries.html#ref-hardboundaries"><span class="std std-ref">Defining boundaries by hand</span></a>)</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Cuda blocks</strong>:</p>
+<p>The cuda blocks must be defined in the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ifeq (${GPU}, 1)
+FARGO_OPT += -DBLOCK_X=16
+FARGO_OPT += -DBLOCK_Y=8
+FARGO_OPT += -DBLOCK_Z=4
+endif
+</pre></div>
+</div>
+<p>This is needed to define a default block size for GPU
+kernels. Alternatively, for a given platform, you may determine
+individually for each CUDA kernel (“routine”) which block size gives
+best results.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="cuda_perf.html#performance"><span class="std std-ref">Improving CUDA Performance</span></a></p>
+</div>
+<hr class="docutils" />
+<p>There is a special set of variables not contained in the FARGO_OPT variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MONITOR_2D</span>
+<span class="n">MONITOR_Y</span>
+<span class="n">MONITOR_Y_RAW</span>
+<span class="n">MONITOR_Z</span>
+<span class="n">MONITOR_Z_RAW</span>
+<span class="n">MONITOR_SCALAR</span>
+</pre></div>
+</div>
+<p>Those are used <em>at build time</em> to request systematic, fine grain monitoring.
+The meaning of these variables is explained in <a class="reference internal" href="outputs.html#ref-monitoring"><span class="std std-ref">Monitoring</span></a>.</p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="def_setups.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Default SETUPS</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="non_uniform_meshes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Non-uniform meshes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

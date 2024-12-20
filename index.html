@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FARGO3D User Guide &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Download" href="download.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>FARGO3D User Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="fargo3d-user-guide">
+<h1>FARGO3D User Guide<a class="headerlink" href="#fargo3d-user-guide" title="Link to this heading">#</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="download.html#clone">Clone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#a-foreword-about-the-terminology-used-in-this-manual">A foreword about the terminology used in this manual</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="first_steps.html#getting-fargo3d">Getting FARGO3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_steps.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_steps.html#first-run">First run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_steps.html#first-parallel-run">First parallel run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_steps.html#first-gpu-run">First GPU run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_steps.html#first-parallel-gpu-run">First Parallel GPU run</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dir_tree.html#directories">Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_tree.html#setups-setup-directory">setups/SETUP directory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="make_proc.html#makefile-stage1">Makefile (Stage1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="make_proc.html#scripts-make-py-stage2">scripts/make.py (Stage2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="make_proc.html#src-makefile-stage3">src/makefile (Stage3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="make_proc.html#fargo-arch-environment-variable">FARGO_ARCH environment variable</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#how-are-boundary-conditions-applied">How are boundary conditions applied?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#boundparser-py">boundparser.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#boundaries-files-format">Boundaries files format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#centering-txt">centering.txt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#boundary-template-c">boundary_template.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#boundaries-txt">boundaries.txt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#setup-bound">SETUP.bound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#common-errors">Common errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#shearing-periodic-boundaries">Shearing-periodic boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundaries.html#defining-boundaries-by-hand">Defining boundaries by hand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mesh_fields.html#mesh">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh_fields.html#fields">Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh_fields.html#working-with-fields">Working with fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh_fields.html#fields-on-the-gpu">Fields on the GPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh_fields.html#useful-variables">Useful variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="def_setups.html#fargo">fargo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="def_setups.html#orszag-tang-vortex">Orszag-Tang Vortex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="def_setups.html#sod-shock-tube-1d">Sod shock tube 1D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="def_setups.html#mri">MRI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="non_uniform_meshes.html#mesh-density-functions-implemented">Mesh-density functions implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="non_uniform_meshes.html#implementing-a-new-mesh-density-function">Implementing a new mesh-density function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nbody.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nbody.html#removing-the-default-central-star">Removing the default central star</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nbody.html#planets-which-are-stars">Planets which are stars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nbody.html#initialization-of-the-position-and-velocities-of-the-stellar-objects">Initialization of the position and velocities of the stellar objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nbody.html#indirect-term">Indirect term</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nbody.html#initial-eccentricity-and-inclination">Initial eccentricity and inclination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nbody.html#convenience-parameters-planetmass-semimajoraxis-and-orbitalradius">Convenience parameters: <code class="docutils literal notranslate"><span class="pre">PLANETMASS</span></code>, <code class="docutils literal notranslate"><span class="pre">SEMIMAJORAXIS</span></code> and <code class="docutils literal notranslate"><span class="pre">ORBITALRADIUS</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nbody.html#correcting-the-shift-of-resonances">Correcting the shift of resonances</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="units.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html#specifying-the-unit-system">Specifying the unit system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html#rescaling-the-input-parameters">Rescaling the input parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html#specifying-the-scaling-rules">Specifying the scaling rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#setups">Setups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#new-rules-for-the-opt-file">New rules for the .opt file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#creation-of-new-fluids">Creation of new fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#drag-force-between-fluids">Drag force between fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#dust-diffusion-module">Dust diffusion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#boundaries">Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifluid.html#update-setups-compatible-with-versions-2-0">Update setups compatible with versions &lt; 2.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="induction_equation.html#diffusivities">Diffusivities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="new_setup.html#blob-test">Blob test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new_setup.html#initial-state">Initial state:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new_setup.html#making-the-executable">Making the executable:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new_setup.html#plotting-your-new-setup">Plotting your new setup:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html#run-time-visualization">Run-time visualization.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="new_setup.html#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new_setup.html#backends">Backends</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#scalar-fields">Scalar fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#summary-files">Summary files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#domain-files">Domain files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#grid-files">Grid files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#planet-files">Planet files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#datacubes">Datacubes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#mpi-input-output">MPI INPUT/OUTPUT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#monitoring">Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="communications.html#gpu-cpu-communications">GPU/CPU communications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communications.html#mpi">MPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communications.html#mpi-cuda">MPI-CUDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communications.html#spawning-a-job-on-a-cluster-of-gpus-a-primer">Spawning a job on a cluster of GPUs: a primer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c2cuda.html#fargo3d-mesh-functions">FARGO3D Mesh Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c2cuda.html#how-the-script-works">How the script works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c2cuda.html#common-errors">Common errors:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cuda_perf.html#mpicuda">MPICUDA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html#some-acceleration-factors">Some acceleration factors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html#the-fargo-speedup-macrocommand">The FARGO_SPEEDUP macrocommand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="complex_setup.html#setup-folder">Setup folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex_setup.html#initial-condition">Initial Condition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex_setup.html#time-dependent-explosions">Time dependent explosions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex_setup.html#incorporating-our-kernel">Incorporating our kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex_setup.html#using-fargo-debug">Using FARGO_DEBUG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex_setup.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#how-do-i-add-a-new-parameter-to-a-setup">How do I add a new parameter to a setup ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#how-do-i-create-a-new-field-variable">How do I create a new <code class="docutils literal notranslate"><span class="pre">Field</span></code> variable?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#how-do-i-write-a-field">How do I write a <code class="docutils literal notranslate"><span class="pre">Field</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#what-is-the-way-to-merge-the-outputs-of-a-run-spawned-with-the-k-flag">What is the way to merge the outputs of a run spawned with the <code class="docutils literal notranslate"><span class="pre">-k</span></code> flag ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#i-see-lots-of-or-instead-of-at-execution-what-does-that-mean">I see lots of “!” or “:” instead of “.” at execution. What does that mean?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#where-my-last-run-data-has-been-output">Where my last run data has been output ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#my-build-produces-unexpected-results-some-files-should-have-been-remade-and-they-have-not-how-do-i-fix-this">My build produces unexpected results. Some files should have been remade and they have not. How do I fix this ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#my-code-does-not-run-much-faster-on-the-gpu-than-on-the-cpu-why-is-this">My code does not run much faster on the GPU than on the CPU. Why is this ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#what-is-this-sign-at-the-beginning-of-the-outputs-path">What is this &#64; sign at the beginning of the outputs’ path ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#i-see-that-there-are-par-files-in-each-setup-directory-and-the-same-par-files-are-found-in-the-in-sub-directory-what-is-this-for">I see that there are .par files in each setup directory, and the same .par files are found in the in/ sub directory. What is this for ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#i-have-noticed-a-directory-named-fargo3drc-in-my-home-directory-what-is-it-here-for">I have noticed a directory named <code class="docutils literal notranslate"><span class="pre">.fargo3drc</span></code> in my home directory. What is it here for ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#how-can-i-see-the-output-of-python-scripts-in-particular-the-cuda-files">How can I see the output of python scripts (in particular the CUDA files) ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#tweaking-the-cuda-executable-for-memory-optimization">Tweaking the CUDA executable for memory optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#speeding-up-reduction-operations-on-platform-3-5">Speeding up reduction operations on platform &gt;= 3.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttt.html#a-very-incomplete-todo-list">A very incomplete TODO list</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="download.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Download</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

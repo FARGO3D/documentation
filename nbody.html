@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>N-Body solver &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nbody';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Units" href="units.html" />
+    <link rel="prev" title="Non-uniform meshes" href="non_uniform_meshes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/nbody.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>N-Body solver</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-the-default-central-star">Removing the default central star</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planets-which-are-stars">Planets which are stars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization-of-the-position-and-velocities-of-the-stellar-objects">Initialization of the position and velocities of the stellar objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indirect-term">Indirect term</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-eccentricity-and-inclination">Initial eccentricity and inclination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convenience-parameters-planetmass-semimajoraxis-and-orbitalradius">Convenience parameters: <code class="docutils literal notranslate"><span class="pre">PLANETMASS</span></code>, <code class="docutils literal notranslate"><span class="pre">SEMIMAJORAXIS</span></code> and <code class="docutils literal notranslate"><span class="pre">ORBITALRADIUS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correcting-the-shift-of-resonances">Correcting the shift of resonances</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="n-body-solver">
+<h1>N-Body solver<a class="headerlink" href="#n-body-solver" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>One feature that FARGO3D has inherited from its ancestor FARGO is the
+possibility to include a number of point-like masses which can
+interact between themselves and which can also gravitationally
+interact with the gas. The set of such masses is defined in a
+file. This file must be defined in the parameter file with the
+parameter <cite>PlanetConfig</cite>. For instance, in the default parameter file
+of the fargo setup (that is, <code class="docutils literal notranslate"><span class="pre">setups/fargo/fargo.par</span></code>), we find the
+line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlanetConfig</span>    <span class="n">planets</span><span class="o">/</span><span class="n">jupiter</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+<p>Throughout this chapter, we call this file the <em>config file</em>, or the
+<em>planetary configuration file</em>.
+The content of this file is strictly similar to that defined in the
+previous FARGO code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">###########################################################</span>
+<span class="c1">#   Planetary system initial configuration</span>
+<span class="c1">###########################################################</span>
+
+<span class="c1"># Planet Name         Distance        Mass     Accretion      Feels Disk      Feels Others</span>
+<span class="n">Jupiter</span>                <span class="mf">1.0</span>            <span class="mf">0.001</span>    <span class="mf">0.0</span>            <span class="n">NO</span>              <span class="n">NO</span>
+</pre></div>
+</div>
+<p>Lines beginning with a ‘#’ are ignored. A line containing a valid
+planet definition must begin with a letter (‘a-z’ or ‘A-Z’). So far
+this name is not reflected in the code output, but it gives a sense
+of what kind of planet or planetary system is intended. The second
+column gives the semi-major axis in units of <cite>R0</cite>, defined in
+<cite>src/fondam.h</cite>. The third column gives the planetary mass in units of
+<cite>MSTAR</cite>, defined also in <cite>src/fondam.h</cite>. The fourth column, relative
+to accretion, is not used at the present time. So far its only
+purpose is to allow backward compatibility with FARGO’s planetary
+config files. Finally, the content of the last two columns, which is
+self-explanatory, indicates whether the planet feels the gravity of
+the other planets and whether it feels the gravity of the disk.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Our N-Body solver is a simple fifth order Runge-Kutta
+integrator. This may seem pretty simplistic compared to way more
+sophisticated N-body integrators, which are tailored to follow the
+dynamics of a collection of point-like masses in vacuum over very
+long timescales. It should be remembered that our primary purpose
+is the study of protoplanets embedded in disks. The lifetime of the
+disk is 3 to 4 orders of magnitude shorter than the age of the
+Solar System, and the variation of total energy of planet under a
+disk tide is usually many orders of magnitude larger than that
+inherent to our scheme. The latter is therefore perfectly fine for
+our purpose.</p>
+</div>
+<p>The planets are initialized at <span class="math notranslate nohighlight">\(t=0\)</span> such that they lie on the
+<span class="math notranslate nohighlight">\(x\)</span> axis, are prograde with the disk, have all same
+eccentricity (defined by the parameter <cite>ECCENTRICITY</cite>, which defaults
+to zero). Their initial location corresponds to apoastron.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default, a central star of mass <cite>MSTAR</cite> (defined in
+<cite>src/fondam.h</cite>) is added at the mesh center. This default behavior
+can be superseded, for instance, to have the mesh centered on the
+center of gravity of the system, or to have a binary star at the center.</p>
+</div>
+<p>The value of <cite>MSTAR</cite> is used to initialize the orbits of the planets,
+in all cases.</p>
+</section>
+<section id="removing-the-default-central-star">
+<span id="ref-nodefaultstar"></span><h2>Removing the default central star<a class="headerlink" href="#removing-the-default-central-star" title="Link to this heading">#</a></h2>
+<p>In some cases, you want to remove the default central star which is
+assumed to exist at the mesh center. In order to do so, so simply need
+to add the following line to your <cite>.opt</cite> file and rebuild:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FARGO_OPT</span> <span class="o">+=</span> <span class="o">-</span><span class="n">DNODEFAULTSTAR</span>
+</pre></div>
+</div>
+</section>
+<section id="planets-which-are-stars">
+<h2>Planets which are stars<a class="headerlink" href="#planets-which-are-stars" title="Link to this heading">#</a></h2>
+<p>Starting from version 1.2, FARGO3D detects in the configuration file
+of the planetary system which objects are massive enough to be
+considered as stellar, and deals with them in a specific way. Our
+arbitrary threshold, defined in <cite>src/fondam.h</cite>, is <cite>0.05*MSTAR</cite>, which
+would correspond to a typical brown dwarf if <cite>MSTAR</cite> is one solar
+mass. This threshold can be redefined depending on the user’s
+needs. The number of <em>stellar</em> objects detected in the configuration
+file can be 0, 1 or 2. Beyond this number, an error message is issued.</p>
+<p>The array below summarizes a variety of possible setups. The first
+line corresponds to the default behavior. The last two columns
+indicate whether the user should define <cite>NODEFAULTSTAR</cite> (in the opt
+file) and what value should be given to <cite>MSTAR</cite> (in
+<cite>src/fondam.h</cite>). Note that whenever <cite>NODEFAULTSTAR</cite> is defined, all
+stellar objects must be explicitly given in the configuration file.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Intended setup</p></th>
+<th class="head"><p><cite>NODEFAULTSTAR</cite></p></th>
+<th class="head"><p><cite>MSTAR</cite></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>One star at mesh center</p></td>
+<td></td>
+<td><p>mass of central star</p></td>
+</tr>
+<tr class="row-odd"><td><p>One star. The mesh is
+centered on the center
+of mass of the star and
+planets.</p></td>
+<td><p>Defined</p></td>
+<td><p>mass of central star</p></td>
+</tr>
+<tr class="row-even"><td><p>Circumbinary disk</p></td>
+<td><p>Defined</p></td>
+<td><p>mass of binary</p></td>
+</tr>
+<tr class="row-odd"><td><p>Circumstellar disk in
+binary system</p></td>
+<td></td>
+<td><p>mass of star at disk
+center</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>What is the reason for defining manually <cite>MSTAR</cite> in the second and
+third rows of this table ? The reason is that this variable is used
+throughout the code to perform a variety of tasks, such as:</p>
+<ul class="simple">
+<li><p>initialization of the planetary orbits</p></li>
+<li><p>evaluation of the Roche radius (for potential smoothing issues)</p></li>
+<li><p>evaluation of the planet’s orbital elements</p></li>
+</ul>
+<p>so it is important that its value matches that of the mass of the
+object(s) at the disk center. Also, note that the <cite>orbit[i].dat</cite>
+output files contain correct values only for the first kind of
+setup.</p>
+<p>When one uses the third setup in the array above, the code enforces
+that the mesh be centered on the center of mass of the binary (and
+not of the system), and the components of the binary start do not
+feel the gas or the planets. The indirect term, if included, arises
+from the acceleration of both components of the binary, weighted by
+their mass. See the setup <code class="docutils literal notranslate"><span class="pre">binary</span></code> for an example.</p>
+</div>
+</section>
+<section id="initialization-of-the-position-and-velocities-of-the-stellar-objects">
+<h2>Initialization of the position and velocities of the stellar objects<a class="headerlink" href="#initialization-of-the-position-and-velocities-of-the-stellar-objects" title="Link to this heading">#</a></h2>
+<p>The initial position
+and velocity of the stellar objects differ from that of the planets,
+in the case in which there is no default central star.</p>
+<p>If one stellar object is given, its position and velocity is set so
+that the center of mass of the planets and star is at the mesh
+center, and so that this point does not move with respect to the mesh.</p>
+<p>If two stellar objects are found, the parameters of the second column
+of the config file, usually devoted to the distance to the star, takes
+a different meaning. For the first star, the value found is used as
+the binary period, and for the second star, the value found is used as
+the binary eccentricity. The binary system is initialized on the <span class="math notranslate nohighlight">\(x\)</span>
+axis, at apoastron, and the first star has <span class="math notranslate nohighlight">\(x&gt;0\)</span>. The mesh is centered
+on the center of mass of the binary. See the file
+<code class="docutils literal notranslate"><span class="pre">planets/Kepler38.cfg</span></code> for an example.</p>
+</section>
+<section id="indirect-term">
+<h2>Indirect term<a class="headerlink" href="#indirect-term" title="Link to this heading">#</a></h2>
+<p>Whenever the center of the frame is accelerated, an additional
+potential term, called the indirect term, is added to the potential,
+which corresponds to the fictitious force arising from the frame
+acceleration.  This indirect term can be purposely discarded, by
+setting the parameter <code class="docutils literal notranslate"><span class="pre">IndirectTerm</span></code> to <code class="docutils literal notranslate"><span class="pre">NO</span></code> (the default is
+<code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
+</section>
+<section id="initial-eccentricity-and-inclination">
+<h2>Initial eccentricity and inclination<a class="headerlink" href="#initial-eccentricity-and-inclination" title="Link to this heading">#</a></h2>
+<p>All objects are initialized with the same eccentricity, defined by the
+<code class="docutils literal notranslate"><span class="pre">ECCENTRICITY</span></code> parameter (its default value is zero), and they are
+initially set at apoastron. If a different setup is needed, some
+edition of the file <code class="docutils literal notranslate"><span class="pre">src/psys.c</span></code> is required. Alternatively, one may
+edit manually the planet files (<code class="docutils literal notranslate"><span class="pre">planet[i].dat</span></code>, see also
+<a class="reference internal" href="outputs.html#planet-files"><span class="std std-ref">Planet files</span></a>).</p>
+<p>In a similar manner, all objects are initialized with the same
+inclination, defined by the <code class="docutils literal notranslate"><span class="pre">INCLINATION</span></code> parameter (its default
+value is zero, and it is given in radians). The <span class="math notranslate nohighlight">\(x\)</span>- axis
+(<span class="math notranslate nohighlight">\(x&gt;0\)</span>) on which the planets are set at the start of simulation
+corresponds to the ascending node: the planets are initialized with
+<span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(v_z&gt;0\)</span>.</p>
+</section>
+<section id="convenience-parameters-planetmass-semimajoraxis-and-orbitalradius">
+<h2>Convenience parameters: <code class="docutils literal notranslate"><span class="pre">PLANETMASS</span></code>, <code class="docutils literal notranslate"><span class="pre">SEMIMAJORAXIS</span></code> and <code class="docutils literal notranslate"><span class="pre">ORBITALRADIUS</span></code><a class="headerlink" href="#convenience-parameters-planetmass-semimajoraxis-and-orbitalradius" title="Link to this heading">#</a></h2>
+<p>In order not to have to edit the planetary configuration file (which
+can be useful to spawn easily a parameter space exploration), we have
+defined three convenience parameters: <code class="docutils literal notranslate"><span class="pre">PLANETMASS</span></code>, <code class="docutils literal notranslate"><span class="pre">SEMIMAJORAXIS</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ORBITALRADIUS</span></code>. Their default value is 0. When the first two
+(<code class="docutils literal notranslate"><span class="pre">PLANETMASS</span></code> and <code class="docutils literal notranslate"><span class="pre">SEMIMAJORAXIS</span></code>) differ from
+zero, they are used to supersede the values given in the planetary
+configuration file for the first planet only. When the last one
+(<code class="docutils literal notranslate"><span class="pre">ORBITALRADIUS</span></code>) is set to a value different from zero, this value
+is used to rescale the semi-major axis of all planets prior to the run
+start. This parameter is, therefore, a dimensionless factor that can be
+used to expand or shrink the whole planetary system. This is mainly
+useful in parameter space explorations.</p>
+</section>
+<section id="correcting-the-shift-of-resonances">
+<h2>Correcting the shift of resonances<a class="headerlink" href="#correcting-the-shift-of-resonances" title="Link to this heading">#</a></h2>
+<p>The gas in FARGO3D is not self-gravitating: it orbits in the potential
+of the star exclusively. On the other hand, a planet which feels the
+gas gravity orbits in a slightly different potential, which is the sum
+of the stellar and disk potential. The Lindblad and corotation
+resonances of an embedded planet are shifted (with respect to a more
+consistent situation in which the gas would be self-gravitating) as a
+consequence of this mismatch. This has sizable effects on the measured
+migration velocity of a planet moving freely in the disk, as shown by
+Baruteau and Masset (2008). A workaround to this problem consists in
+removing the azimuthally averaged density to the density of each zone
+prior to the force evaluation: if the disk were unperturbed, the
+planet would exclusively feel the star’s gravity. In order to activate
+this workaround in the code, one has
+to add the following line to the`.opt` file and rebuild:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FARGO_OPT</span> <span class="o">+=</span> <span class="o">-</span><span class="n">DBM08</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="non_uniform_meshes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Non-uniform meshes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="units.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Units</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-the-default-central-star">Removing the default central star</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planets-which-are-stars">Planets which are stars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization-of-the-position-and-velocities-of-the-stellar-objects">Initialization of the position and velocities of the stellar objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indirect-term">Indirect term</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-eccentricity-and-inclination">Initial eccentricity and inclination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convenience-parameters-planetmass-semimajoraxis-and-orbitalradius">Convenience parameters: <code class="docutils literal notranslate"><span class="pre">PLANETMASS</span></code>, <code class="docutils literal notranslate"><span class="pre">SEMIMAJORAXIS</span></code> and <code class="docutils literal notranslate"><span class="pre">ORBITALRADIUS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correcting-the-shift-of-resonances">Correcting the shift of resonances</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

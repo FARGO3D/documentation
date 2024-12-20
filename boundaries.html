@@ -1,0 +1,994 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Boundaries &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boundaries';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mesh and Fields" href="mesh_fields.html" />
+    <link rel="prev" title="Make Process" href="make_proc.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/boundaries.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Boundaries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-boundary-conditions-applied">How are boundary conditions applied?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundparser-py">boundparser.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundaries-files-format">Boundaries files format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centering-txt">centering.txt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-template-c">boundary_template.c</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundaries-txt">boundaries.txt</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-bound">SETUP.bound</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-errors">Common errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shearing-periodic-boundaries">Shearing-periodic boundaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-boundaries-by-hand">Defining boundaries by hand</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="boundaries">
+<h1>Boundaries<a class="headerlink" href="#boundaries" title="Link to this heading">#</a></h1>
+<p>Boundary conditions in FARGO3D can be selected only for the Y and Z
+directions, since in X the mesh is always considered periodic.  It is
+because FARGO3D was mainly designed for azimuthal-periodic planetary
+disks, with a cost-effective orbital advection (aka FARGO)
+algorithm. Albeit that this limitation may seem strong  in practice,
+there are lots of situations where you can assume your 3D problem to
+be periodic along a given direction. <em>If you can not do that,
+unfortunately there is no way to avoid this limitation with the
+present version of the code</em>.</p>
+<p>The boundary conditions (BCs) are handled by the script
+<code class="docutils literal notranslate"><span class="pre">boundparser.py</span></code>. We have developed a metalanguage to handle
+them. Although this may seem quite a futile investment, it soon
+appeared to be much needed as we were developing the code. We had
+initially left the treatment of BCs on the CPU, even for GPU
+builds. We thought that the filling of the ghost zones by the CPU
+would have negligible impact on the overall speed of the code. This,
+however, turned out to be untrue: the CPU-GPU communication overhead,
+and the slowness of CPU calculations lowered the code performance
+significantly. We therefore decided to deal with BCs in the exact same
+way as with other time consuming routines, which can be translated
+automatically to CUDA, so as to run on the GPU. This implied some
+syntax constraints on the associated C code, which would have made the
+development of a variety of boundary conditions on the four edges of
+the mesh a time consuming and error prone process (yes, four, because
+they are specified only for Y and Z). For this reason, we have chosen
+to write a script that produces the C code for a given set of boundary
+conditions, with all the syntactic comments needed to subsequently
+translate it to CUDA.</p>
+<section id="how-are-boundary-conditions-applied">
+<h2>How are boundary conditions applied?<a class="headerlink" href="#how-are-boundary-conditions-applied" title="Link to this heading">#</a></h2>
+<p>The boundary conditions are applied just after the initialization of a
+specific SETUP (before the first output), and subsequently, twice
+per time step. Boundary conditions are applied to all primitive variables,
+and to the electromotive forces (EMFs). All  boundary conditions
+are managed by the routine <code class="docutils literal notranslate"><span class="pre">FillGhosts()</span></code>, inside
+<code class="docutils literal notranslate"><span class="pre">src/algogas.c</span></code>. Below, we depict schematically how cells of the
+active mesh are mapped to the ghost zones.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/boundaries.png"><img alt="_images/boundaries.png" src="_images/boundaries.png" style="width: 575.4px; height: 595.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Schematic view of how the boundaries are applied.
+We note that the buffer (or <em>ghost</em>) zones are three cells wide.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The last (third) ghost cell is filled with the first active one, the
+second ghost cell is filled with the second active one, and finally,
+the first ghost cell is filled with the third active cell.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that we do not consider the mesh periodicity along a given
+direction as a proper boundary condition, in the sense that no <em>ad
+hoc</em> prescription has to be used to fill the corresponding ghost
+zones. Rather, a mesh periodic along a given dimension has no
+boundary in this dimension, and this property is assigned to the
+mesh <em>in the parameter file</em> (and not in the boundary files of the
+setup that we present in detail below) by the use of the <em>Boolean</em>
+parameters <code class="docutils literal notranslate"><span class="pre">PeriodicY</span></code> and <code class="docutils literal notranslate"><span class="pre">PeriodicZ</span></code>, which default to
+<code class="docutils literal notranslate"><span class="pre">NO</span></code>. In the boundary files that we present hereafter, you will
+therefore see BC labels such as <code class="docutils literal notranslate"><span class="pre">SYMMETRIC</span></code>, <code class="docutils literal notranslate"><span class="pre">OUTFLOW</span></code>, etc.,
+but <em>never</em> <code class="docutils literal notranslate"><span class="pre">PERIODIC</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the figure above we have three rows of ghost cells. The number
+of rows depends on the problem, and on how frequently
+communications are performed within a time step. There is a
+trade-off between the number of rows (large buffers slow down the
+calculations and the communications) and the number of
+communications. The number of ghosts is defined in <code class="docutils literal notranslate"><span class="pre">src/define.h</span></code>
+around line 40 <em>et sq</em>.</p>
+</div>
+</section>
+<section id="boundparser-py">
+<h2>boundparser.py<a class="headerlink" href="#boundparser-py" title="Link to this heading">#</a></h2>
+<p>In order to work with boundaries, we have developed a script called
+<code class="docutils literal notranslate"><span class="pre">boundparser.py</span></code>, that reads a general boundary text file and converts
+it into a C file, properly commented to be subsequently converted into
+a CUDA file. <code class="docutils literal notranslate"><span class="pre">boundparser.py</span></code> works with four files, called:</p>
+<ul class="simple">
+<li><p>setup.bound</p></li>
+<li><p>boundaries.txt</p></li>
+<li><p>centering.txt</p></li>
+<li><p>boundary_template.c</p></li>
+</ul>
+<p>(note: these last three files can be in your setup directory, or by
+default, the script takes those of the  <code class="docutils literal notranslate"><span class="pre">std/</span> <span class="pre">directory</span></code>, as
+prescribed by the <code class="docutils literal notranslate"><span class="pre">VPATH</span></code> variable.)</p>
+<p><code class="docutils literal notranslate"><span class="pre">boundparser.py</span></code> reads the information inside the <code class="docutils literal notranslate"><span class="pre">setup.bound</span></code>
+file, and compares it with the information in <code class="docutils literal notranslate"><span class="pre">boundaries.txt</span></code> and
+<code class="docutils literal notranslate"><span class="pre">centering.txt</span></code>. Finally, it builds a set of C files that apply the
+boundary conditions (called [y/z][min/max]_boundary.c) with a proper
+format, given by boundary_template.c. We will not give a detailed
+description on how <code class="docutils literal notranslate"><span class="pre">boundparser.py</span></code> works, but it is not difficult
+to understand the script if you are interested in its details.</p>
+<p>The key to developing boundary conditions is to understand the
+structure of <code class="docutils literal notranslate"><span class="pre">setup.bound</span></code> and <code class="docutils literal notranslate"><span class="pre">boundaries.txt</span></code> file. Both files are in
+the same format, described below.</p>
+</section>
+<section id="boundaries-files-format">
+<h2>Boundaries files format<a class="headerlink" href="#boundaries-files-format" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">boundaries.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">centering.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">setup.bound</span></code> files have
+the same format. All are case-insensitive, and have two levels of
+information: the main level and an inner level. Also, comment lines are
+allowed. The general structure of the format is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some header</span>
+<span class="c1">#--------</span>
+
+<span class="n">LEVEL1_a</span><span class="p">:</span>
+        <span class="n">Level2_a</span><span class="p">:</span> <span class="n">Some_data1_a</span>   <span class="c1">#A comment</span>
+        <span class="n">Level2_b</span><span class="p">:</span> <span class="n">Some_data1_b</span>
+        <span class="n">Level2_c</span><span class="p">:</span> <span class="n">Some_data1_c</span>
+        <span class="n">Level2_d</span><span class="p">:</span> <span class="n">Some_data1_d</span>
+
+<span class="c1"># A comment line</span>
+
+<span class="n">LEVEL1_b</span><span class="p">:</span>
+        <span class="n">Level2_a</span><span class="p">:</span> <span class="n">Some_data2_a</span>
+        <span class="n">Level2_b</span><span class="p">:</span> <span class="n">Some_data2_b</span>
+        <span class="n">Level2_c</span><span class="p">:</span> <span class="n">Some_data2_c</span>
+        <span class="n">Level2_d</span><span class="p">:</span> <span class="n">Some_data2_d</span>
+
+
+<span class="n">etc</span><span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="centering-txt">
+<h2>centering.txt<a class="headerlink" href="#centering-txt" title="Link to this heading">#</a></h2>
+<p>Special care must to be taken to the centering of data. Not all data
+are defined at the same location in FARGO3D. In order to write
+automatically boundary conditions in a given direction (Y/Z), it is
+necessary to know which fields are centered or staggered in this
+direction.  This information is taken by <code class="docutils literal notranslate"><span class="pre">boundparser.py</span></code> from
+<code class="docutils literal notranslate"><span class="pre">centering.txt</span></code>.  This file uses the same format described above,
+and uses a particular set of instructions. The allowed values are:</p>
+<ul class="simple">
+<li><p>LEVEL1 –&gt; The name of a Field Structure inside the code (eg:
+Density, Vx, Bz, etc…).</p></li>
+<li><p>Level2 –&gt; the word “Staggering”</p></li>
+<li><p>data –&gt; C,x,y,z or a combination of xyz (eg: xy, yz, xyz)</p></li>
+</ul>
+<p>C is short of “centered”, meaning that the field is a cube-centered
+quantity. The meaning of x is <em>staggered in x</em>, that is to say the
+corresponding quantity is defined at an interface in x between two
+zones, rather than in the middle of two subsequent interfaces.  By
+default, the field value is assumed centered along each direction that
+does not appear explicitly in the centering definition.</p>
+<p>Let us have a look at some lines of <code class="docutils literal notranslate"><span class="pre">centering.txt</span></code>:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Density:</dt><dd><p>Staggering: C</p>
+</dd>
+<dt>Bz:</dt><dd><p>Staggering: z</p>
+</dd>
+<dt>Emfz:</dt><dd><p>Staggering: xy</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The first two lines specify that the density is a cube centered
+quantity.  The following two lines specify that the magnetic field in
+the z-direction is centered in x and y, but staggered in z (ie defined
+at the center of an interface in z).  Finally, the last two lines
+indicate that the EMF in z is centered in z, but staggered in x
+and y. It is, therefore, a quantity defined at half height of the
+lower vertical edge in x and y of a cell.</p>
+<p>All primitive variables and the EMF fields are defined by default in
+<code class="docutils literal notranslate"><span class="pre">std/centering.txt</span></code>. If you create a new primitive field in the
+code, you should specify its correct centering in
+<code class="docutils literal notranslate"><span class="pre">std/centering.txt</span></code> if you want to create boundary conditions for
+this field.</p>
+</section>
+<section id="boundary-template-c">
+<h2>boundary_template.c<a class="headerlink" href="#boundary-template-c" title="Link to this heading">#</a></h2>
+<p>This file is taken as a template for building automatic boundary
+condition C files . You should never have to deal with it. Also, it
+contains all the information for subsequent building of the CUDA
+files. If you need special boundary conditions, you could try
+modifying this file first. As long as you do not alter the lines
+beginning with “%”, you can modify this template. This kind of
+modification should be made by an advanced user.</p>
+</section>
+<section id="boundaries-txt">
+<h2>boundaries.txt<a class="headerlink" href="#boundaries-txt" title="Link to this heading">#</a></h2>
+<p>This file is the core file for the boundary condition. The main idea
+is to provide a way to the user to define a boundary prescription in
+as user-friendly a manner as possible. Let us begin with a simple
+example. Assume that we want to define a boundary condition that we
+call <em>SYMMETRIC</em>, which simply consists in copying the data of the
+active cell into the ghost zone. We represent schematically what is
+intended on this diagram:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>           <span class="o">|</span>           <span class="o">|</span>
+<span class="o">|</span>           <span class="o">|</span>           <span class="o">|</span>
+      <span class="o">^</span>           <span class="o">^</span>
+      <span class="o">|</span>           <span class="o">|</span>
+    <span class="n">ghost</span>       <span class="n">active</span>
+    <span class="n">zone</span>         <span class="n">zone</span>
+</pre></div>
+</div>
+<p>The active zone contains a value, that we call, arbitrarily, <em>active</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>           <span class="o">|</span>   <span class="n">active</span>  <span class="o">|</span>
+<span class="o">|</span>           <span class="o">|</span>           <span class="o">|</span>
+      <span class="o">^</span>           <span class="o">^</span>
+      <span class="o">|</span>           <span class="o">|</span>
+    <span class="n">ghost</span>       <span class="n">active</span>
+    <span class="n">zone</span>         <span class="n">zone</span>
+</pre></div>
+</div>
+<p>We want to set the value of the ghost zone to the same value, that is
+we want:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>  <span class="n">active</span>   <span class="o">|</span>   <span class="n">active</span>  <span class="o">|</span>
+<span class="o">|</span>           <span class="o">|</span>           <span class="o">|</span>
+      <span class="o">^</span>           <span class="o">^</span>
+      <span class="o">|</span>           <span class="o">|</span>
+    <span class="n">ghost</span>       <span class="n">active</span>
+    <span class="n">zone</span>         <span class="n">zone</span>
+</pre></div>
+</div>
+<p>Therefore we represent this boundary condition with the following,
+rather intuitive line of code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>  <span class="n">active</span>  <span class="o">|</span>  <span class="n">active</span>  <span class="o">|</span>
+</pre></div>
+</div>
+<p>Assuming for the moment that this boundary condition applies to
+<em>centered</em> variables, we would finally write the following piece of code in
+<code class="docutils literal notranslate"><span class="pre">boundaries.txt</span></code> to define our <em>SYMMETRIC</em> boundary condition:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SYMMETRIC</span><span class="p">:</span>
+      <span class="n">Centered</span><span class="p">:</span>    <span class="o">|</span>  <span class="n">active</span>  <span class="o">|</span>  <span class="n">active</span>  <span class="o">|</span>
+</pre></div>
+</div>
+<p>The right “cell” always represent the active cell, and the left “cell”
+the corresponding ghost cell.  The string <em>active</em> could be actually
+any string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SYMMETRIC</span><span class="p">:</span>
+      <span class="n">Centered</span><span class="p">:</span>    <span class="o">|</span>  <span class="n">value</span>  <span class="o">|</span>  <span class="n">value</span>  <span class="o">|</span>
+</pre></div>
+</div>
+<p>If we wish to have an anti-symmetric boundary condition (that is to say
+that we set the ghost value to the negative of its active
+counterpart):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>  <span class="o">-</span><span class="n">active</span>  <span class="o">|</span>   <span class="n">active</span>  <span class="o">|</span>
+</pre></div>
+</div>
+<p>Should we want to set the ghost value to twice the active zone’s
+value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>  <span class="mf">2.0</span><span class="o">*</span><span class="n">foo</span>  <span class="o">|</span>   <span class="n">foo</span>  <span class="o">|</span>
+</pre></div>
+</div>
+<p>Or if we wish to set it to some predefined value (say that you have
+a supersonic flow of uniform, predefined density 0.12 g/cm^3 entering
+the mesh, and you work in cgs):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>  <span class="mf">0.12</span>  <span class="o">|</span>   <span class="n">whatever</span>  <span class="o">|</span>
+</pre></div>
+</div>
+<p>in which case the value <em>whatever</em> is never used. Naturally, it is
+much better to use a parameter (say, <em>RHO0</em>, that you define in your
+parameter file):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>  <span class="s1">&#39;RHO0&#39;</span>  <span class="o">|</span>   <span class="n">whatever</span>  <span class="o">|</span>
+</pre></div>
+</div>
+<p>We shall come back to the use of the quotes later on in this section.</p>
+<p>This, in a nutshell, is how we define boundary conditions in the code.</p>
+<p>Now, assume that we want to have an anti-symmetric boundary condition
+on the velocity perpendicular to the boundary. The situation is a bit
+different than the one described above, because this field is
+staggered along the dimension perpendicular to the mesh. That is, we
+have:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>        <span class="o">|||</span>        <span class="o">|</span>
+<span class="o">|</span>        <span class="o">|||</span>        <span class="o">|</span>
+          <span class="o">^</span>       <span class="n">value</span>
+          <span class="o">|</span>
+         <span class="n">edge</span> <span class="n">of</span>
+       <span class="n">active</span> <span class="n">mesh</span>
+</pre></div>
+</div>
+<p>As shown on this diagram, the value is defined at the interface, and
+not at the center as previously. The triple vertical line delineates
+the edge of the active mesh. What we intend is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">|</span>        <span class="o">|||</span>        <span class="o">|</span>
+  <span class="o">|</span>        <span class="o">|||</span>        <span class="o">|</span>
+<span class="o">-</span><span class="n">value</span>      <span class="o">^</span>       <span class="n">value</span>
+            <span class="o">|</span>
+           <span class="n">edge</span> <span class="n">of</span>
+         <span class="n">active</span> <span class="n">mesh</span>
+</pre></div>
+</div>
+<p>but this leaves yet unspecified the value at the edge of the active
+mesh, which should be set here to zero (it has to be its own
+negative):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">|</span>        <span class="o">|||</span>        <span class="o">|</span>
+  <span class="o">|</span>        <span class="o">|||</span>        <span class="o">|</span>
+<span class="o">-</span><span class="n">value</span>      <span class="mi">0</span>       <span class="n">value</span>
+</pre></div>
+</div>
+<p>Eventually, we have to specify one extra value with respect to the
+centered case. Our boundary condition is therefore coded as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ANTISYMMETRIC</span><span class="p">:</span>
+      <span class="n">Staggered</span><span class="p">:</span>    <span class="o">|</span>  <span class="o">-</span><span class="n">value</span>  <span class="o">|</span>  <span class="mi">0</span>  <span class="o">|</span>   <span class="n">value</span>  <span class="o">|</span>
+</pre></div>
+</div>
+<p>If the | (pipe) symbol could be thought of as representing the zones
+interface for the centered case, it is no longer the case in the
+staggered case. In any case, we will <em>always</em> have two “cells” in the
+BC code for a centered quantity, and three “cells” in the BC code for
+a staggered quantity, regardless of the number of rows in the
+ghosts. The matching between an active cell and its corresponding
+ghost zone is as shown on the figure at the beginning of this section.</p>
+<p>We sum up this information: the file <code class="docutils literal notranslate"><span class="pre">boundaries.txt</span></code> contains a two
+level description that obeys the general following rule:</p>
+<ul class="simple">
+<li><p>LEVEL1 –&gt; the name of the boundary. It is an arbitrary name,
+defined by you.</p></li>
+<li><p>Level2 –&gt; the word “Centered” or “Staggered”, followed by some
+data.</p></li>
+<li><p>data –&gt; |some_text_1|some_text_2| or
+|some_text_1|some_text2|some_text3|</p></li>
+</ul>
+<p>The rules in the ghost zone are as follows:</p>
+<ol class="arabic simple">
+<li><p>Any string used in the active zone that matches some part of the
+ghost zone string will be replaced by the active cell value.</p></li>
+<li><p>Any string inside '' will be textually parsed and converted to
+upper-case. They are useful to match the parameters of the
+parameter files, which are upper-case C variables.</p></li>
+<li><p>Any string that does not match rule 1 nor rule 2, will be textually
+parsed and converted to lower case.</p></li>
+</ol>
+<p>Additionally, there is a set of indices helpers, for working with boundaries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">jgh</span><span class="o">/</span><span class="n">kgh</span><span class="p">:</span> <span class="n">The</span> <span class="n">index</span> <span class="n">of</span> <span class="n">the</span> <span class="n">y</span><span class="o">/</span><span class="n">z</span> <span class="n">ghost</span> <span class="n">cells</span><span class="o">.</span>
+<span class="o">*</span><span class="n">jact</span><span class="o">/</span><span class="n">kact</span><span class="p">:</span> <span class="n">The</span> <span class="n">index</span> <span class="n">of</span> <span class="n">the</span> <span class="n">y</span><span class="o">/</span><span class="n">z</span> <span class="n">active</span> <span class="n">cells</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>These helpers prove very useful to perform complex extrapolations at
+the boundaries. You can see examples in the file
+<code class="docutils literal notranslate"><span class="pre">std/boundaries.txt</span></code>.</p>
+<section id="examples">
+<h3>Examples:<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<p><strong>Zero-gradient boundary</strong>:</p>
+<p>Suppose we want to define a zero gradient boundary. That means we want
+to copy all the active zone in the ghost zone for both centered and
+staggered meshes.</p>
+<p>The syntax is as follows. It groups together the definitions that we
+have worked out above, for centered and staggered fields:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SYMMETRIC</span><span class="p">:</span>
+           <span class="n">Centered</span><span class="p">:</span>     <span class="o">|</span><span class="n">active</span><span class="o">|</span><span class="n">active</span><span class="o">|</span>
+           <span class="n">Staggered</span><span class="p">:</span>    <span class="o">|</span><span class="n">active</span><span class="o">|</span><span class="n">active</span><span class="o">|</span><span class="n">active</span><span class="o">|</span>
+</pre></div>
+</div>
+<p>where the right <em>active</em> value will be copied without any modification
+to the ghost zone. Note that this boundary definition is direction and
+side independent, ie it can apply to <em>ymin</em>, <em>ymax</em>, <em>zmin</em> and
+<em>zmax</em>.</p>
+<p><strong>Keplerian extrapolation example</strong></p>
+<p>We define here a more complex boundary condition:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KEPLERIAN2DDENS</span><span class="p">:</span>
+          <span class="n">Centered</span><span class="p">:</span>            <span class="o">|</span><span class="n">surfdens</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">Ymed</span><span class="p">(</span><span class="n">jact</span><span class="p">)</span><span class="o">/</span><span class="n">Ymed</span><span class="p">(</span><span class="n">jgh</span><span class="p">),</span><span class="s1">&#39;SIGMASLOPE&#39;</span><span class="p">)</span><span class="o">|</span><span class="n">surfdens</span><span class="o">|</span>
+</pre></div>
+</div>
+<p>This line is equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KEPLERIAN2DDENS</span><span class="p">:</span>
+          <span class="n">Centered</span><span class="p">:</span>            <span class="o">|</span><span class="n">active</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">ymed</span><span class="p">(</span><span class="n">jact</span><span class="p">)</span><span class="o">/</span><span class="n">ymed</span><span class="p">(</span><span class="n">jgh</span><span class="p">),</span><span class="s1">&#39;sigmaslope&#39;</span><span class="p">)</span><span class="o">|</span><span class="n">active</span><span class="o">|</span>
+</pre></div>
+</div>
+<p>as per the rules listed above.</p>
+<p>What kind of action does this instruction correspond to ?
+It sets the value of the ghost zone to:</p>
+<p><span class="math notranslate nohighlight">\(\mbox{ghost value}=\Sigma_\textrm{active}\left(\frac{R_\textrm{act}}{R_\textrm{ghost}}\right)^\alpha\)</span></p>
+<p>since <em>Ymed</em> stands for the radius of the center of zone, in  a
+cylindrical setup.</p>
+<p>The reader familiar with protoplanetary disk’s jargon and notation
+will easily recognize the radial extrapolation of the surface density
+of the disk in the ghost zone, with a power law of exponent
+<span class="math notranslate nohighlight">\(-\alpha\)</span> (<span class="math notranslate nohighlight">\(\alpha\)</span> is dubbed <em>SIGMASLOPE</em> in the
+parameters of FARGO3D), hence the string chosen to represent the value
+of the active cell (<em>surfdens</em>), although at this stage <strong>nothing
+specifies yet to which variable this boundary condition should be
+applied</strong>. This is the role of the file <em>SETUP</em> <code class="docutils literal notranslate"><span class="pre">.bound</span></code>.</p>
+</section>
+</section>
+<section id="setup-bound">
+<h2>SETUP.bound<a class="headerlink" href="#setup-bound" title="Link to this heading">#</a></h2>
+<p>This file must be located in the sub-directory of a given setup, and
+must have same prefix as the setup to which it refers. For instance, in
+<code class="docutils literal notranslate"><span class="pre">setup/fargo/</span></code>, the file that specifies the boundaries is called
+<code class="docutils literal notranslate"><span class="pre">fargo.bound</span></code>.</p>
+<p>The files that we described in the previous paragraphs are used to
+specify what transformation rule is used for an arbitrary field (in <code class="docutils literal notranslate"><span class="pre">boundaries.txt</span></code>)
+depending on its centering, while the centering of all fields is
+specified by <code class="docutils literal notranslate"><span class="pre">std/centering.txt</span></code>.</p>
+<p>The <em>SETUP</em> <code class="docutils literal notranslate"><span class="pre">.bound</span></code> file  now specifies the transformation rule to use
+<em>for each physical variable</em>. It obeys the following general syntax:</p>
+<ul class="simple">
+<li><p>LEVEL1 –&gt; The name of the field.</p></li>
+<li><p>Level2 –&gt; The side of the boundary (ymin,ymax,zmin,zmax), and some data.</p></li>
+<li><p>data –&gt; Boundary label (the label defined in <code class="docutils literal notranslate"><span class="pre">boundaries.txt</span></code>)</p></li>
+</ul>
+<p>We show hereafter a few examples:</p>
+<p><strong>2D XY reflecting problem</strong></p>
+<p>We want to have a 2D isothermal fluid with periodic “boundary conditions” in X (as
+required in FARGO3D) and reflecting boundary conditions in Y.</p>
+<p>We have three primitive variables to which we must apply BCs. Those
+will only apply in Y (not in X because of the periodicity, nor in Z
+because we have a 2D X-Y setup).</p>
+<p>The setup.bound file should therefore look similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Density</span><span class="p">:</span>
+        <span class="n">Ymin</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+        <span class="n">Ymax</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+
+<span class="n">Vx</span><span class="p">:</span>
+        <span class="n">Ymin</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+        <span class="n">Ymax</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+
+<span class="n">Vy</span><span class="p">:</span>
+        <span class="n">Ymin</span><span class="p">:</span>   <span class="n">ANTISYMMETRIC</span>
+        <span class="n">Ymax</span><span class="p">:</span>   <span class="n">ANTISYMMETRIC</span>
+</pre></div>
+</div>
+<p>where Vy is ANTISYMMETRIC in Y because we have reflection in  the
+y-direction.</p>
+<p>At build time, the script <code class="docutils literal notranslate"><span class="pre">boundparser.py</span></code> goes through this
+file. The first three lines instruct it to generate C code to implement a
+boundary condition for the density field in <em>ymin</em> and <em>ymax</em>. It goes
+to the definition of <em>SYMMETRIC</em> found in <code class="docutils literal notranslate"><span class="pre">std/boundaries.txt</span></code>. Two
+definitions are available: one for centered fields, the other one for
+staggered fields. In <code class="docutils literal notranslate"><span class="pre">std/centering.txt</span></code> it finds that the density
+is centered (in y) and therefore generates the C code corresponding to
+the centered case. The same thing occurs for <em>Vx</em>: it finds that this
+field is centered in Y. Finally, the last three lines instruct it to
+generate C code for an <em>ANTISYMMETRIC</em> boundary condition of Vy
+in Y. It finds in <code class="docutils literal notranslate"><span class="pre">std/centering.txt</span></code>  that this field is staggered
+in Y, and generates the C code corresponding to the definition:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="o">-</span><span class="n">value</span> <span class="o">|</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">value</span> <span class="o">|</span>
+</pre></div>
+</div>
+<p>The C functions thus produced contain all the comments required to
+further conversion to CUDA, should the user request a GPU built.</p>
+<p><strong>2D YZ reflecting problem</strong></p>
+<p>Now, a more complex example, with all directions (yet in 2D):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Density</span><span class="p">:</span>
+        <span class="n">Ymin</span><span class="p">:</span> <span class="n">SYMMETRIC</span>
+        <span class="n">Ymax</span><span class="p">:</span> <span class="n">SYMMETRIC</span>
+        <span class="n">Zmin</span><span class="p">:</span> <span class="n">SYMMETRIC</span>
+        <span class="n">Zmax</span><span class="p">:</span> <span class="n">SYMMETRIC</span>
+
+<span class="n">Vx</span><span class="p">:</span>
+        <span class="n">Ymin</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+        <span class="n">Ymax</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+        <span class="n">Zmin</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+        <span class="n">Zmax</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+
+<span class="n">Vy</span><span class="p">:</span>
+        <span class="n">Ymin</span><span class="p">:</span>   <span class="n">ANTISYMMETRIC</span>
+        <span class="n">Ymax</span><span class="p">:</span>   <span class="n">ANTISYMMETRIC</span>
+        <span class="n">Zmin</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+        <span class="n">Zmax</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+
+<span class="n">Vz</span><span class="p">:</span>
+        <span class="n">Ymin</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+        <span class="n">Ymax</span><span class="p">:</span>   <span class="n">SYMMETRIC</span>
+        <span class="n">Zmin</span><span class="p">:</span>   <span class="n">ANTISYMMETRIC</span>
+        <span class="n">Zmax</span><span class="p">:</span>   <span class="n">ANTISYMMETRIC</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note how the staggering is implicit in Vy/Vz boundaries.</p>
+</div>
+<p>An extensive list of examples can be found in the <code class="docutils literal notranslate"><span class="pre">setups/</span></code> directory.</p>
+</section>
+<section id="common-errors">
+<h2>Common errors<a class="headerlink" href="#common-errors" title="Link to this heading">#</a></h2>
+<p>This section will be developed later from users’ feedback.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">boundparser.py</span></code> script is at the present time a bit taciturn,
+and may silently ignore errors which might be a bit difficult to spot
+afterward.  Among them:</p>
+<ul class="simple">
+<li><p>Incorrect names or misprints.</p></li>
+<li><p>An incorrect centering.</p></li>
+</ul>
+</section>
+<section id="shearing-periodic-boundaries">
+<h2>Shearing-periodic boundaries<a class="headerlink" href="#shearing-periodic-boundaries" title="Link to this heading">#</a></h2>
+<p>Shearing box setups can make use of shearing-periodic boundaries by by using <code class="docutils literal notranslate"><span class="pre">-DSHEARINGBC</span></code> in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>shearing-periodic boundaries only work on the CPU.</p>
+</div>
+</section>
+<section id="defining-boundaries-by-hand">
+<span id="ref-hardboundaries"></span><h2>Defining boundaries by hand<a class="headerlink" href="#defining-boundaries-by-hand" title="Link to this heading">#</a></h2>
+<p>Sometimes more flexibility is needed when creating boundaries. You can
+always define the boundaries by hand by disabling the parser that
+creates the boundaries.</p>
+<p>In order to create the boundary sources manually, you can proceed as follows:</p>
+<ol class="arabic">
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">ymin_bound.c</span></code>, <code class="docutils literal notranslate"><span class="pre">ymax_bound.c</span></code>, etc… files manually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cd</span> <span class="n">scripts</span>
+<span class="o">&gt;</span> <span class="n">python</span> <span class="n">boundparser</span><span class="o">.</span><span class="n">py</span> <span class="o">../</span><span class="n">std</span><span class="o">/</span><span class="n">centering</span><span class="o">.</span><span class="n">txt</span> <span class="o">../</span><span class="n">std</span><span class="o">/</span><span class="n">boundaries</span><span class="o">.</span><span class="n">txt</span> <span class="o">../</span><span class="n">setups</span><span class="o">/</span><span class="n">yoursetup</span><span class="o">/</span><span class="n">yoursetup</span><span class="o">.</span><span class="n">bound</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The previous instruction produces the boundary files (in <code class="docutils literal notranslate"><span class="pre">scripts/</span></code>) called <code class="docutils literal notranslate"><span class="pre">ymin_bound.c</span></code>, <code class="docutils literal notranslate"><span class="pre">ymax_bound.c</span></code>, etc…, needed to build the executable.</p>
+<ol class="arabic" start="2">
+<li><p>Copy the newly created boundary source files into your setup directory.</p></li>
+<li><p>Comment the following lines in the makefile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%_bound.o: ymin_bound.c ${GLOBAL}
+   @${COMPILER} $*_bound.c -c ${INCLUDE} ${OPTIONS} ${FARGO_OPT}
+
+ymin_bound.c: ${BOUNDARIES} ${GLOBAL}
+   @echo PARSING BOUNDARIES...
+   @-python ${SCRIPTSDIR}/boundparser.py $^
+
+ymax_bound.c zmin_bound.c zmax_bound.c: ymin_bound.c
+</pre></div>
+</div>
+</li>
+<li><p>Modify the boundary source files manually.</p></li>
+<li><p>build the executable (<code class="docutils literal notranslate"><span class="pre">make</span></code>) and check if the boundaries were indeed compiled from your setup directory, e.g:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="n">CC</span> <span class="o">../</span><span class="n">setups</span><span class="o">/</span><span class="n">fargo</span><span class="o">/</span><span class="n">ymin_bound</span><span class="o">.</span><span class="n">c</span> <span class="o">==&gt;</span> <span class="n">ymin_bound</span><span class="o">.</span><span class="n">o</span>
+<span class="n">CC</span> <span class="o">../</span><span class="n">setups</span><span class="o">/</span><span class="n">fargo</span><span class="o">/</span><span class="n">ymax_bound</span><span class="o">.</span><span class="n">c</span> <span class="o">==&gt;</span> <span class="n">ymax_bound</span><span class="o">.</span><span class="n">o</span>
+<span class="n">CC</span> <span class="o">../</span><span class="n">setups</span><span class="o">/</span><span class="n">fargo</span><span class="o">/</span><span class="n">zmin_bound</span><span class="o">.</span><span class="n">c</span> <span class="o">==&gt;</span> <span class="n">zmin_bound</span><span class="o">.</span><span class="n">o</span>
+<span class="n">CC</span> <span class="o">../</span><span class="n">setups</span><span class="o">/</span><span class="n">fargo</span><span class="o">/</span><span class="n">zmax_bound</span><span class="o">.</span><span class="n">c</span> <span class="o">==&gt;</span> <span class="n">zmax_bound</span><span class="o">.</span><span class="n">o</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the version 2.0, the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> option <code class="docutils literal notranslate"><span class="pre">FARGO_OPT</span> <span class="pre">+=</span> <span class="pre">-DHARDBOUNDARIES</span></code> has been added to make the steps 3,4 and 5 automatically.</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="make_proc.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Make Process</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mesh_fields.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mesh and Fields</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-boundary-conditions-applied">How are boundary conditions applied?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundparser-py">boundparser.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundaries-files-format">Boundaries files format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centering-txt">centering.txt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-template-c">boundary_template.c</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundaries-txt">boundaries.txt</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-bound">SETUP.bound</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-errors">Common errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shearing-periodic-boundaries">Shearing-periodic boundaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-boundaries-by-hand">Defining boundaries by hand</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

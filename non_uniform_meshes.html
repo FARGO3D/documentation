@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Non-uniform meshes &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'non_uniform_meshes';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="N-Body solver" href="nbody.html" />
+    <link rel="prev" title=".opt files" href="opt_file.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/non_uniform_meshes.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Non-uniform meshes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mesh-density-functions-implemented">Mesh-density functions implemented</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-new-mesh-density-function">Implementing a new mesh-density function</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="non-uniform-meshes">
+<span id="ref-nonuniform"></span><h1>Non-uniform meshes<a class="headerlink" href="#non-uniform-meshes" title="Link to this heading">#</a></h1>
+<p>This extension is described and tested in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...952..106B/abstract">Benítez-Llambay et al. (2023)</a></p>
+<p>Notes about the non-uniform meshes feature:</p>
+<ul class="simple">
+<li><p>Meshes are created via a mesh-density functions.</p></li>
+<li><p>The feature is enabled by setting <code class="docutils literal notranslate"><span class="pre">SPACING</span> <span class="pre">N</span></code> in the <code class="docutils literal notranslate"><span class="pre">.par</span></code> file.</p></li>
+<li><p>So far, mesh-density functions are implemented on <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> only.</p></li>
+<li><p>Non-uniform meshes in azimuth cannot use FARGO advection. Use <code class="docutils literal notranslate"><span class="pre">-DRAM</span></code> in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> instead, which enables</p></li>
+</ul>
+<p>the Rapid Advection Algorithm on Arbitrary Meshes (RAM). RAM is a time-explicit method to solve
+the advection equation in problems with large bulk velocity on arbitrary computational grids.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Current implementation of non-uniform meshes is not tested with MHD enabled. It may work with <code class="docutils literal notranslate"><span class="pre">-DSTANDARD</span></code>, but be careful if you use it.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Current implementation of the MHD solver does not include RAM.</p>
+</div>
+<p>To test out non-uniform meshes and RAM, the <code class="docutils literal notranslate"><span class="pre">fargo_nu</span></code> setup is included. This is a
+slightly modified version of the fargo setup with non-uniform spacing and -DRAM enabled in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file.</p>
+<p>First run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: make SETUP=fargo_nu
+$: ./fargo3d setups/fargo_nu/fargo_nu.par
+</pre></div>
+</div>
+<p>As an example, we show a snapshot after 50 orbits.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/fargo_nu.png"><img alt="_images/fargo_nu.png" src="_images/fargo_nu.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The white box corresponds to the transition between resolution levels. It spans a width <code class="docutils literal notranslate"><span class="pre">YMB-YMA</span></code> and <code class="docutils literal notranslate"><span class="pre">XMB-XMA</span></code> in the radial and azimuthal direction, respectively.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="mesh-density-functions-implemented">
+<h2>Mesh-density functions implemented<a class="headerlink" href="#mesh-density-functions-implemented" title="Link to this heading">#</a></h2>
+<p>Mesh density functions are implemented in <code class="docutils literal notranslate"><span class="pre">src/mesh.c</span></code> and <code class="docutils literal notranslate"><span class="pre">src/defines.h</span></code>, and are created in <code class="docutils literal notranslate"><span class="pre">src/LowTasks.c</span></code>.</p>
+<p>Azimuthal and radial spacing are generated via the mesh-density functions described by Eq. (B7) y (B14) in Benítez-Llambay et al. (2023).</p>
+<p>Along the azimuthal direction, current implementation assumes the domain to be periodic.
+Three parameters (in the <code class="docutils literal notranslate"><span class="pre">.par</span></code> file) control the grid:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">XMB</span></code>: it controls where the lowest resolution level changes to the next level.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XMA</span></code>: it controls where the next level is effectively reached.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XMC</span></code>: it controls the resolution ratio between levels.</p></li>
+</ul>
+<p>Notes about the utilization of these parameters:</p>
+<ul class="simple">
+<li><p>In azimuth the mesh has to be centered at the origin.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-XMB</span></code> has to be greater than <code class="docutils literal notranslate"><span class="pre">XMIN</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XMB</span></code> has to be smaller than <code class="docutils literal notranslate"><span class="pre">XMAX</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XMB,</span> <span class="pre">XMA</span></code> must be set such that <code class="docutils literal notranslate"><span class="pre">XMA&lt;XMB</span></code>.</p></li>
+<li><p>Low-resolution region spans within <code class="docutils literal notranslate"><span class="pre">[XMIN,-XMB]</span></code> and <code class="docutils literal notranslate"><span class="pre">[XMB,XMAX]</span></code>.</p></li>
+<li><p>High-resolution region spans within the range <code class="docutils literal notranslate"><span class="pre">[-XMA,XMA]</span></code>.</p></li>
+<li><p>The transition between resolution levels occur over the width <code class="docutils literal notranslate"><span class="pre">XMB-XMA</span></code>.</p></li>
+</ul>
+<p>Along the radial direction, four parameters control the grid spacing:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">YMA</span></code>: analog to <code class="docutils literal notranslate"><span class="pre">XMA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YMB</span></code>: analog to <code class="docutils literal notranslate"><span class="pre">XMB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YMC</span></code>: analog to <code class="docutils literal notranslate"><span class="pre">XMC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YMY0</span></code>: it controls the centering of the mesh</p></li>
+</ul>
+<p>In addition, the radial spacing is constructed such that radial spacing is uniform in
+logarithmic space for <code class="docutils literal notranslate"><span class="pre">|y-YMY0|&gt;YMB</span></code>.</p>
+</section>
+<section id="implementing-a-new-mesh-density-function">
+<h2>Implementing a new mesh-density function<a class="headerlink" href="#implementing-a-new-mesh-density-function" title="Link to this heading">#</a></h2>
+<p>To implement a new mesh-density function, the following modifications are needed:</p>
+<ul class="simple">
+<li><p>Modify the functions <code class="docutils literal notranslate"><span class="pre">ux()</span></code>, <code class="docutils literal notranslate"><span class="pre">uy()</span></code> in <code class="docutils literal notranslate"><span class="pre">src/mesh.c</span></code>. These functions are</p></li>
+</ul>
+<p>the cumulative integrals of the mesh-density functions, and are required to generate the mesh
+through a bisection algorithm (see <code class="docutils literal notranslate"><span class="pre">src/LowTasks.c</span></code>, function <code class="docutils literal notranslate"><span class="pre">InitSpace()</span></code>).</p>
+<ul class="simple">
+<li><p>Modify the macro <code class="docutils literal notranslate"><span class="pre">UX</span></code> in <code class="docutils literal notranslate"><span class="pre">src/defines.h</span></code> so it matches the definition of ux in <code class="docutils literal notranslate"><span class="pre">src/mesh.c</span></code>.</p></li>
+<li><p>Consider if you need to pass parameters to the cumulative function. In the current version,</p></li>
+</ul>
+<p>we pass parameters as global parameters to <code class="docutils literal notranslate"><span class="pre">ux</span></code> to save computing time.  These globals are set by the function
+<code class="docutils literal notranslate"><span class="pre">compute_ux_constants()</span></code>, and are later used by the macro <code class="docutils literal notranslate"><span class="pre">UX</span></code> (see <code class="docutils literal notranslate"><span class="pre">define.h</span></code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>RAM calls <code class="docutils literal notranslate"><span class="pre">UX</span></code> both on CPU and GPU to calculate indices efficiently on non-uniform spaces (see <code class="docutils literal notranslate"><span class="pre">src/ram_comput_ustar.c</span></code>), so consider optimizing any new function implemented.</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="opt_file.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">.opt files</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nbody.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">N-Body solver</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mesh-density-functions-implemented">Mesh-density functions implemented</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-new-mesh-density-function">Implementing a new mesh-density function</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

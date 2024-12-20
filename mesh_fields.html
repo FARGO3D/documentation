@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mesh and Fields &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mesh_fields';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Default SETUPS" href="def_setups.html" />
+    <link rel="prev" title="Boundaries" href="boundaries.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/mesh_fields.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mesh and Fields</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mesh">Mesh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields">Fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-fields">Working with fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields-on-the-gpu">Fields on the GPU</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-variables">Useful variables</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="mesh-and-fields">
+<h1>Mesh and Fields<a class="headerlink" href="#mesh-and-fields" title="Link to this heading">#</a></h1>
+<section id="mesh">
+<h2>Mesh<a class="headerlink" href="#mesh" title="Link to this heading">#</a></h2>
+<p>The mesh consists of NX cells in X (hence azimuth in cylindrical and
+spherical geometries), NY+2*NGHY cells in Y (radius in cylindrical and
+spherical geometries) and NZ+2*NGHZ cells in Z (colatitude in
+spherical geometry). Here NGHY and NGHZ stand for the number of ghost
+or buffer zones next to the active mesh. If a direction is not
+included in the setup (for instance Z in the 2D polar <code class="docutils literal notranslate"><span class="pre">fargo</span></code>
+setup), the corresponding value of NGHY/Z is set to 0.</p>
+<p>The variables NX, NY, and NZ are defined in the parameter file (they
+default to 1, so there is no need to define, for instance, NZ in a 2D
+setup such as <code class="docutils literal notranslate"><span class="pre">fargo</span></code>, or NX in the 2D setup <code class="docutils literal notranslate"><span class="pre">otvortex</span></code>, which
+corresponds to the Orszag-Tang vortex problem in Y and Z).</p>
+<p>In practice, this mesh is split among processors, and locally (within
+the scope of a given process) the submesh considered has size Nx,
+Ny+2*NGHY and Nz+2*NGHZ.</p>
+<p>The information about cells coordinates is stored in 1D arrays</p>
+<ul class="simple">
+<li><p>[xyz]min(index)</p></li>
+<li><p>[xyz]med(index)</p></li>
+</ul>
+<p>where <em>min</em> refers to the inner edge of a zone (in x, y or z) whereas
+<em>med</em> refers to the center of a zone (in x, y or z). This notation
+should look familiar to former FARGO users.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>[xyz][min/max](index) are not vectors, they are macrocommands. They
+must be invoked with (), not with [].</p>
+</div>
+<p>NGHY and NGHZ are preprocessor variables, defined in the file <code class="docutils literal notranslate"><span class="pre">src/define.h</span></code>.</p>
+<p>Because we have a multi-geometry code, another set of secondary
+geometrical variables is defined (surfaces, volumes).
+See the end of this section for details.</p>
+</section>
+<section id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Link to this heading">#</a></h2>
+<p>Fields are structures, and they can be seen as cubes of cells, of size
+equal to the mesh size. The location at which a given variable is defined is [xyz]med if
+the field is [xyz]-centered, or [xyz]min if the field is
+[xyz]-staggered. You can find a comprehensive list of the fields in
+<code class="docutils literal notranslate"><span class="pre">src/global.h</span></code>. The place where the fields are created is in
+<code class="docutils literal notranslate"><span class="pre">CreateFields()</span></code>, inside <code class="docutils literal notranslate"><span class="pre">src/LowTasks.c</span></code>.</p>
+<p>Internally, all fields are cubes written as 1D-arrays. So we need
+indices to work with the 3D-data. We have a set of helpers defined in
+<code class="docutils literal notranslate"><span class="pre">src/define.h</span></code>. They are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">l</span></code> : The index of the current zone.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lxp</span></code>, <code class="docutils literal notranslate"><span class="pre">lxm</span></code>: lxplus/lxminnus, the right/left x-neighbor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lyp</span></code>, <code class="docutils literal notranslate"><span class="pre">lym</span></code>: lyplus/lyminnus, the right/left y-neighbor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lzp</span></code>, <code class="docutils literal notranslate"><span class="pre">lzm</span></code>: lzplus/lzminnus, the right/left z-neighbor</p></li>
+</ul>
+<p>These helpers must be used with the proper loop indices:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">z_lower_bound</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">z_upper_bound</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="n">y_lower_bound</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">y_upper_bound</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">x_lower_bound</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">x_upper_bound</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">field</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">;</span>
+       <span class="n">field2</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">field1</span><span class="p">[</span><span class="n">lxp</span><span class="p">]</span><span class="o">-</span><span class="n">field1</span><span class="p">[</span><span class="n">l</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">xmed</span><span class="p">(</span><span class="n">ixp</span><span class="p">)</span><span class="o">-</span><span class="n">xmed</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>        <span class="o">//</span><span class="n">obviously</span> <span class="n">some</span> <span class="n">gradient</span> <span class="n">calculation</span><span class="o">...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>where [kji] always means [zyx]-direction.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not change the order of the indices! The definition of <code class="docutils literal notranslate"><span class="pre">l</span></code>,
+<code class="docutils literal notranslate"><span class="pre">lxp</span></code>, <code class="docutils literal notranslate"><span class="pre">lxm</span></code>, etc. assumes the following correspondence:</p>
+<p>i-&gt;x, j-&gt;y, k-&gt;z</p>
+</div>
+<p>These helpers are extremely useful. No explicit algebra has to be
+performed on the indices within a loop (but never use or define a
+variable called <code class="docutils literal notranslate"><span class="pre">l</span></code> or <code class="docutils literal notranslate"><span class="pre">lxp</span></code> !…). Besides, the definition of
+<code class="docutils literal notranslate"><span class="pre">l</span></code> is also correct within GPU kernels (for which the indices
+algebra is slightly different owing to memory alignment
+considerations), and this is totally transparent to the user who
+should never have to worry about this.</p>
+<p>In practice, a loop is similar to (isothermal equation of state):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">Nz</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHZ</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">Ny</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">NGHY</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">Nx</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="n">pres</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">dens</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">cs</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">cs</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the lines of code above do not evaluate, nor define
+<code class="docutils literal notranslate"><span class="pre">l</span></code>, which is used straight out of the box, since it is a
+preprocessor macrocommand.</p>
+</div>
+</section>
+<section id="working-with-fields">
+<h2>Working with fields<a class="headerlink" href="#working-with-fields" title="Link to this heading">#</a></h2>
+<p>A field structure is defined as follows (in <code class="docutils literal notranslate"><span class="pre">src/structs.h</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">field</span> <span class="p">{</span>
+  <span class="n">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+  <span class="n">real</span> <span class="o">*</span><span class="n">field_cpu</span><span class="p">;</span>
+  <span class="n">real</span> <span class="o">*</span><span class="n">field_gpu</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>where we have stripped the definition of all extra lines not relevant
+at this stage. The <code class="docutils literal notranslate"><span class="pre">name</span></code> is a string that is used to determine the
+name of output files. <code class="docutils literal notranslate"><span class="pre">field_cpu</span></code> is a pointer to a double or float
+1D array which has been duly allocated on the RAM prior to any
+invocation.</p>
+<p>Similarly  <code class="docutils literal notranslate"><span class="pre">field_gpu</span></code> is a pointer to a double or float 1D array
+which has been duly allocated on the Video RAM prior to any
+invocation. The user should never have to invoke directly this
+field. Rather, C files will always make use of the <code class="docutils literal notranslate"><span class="pre">field_cpu</span></code>,
+which will be automatically translated to <code class="docutils literal notranslate"><span class="pre">field_gpu</span></code> as needed
+during the C to CUDA conversion.</p>
+<p>Acceding a field value is generally done as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Field</span> <span class="o">*</span><span class="n">Density</span><span class="p">;</span>       <span class="o">//</span> <span class="n">Definition</span> <span class="n">at</span> <span class="n">the</span> <span class="n">beginning</span> <span class="n">of</span> <span class="n">a</span> <span class="n">function</span>
+<span class="n">real</span> <span class="o">*</span><span class="n">density</span><span class="p">;</span>                   <span class="o">//</span> <span class="n">real</span> <span class="ow">is</span> <span class="n">either</span> <span class="n">double</span> <span class="ow">or</span> <span class="nb">float</span><span class="o">.</span>
+<span class="n">density</span> <span class="o">=</span> <span class="n">Density</span><span class="o">-&gt;</span><span class="n">field_cpu</span><span class="p">;</span>
+<span class="o">...</span>
+<span class="n">later</span> <span class="n">on</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">loop</span><span class="p">:</span>
+<span class="o">...</span>
+  <span class="n">density</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="o">....</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that we define an “array of reals” straight away and
+subsequently only refer to it to manipulate cell values. In order to
+avoid confusion, it is a good idea to have an upper case for the
+initial of Fields*, and lower case for the corresponding real arrays.</p>
+</div>
+</section>
+<section id="fields-on-the-gpu">
+<h2>Fields on the GPU<a class="headerlink" href="#fields-on-the-gpu" title="Link to this heading">#</a></h2>
+<p>Similar techniques are used on the GPU, but we have made it totally
+transparent to the user, so unless you want to program your CUDA kernels
+directly, you should never to worry about this.</p>
+</section>
+<section id="useful-variables">
+<h2>Useful variables<a class="headerlink" href="#useful-variables" title="Link to this heading">#</a></h2>
+<p>For the handling of the mesh, a set of useful variables and
+macrocommands has been defined. An extensive list with a description is
+given below:</p>
+<hr class="docutils" />
+<p><strong>Indices</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">l</span></code>: The index of the current cell. It is a function of (<code class="docutils literal notranslate"><span class="pre">i</span></code>,``j``,``k``, <code class="docutils literal notranslate"><span class="pre">pitch</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">stride</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lxp</span></code>: The index of the “right” neighbor in x of the current
+cell. It is a function of <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lxm</span></code>: The index of the “left” neighbor in x of the current
+cell. It is a function of <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lyp</span></code>: The index of the “right” neighbor in y of the current
+cell. It is a function of <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lym</span></code>: The index of the “left” neighbor in y of the current
+cell. It is a function of <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lzp</span></code>: The index of the “right” neighbor in z of the current
+cell. It is a function of <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lzm</span></code>: The index of the “left” neighbor in z of the current
+cell. It is a function of <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l2D</span></code>: The current index in a 2D field (eg: vmean). It is a function of (<code class="docutils literal notranslate"><span class="pre">j</span></code>,``k``).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l2D_int</span></code>: The current index in a 2D integer field (eg: a field of
+shifts). It is a function if (<code class="docutils literal notranslate"><span class="pre">j</span></code>,``k``).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ixm</span></code>: <code class="docutils literal notranslate"><span class="pre">i</span></code>-index of the “left” neighbor in x of the current
+cell, taking periodicity into account.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ixp</span></code>: <code class="docutils literal notranslate"><span class="pre">i</span></code>-index of the “right” neighbor in x of the current
+cell, taking periodicity into account.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Coordinates</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">XC</span></code>: center of the current cell in X. It is a function of the indices; must to be used <em>inside a loop</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YC</span></code>: center of the current cell in Y. It is a function of the indices; must to be used <em>inside a loop</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZC</span></code>: center of the current cell in Z. It is a function of the indices; must to be used <em>inside a loop</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xmin(i)</span></code>: The lower x-bound of a cell.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xmed(i)</span></code>: The x-center of a cell,   same as XC but can be used outside a loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ymin(j)</span></code>: The lower y-bound of a cell.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ymed(j)</span></code>: The y-center of a cell,  same as YC but can be used outside a loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zmin(k)</span></code>: The lower z-bound of a cell.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zmed(k)</span></code>: The z-center of a cell,  same as ZC but can be used outside a loop.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Length</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zone_size_x(j,k)</span></code>: Face to face distance in the x direction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zone_size_y(j,k)</span></code>: Face to face distance in the y direction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zone_size_z(j,k)</span></code>: Face to face distance in the z direction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edge_size_x(j,k)</span></code>: The same as zone_size_x, but measured on the  lower x-border.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edge_size_y(j,k)</span></code>: The same as zone_size_y, but measured on the lower y-border.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edge_size_z(j,k)</span></code>: The same as zone_size_z, but measured on the lower z-border.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edge_size_x_middlez_lowy(j,k)</span></code>: The same as edge_size_x but measured half a cell above in z.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edge_size_x_middley_lowz(j,k)</span></code>: The same as edge_size_x but measured half a cell above in y.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Surfaces</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SurfX(j,k)</span></code>: The lower surface of a cell at x=cte.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SurfY(j,k)</span></code>: The lower surface of a cell at y=cte.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SurfZ(j,k)</span></code>: The lower surface of a cell at z=cte.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Volumes</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Vol(j,k)</span></code>: The volume of the current cell.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvVol(j,k)</span></code>: The inverse of the current cell’s volume.</p></li>
+</ul>
+<hr class="docutils" />
+<p>You can see examples on how to use these variables in <code class="docutils literal notranslate"><span class="pre">src/</span></code>. They
+are widely used in many routines.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="boundaries.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Boundaries</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="def_setups.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Default SETUPS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mesh">Mesh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields">Fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-fields">Working with fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields-on-the-gpu">Fields on the GPU</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-variables">Useful variables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

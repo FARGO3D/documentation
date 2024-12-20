@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>First Steps &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'first_steps';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Directory tree" href="dir_tree.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/first_steps.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>First Steps</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-fargo3d">Getting FARGO3D</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing">Installing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-run">First run</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnuplot">Gnuplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gdl-idl">GDL/IDL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-tools">More tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-parallel-run">First parallel run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-gpu-run">First GPU run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-parallel-gpu-run">First Parallel GPU run</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="first-steps">
+<h1>First Steps<a class="headerlink" href="#first-steps" title="Link to this heading">#</a></h1>
+<section id="getting-fargo3d">
+<h2>Getting FARGO3D<a class="headerlink" href="#getting-fargo3d" title="Link to this heading">#</a></h2>
+<p>FARGO3D can be downloaded from the same webpage as the public FARGO
+code (<a class="reference external" href="http://fargo.in2p3.fr">http://fargo.in2p3.fr</a>). In that page, you will find a <em>tar.gz</em>
+file, with all the sources inside. You can check the README file which
+contains some basic installation tips. Hereafter is a set of detailed
+instructions. If you have trouble at some stage, read the
+troubleshooting first, and if your problem is not solved you may send
+an email to the discussion group, asking for help.</p>
+</section>
+<section id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Link to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This document was written for UNIX-type systems. We have
+not tested the behavior of FARGO3D on a Windows system.</p>
+</div>
+<p>Suppose you have downloaded the code to your download directory
+(USER_PATH/downloads), where USER_PATH is the path to your user (eg:
+/home/pablo/downloads/). You need to decide where you want to install
+FARGO3D. We assume in the following that you install it in the
+directory USER_PATH/fargo3d. In order to do that, the steps are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: cd USER_PATH (or simply: &#39;cd&#39;)
+$: cp USER_PATH/downloads/fargo3d.tar.gz USER_PATH/
+$: tar -xvf fargo3d.tar.gz
+</pre></div>
+</div>
+<p>If all went fine, you will see directories called bin, src, outputs,
+setups, etc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:USER_PATH/fargo3d/$ ls
+bin  doc  Makefile  outputs  planets README  scripts  setups  src  std  test_suite  utils
+</pre></div>
+</div>
+<p>You are now ready to build the code and do your first run.</p>
+</section>
+<section id="first-run">
+<h2>First run<a class="headerlink" href="#first-run" title="Link to this heading">#</a></h2>
+<p>The first run of FARGO3D is the same first run as the one of its
+ancestor FARGO (you can see the documentation of FARGO for
+details). In order to build the code, go to the <code class="docutils literal notranslate"><span class="pre">USER_PATH/fargo3d</span></code>
+directory (<em>not the src/ directory !</em>) and issue:</p>
+<blockquote>
+<div><p>$: make</p>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You must use the GNU make utility. The build process
+relies upon several important features of the GNU make. We have
+tested the compilation process with GNU Make 3.81.  We have
+thoroughly tested the build process with python version 2.7. It may
+work with older versions of Python too. However, should you
+experience unexpected results during the build process with an
+older version of python, we recommend that you update it to 2.7.x
+&lt;= python version &lt; 3. Issue <em>python -V</em> at the command line to
+know your version. No additional libraries are required for this
+simple first build.</p>
+</div>
+<p>With this instruction, you will have a sequential (or serial) version
+of the binary (ie, without MPI), meant to run on one CPU core only. By
+default, this sequential version cannot run on a GPU. After the
+building process, you will see a message similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>          <span class="n">FARGO3D</span> <span class="n">SUMMARY</span><span class="p">:</span>
+          <span class="o">===============</span>
+
+<span class="n">This</span> <span class="n">built</span> <span class="ow">is</span> <span class="n">SEQUENTIAL</span><span class="o">.</span> <span class="n">Use</span> <span class="s2">&quot;make para&quot;</span> <span class="n">to</span> <span class="n">change</span> <span class="n">that</span>
+
+
+<span class="n">SETUP</span><span class="p">:</span>      <span class="s1">&#39;fargo&#39;</span>
+<span class="p">(</span><span class="n">Use</span> <span class="s2">&quot;make SETUP=[valid_setup_string]&quot;</span> <span class="n">to</span> <span class="n">change</span> <span class="nb">set</span> <span class="n">up</span><span class="p">)</span>
+<span class="p">(</span><span class="n">Use</span> <span class="s2">&quot;make list&quot;</span> <span class="n">to</span> <span class="n">see</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">setups</span> <span class="n">implemented</span><span class="p">)</span>
+<span class="p">(</span><span class="n">Use</span> <span class="s2">&quot;make info&quot;</span> <span class="n">to</span> <span class="n">see</span> <span class="n">the</span> <span class="n">current</span> <span class="n">sticky</span> <span class="n">build</span> <span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We will go through the details of this note in the next sections, but
+for now, the important thing is that the code was compiled in
+<em>SEQUENTIAL</em> mode, and the <em>SETUP</em> is ‘fargo’. This means that the
+code was compiled in a mode that is very similar to the FARGO
+code. Actually, the first run of FARGO3D is the same first run of
+FARGO (A Jupiter like planet embedded in a 2D cylindrical gas disk).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A note to former FARGO users: the <em>setup</em> must not be
+confused with the <em>parameter file</em>. The <em>setup</em> is chosen at build
+time, and contains fundamental information about the executable
+produced (MHD on or off, mesh geometry, equation of state used,
+number of dimensions, etc.) An executable build for a given setup
+can then be run on as many parameter files as required, without any
+rebuild.</p>
+</div>
+<p>If you have a look at the content of the main directory, you will see
+that after the compilation a new file has been created, called
+‘fargo3d’. This file is the binary file. We can now perform the first
+run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: ./fargo3d setups/fargo/fargo.par
+</pre></div>
+</div>
+<p>And you will see the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0000000000</span>     <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0000000000</span>        <span class="n">z</span> <span class="o">=</span> <span class="mf">0.0000000000</span>
+<span class="n">vx</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.0000000000</span>   <span class="n">vy</span> <span class="o">=</span> <span class="mf">1.0004998751</span>       <span class="n">vz</span> <span class="o">=</span> <span class="mf">0.0000000000</span>
+<span class="n">Non</span><span class="o">-</span><span class="n">accreting</span><span class="o">.</span>
+<span class="n">Doesn</span><span class="s1">&#39;t feel the disk potential</span>
+<span class="n">Doesn</span><span class="s1">&#39;t feel the other planets potential</span>
+
+<span class="n">Found</span> <span class="mi">0</span> <span class="n">communicators</span>
+<span class="n">OUTPUTS</span> <span class="mi">0</span> <span class="n">at</span> <span class="n">date</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.000000</span> <span class="n">OK</span>
+<span class="n">TotalMass</span> <span class="o">=</span> <span class="mf">0.0121800000</span>
+<span class="o">.............</span>
+<span class="o">................</span>
+<span class="o">.................</span>
+<span class="o">...................</span>
+<span class="o">...................</span>
+<span class="o">.....................</span>
+<span class="o">..................</span>
+<span class="o">...................</span>
+</pre></div>
+</div>
+<p>All right, all works fine. These lines should look familiar to former
+FARGO users All the outputs are written to <code class="docutils literal notranslate"><span class="pre">outputs/fargo</span></code>. You can
+now open it with your favorite data reduction software. We include in
+the following some examples of how to visualize this first data. We
+will assume that you run the test at least until the output 10.</p>
+<p><strong>Note</strong>: For all the instructions, it is assumed you are in
+<code class="docutils literal notranslate"><span class="pre">outputs/fargo</span></code> directory. You may go to this directory by issuing
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">outputs/fargo</span></code> from the USER_PATH.</p>
+<section id="gnuplot">
+<h3>Gnuplot<a class="headerlink" href="#gnuplot" title="Link to this heading">#</a></h3>
+<p>Gnuplot (<a class="reference external" href="http://www.gnuplot.info/">http://www.gnuplot.info/</a>) is a portable command-line driven
+graphing utility, and it is a useful tool for showing the outputs of
+FARGO3D. Here you have an example on how to load the outputs of
+FARGO3D on our two-dimensional first run.</p>
+<p>The command line should be similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: gnuplot
+Version 4.6 patchlevel 1    last modified 2012-09-26
+.
+.
+.
+gnuplot&gt; set palette rgbformulae 34,35,36
+gnuplot&gt; set logscale cb
+gnuplot&gt; nx = 384; ny = 128
+gnuplot&gt; plot[0:nx-1][0:ny-1] &quot;./gasdens10.dat&quot; binary array=(nx,ny) format=&quot;%lf&quot;
+         with image notitle
+</pre></div>
+</div>
+<p>and you should see an image similar to:</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/gnuplot.png"><img alt="_images/gnuplot.png" src="_images/gnuplot.png" style="width: 230.5px; height: 188.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Gnuplot image of the first run (gas surface density), output number 10.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gdl-idl">
+<h3>GDL/IDL<a class="headerlink" href="#gdl-idl" title="Link to this heading">#</a></h3>
+<p>GDL (GNU Data Language - <a class="reference external" href="http://gnudatalanguage.sourceforge.net/">http://gnudatalanguage.sourceforge.net/</a>) is
+an open-source package similar to IDL, but it is free and has similar
+functions. The command line should be similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: gdl
+  GDL - GNU Data Language, Version 0.9.2
+.
+.
+.
+GDL&gt; openr, 10, &#39;gasdens10.dat&#39;
+GDL&gt; nx = 384
+GDL&gt; ny = 128
+GDL&gt; rho = dblarr(nx,ny)
+GDL&gt; readu, 10, rho
+GDL&gt; rho = rebin(rho, 2*nx, 2*ny)
+GDL&gt; size = size(rho)
+GDL&gt; window, xsize=size[1], ysize=size[2]
+GDL&gt; tvscl, alog10(rho)
+</pre></div>
+</div>
+<p>and you should see an image similar to:</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/idl.png"><img alt="_images/idl.png" src="_images/idl.png" style="width: 614.4000000000001px; height: 204.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">GDL image of the first run (gas surface density), output number 10.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
+<p>Python (<a class="reference external" href="http://www.python.org/">http://www.python.org/</a>) is one of the most promising tool for
+data analysis in the scientific community. The main advantages of
+Python are the simplicity of the language and the number of external
+libraries. Data reduction of FARGO3D data is straightforward with the
+numpy package (<a class="reference external" href="http://www.numpy.org/">http://www.numpy.org/</a>). Also, making plots is extremely
+easy with the help of the matplotlib package
+(<a class="reference external" href="http://matplotlib.org/">http://matplotlib.org/</a>). We recommend using the interactive
+python-shell called IPython (<a class="reference external" href="http://ipython.org/">http://ipython.org/</a>).</p>
+<p>Here, you have an example of how to visualize data in an interactive
+IPython shell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: ipython --pylab
+  IPython 1.0.0 -- An enhanced Interactive Python.
+.
+.
+.
+In [1]: rho = fromfile(&quot;gasdens10.dat&quot;).reshape(128,384)
+In [2]: imshow(log10(rho),origin=&#39;lower&#39;,cmap=cm.Oranges_r,aspect=&#39;auto&#39;)
+In [3]: colorbar()
+</pre></div>
+</div>
+<p>You should see an image similar to (inside a widget):</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/python.png"><img alt="_images/python.png" src="_images/python.png" style="width: 331.0px; height: 266.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Matplotlib image of the first run, output number 10.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="more-tools">
+<h3>More tools<a class="headerlink" href="#more-tools" title="Link to this heading">#</a></h3>
+<p>The is a lot of software for reading and plotting data but, in
+general, you need an ASCII file with the data. In the utils directory,
+you will find some examples of how to transform the data into a
+human-readable format, written in different languages. If you are
+working with a large data set, this option is not recommended. It is
+always a good choice to work with binary files, your outputs are
+lighter and the reading process is much faster.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using ASCII format is very slow and should never be used for high
+resolution simulations or a 3D run.</p>
+</div>
+<p>Note that FARGO3D can also produce data in the VTK format, which can
+be inspected with software such as VISIT. This feature of FARGO3D will
+be entertained later in this manual.</p>
+</section>
+</section>
+<section id="first-parallel-run">
+<h2>First parallel run<a class="headerlink" href="#first-parallel-run" title="Link to this heading">#</a></h2>
+<p>Until now, we did not need external libraries to compile the code, but
+if we want to build a parallel version of the code, we must have a
+flavor of MPI libraries on our system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FARGO3D was successfully tested with:</p>
+<ul>
+<li><p>OpenMPI 1.6/1.7</p></li>
+<li><p>MPICH2/3</p></li>
+<li><p>MVAPICH2 2.0</p>
+<p>with a similar overall performance for the CPU version of the
+code.</p>
+</li>
+</ul>
+</div>
+<p>As we do not use any version-dependent features of MPI, we expect the
+code to work with any version of MPI. There are however some special
+features of MVAPICH 2.0 and OpenMPI 1.7 related to CUDA
+interoperability that are discussed later in this manual, and that are
+useful exclusively for GPU builds.</p>
+<p>If you are running on a standard Linux installation, with a standard
+working MPI distribution, you have to issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: make PARALLEL=1
+</pre></div>
+</div>
+<p>or the corresponding shortcut:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: make para
+</pre></div>
+</div>
+<p>At the end of the process, you will see a message, telling you that
+the compilation was performed in parallel. Now, you can run the code
+in parallel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: mpirun -np 4 ./fargo3d setups/fargo/fargo.par
+</pre></div>
+</div>
+<p>If your computer have at least four physical cores, you should see a
+speed-up of a factor ~4.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Open-MPI-Installation on Ubuntu systems.
+If you have Ubuntu, these lines install a functional version of OpenMPI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: sudo apt-get install openmpi-bin
+$: sudo apt-get install openmpi-common
+$: sudo apt-get install libopenmpi-dev
+</pre></div>
+</div>
+<p>You must accept all the installation requirements. This process is
+similar on other Linux-systems with a package manager. Similar
+packages exist for MPICH.</p>
+</div>
+</section>
+<section id="first-gpu-run">
+<h2>First GPU run<a class="headerlink" href="#first-gpu-run" title="Link to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We assume you have installed CUDA and the proper driver on your
+system. You can test if the driver works correctly by running
+<code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> in a terminal. It is also a good idea to run a few
+examples of the NVIDIA suite to ensure that your installation is
+fully functional.</p>
+</div>
+<p>Running FARGO3D in GPU mode is similar to the first parallel run. The
+only important thing is to know where CUDA is installed. FARGO3D knows
+about CUDA by the environment variable <code class="docutils literal notranslate"><span class="pre">CUDA</span></code> defined in your
+system. If you do not have the <code class="docutils literal notranslate"><span class="pre">CUDA</span></code> variable defined, FARGO3D
+assumes that the default path where CUDA is installed is
+<em>/usr/local/cuda</em>. If this is not the right place, modify your
+<code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file and add the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>``export CUDA=Your CUDA directory``
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above example assumes that you use the bash shell.</p>
+</div>
+<p>After that, we are ready to compile the code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: make PARALLEL=0 GPU=1
+</pre></div>
+</div>
+<p>or the corresponding shortcut:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: make PARALLEL=0 gpu
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>you cannot combine shortcuts in the command line. You
+could for instance issue <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">seq</span> <span class="pre">GPU=1</span></code> instead of
+the instruction above (<code class="docutils literal notranslate"><span class="pre">seq</span></code> stands for
+<code class="docutils literal notranslate"><span class="pre">PARALLEL=0</span></code>), but <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">seq</span> <span class="pre">gpu</span></code> would fail.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Additional information</p>
+<p>We assume here that you followed the whole sequence of
+examples of this page, so that your previous run was a
+parallel CPU run. Build options (such as <code class="docutils literal notranslate"><span class="pre">PARALLEL=1</span></code>) are
+<em>sticky</em>, so that they are remembered from build to build
+until their value is explicitly changed. Since we want here
+a <em>sequential</em> built for one GPU, we need to explicitly
+reset the value of PARALLEL to zero.</p>
+<p>Another option is to issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">mrproper</span>
+</pre></div>
+</div>
+<p>which resets all sticky built options to their default
+values, and after that issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">gpu</span>
+</pre></div>
+</div>
+</div>
+<p>You will see at the end of the building process the message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>          <span class="n">FARGO3D</span> <span class="n">SUMMARY</span><span class="p">:</span>
+          <span class="o">===============</span>
+
+<span class="n">This</span> <span class="n">built</span> <span class="ow">is</span> <span class="n">SEQUENTIAL</span><span class="o">.</span> <span class="n">Use</span> <span class="s2">&quot;make para&quot;</span> <span class="n">to</span> <span class="n">change</span> <span class="n">that</span>
+
+<span class="n">This</span> <span class="n">built</span> <span class="n">can</span> <span class="n">be</span> <span class="n">launched</span> <span class="n">on</span>
+<span class="n">a</span> <span class="n">CPU</span> <span class="k">with</span> <span class="n">a</span> <span class="n">GPU</span> <span class="n">card</span> <span class="p">(</span><span class="mi">1</span> <span class="n">GPU</span> <span class="n">only</span><span class="p">)</span><span class="o">.</span>
+
+
+<span class="n">SETUP</span><span class="p">:</span>      <span class="s1">&#39;fargo&#39;</span>
+<span class="p">(</span><span class="n">Use</span> <span class="s2">&quot;make SETUP=[valid_setup_string]&quot;</span> <span class="n">to</span> <span class="n">change</span> <span class="nb">set</span> <span class="n">up</span><span class="p">)</span>
+<span class="p">(</span><span class="n">Use</span> <span class="s2">&quot;make list&quot;</span> <span class="n">to</span> <span class="n">see</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">setups</span> <span class="n">implemented</span><span class="p">)</span>
+<span class="p">(</span><span class="n">Use</span> <span class="s2">&quot;make info&quot;</span> <span class="n">to</span> <span class="n">see</span> <span class="n">the</span> <span class="n">current</span> <span class="n">sticky</span> <span class="n">build</span> <span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>telling you that the build is sequential and should be run on a
+GPU. To run it, simply type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: ./fargo3d setups/fargo/fargo.par
+</pre></div>
+</div>
+<p>Before the initialization of the arrays, you will see a block similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=========================</span>
+<span class="n">PROCESS</span> <span class="n">NUMBER</span>       <span class="mi">0</span>
+<span class="n">RUNNING</span> <span class="n">ON</span> <span class="n">DEVICE</span> <span class="n">Nº</span> <span class="mi">0</span>
+<span class="n">GEFORCE</span> <span class="n">GT</span> <span class="mi">520</span>
+<span class="n">COMPUTE</span> <span class="n">CAPABILITY</span><span class="p">:</span> <span class="mf">2.1</span>
+<span class="n">VIDEO</span> <span class="n">RAM</span> <span class="n">MEMORY</span><span class="p">:</span> <span class="mi">1</span> <span class="n">GB</span>
+<span class="o">=========================</span>
+</pre></div>
+</div>
+<p>It is the information about the graphics card used by FARGO3D. If you
+see some strange indications in these lines (weird symbols, an
+unreasonable amount of memory, etc), it is likely that something went
+wrong. The most common error is a bad device auto-selection.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the jargon of GPU computing, the <em>device</em> is the name for a
+given <em>GPU</em>. We shall use indistinctly these two terms throughout
+this manual.</p>
+</div>
+<p>If you need to know the index of your device, you can use the <em>nvidia-smi</em> monitoring software:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: nvidia-smi
+</pre></div>
+</div>
+<p>You may then explicitly specify this device on the command line (here
+e.g. 0):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$./fargo3d -D 0 setups/fargo/fargo.par
+</pre></div>
+</div>
+<p>In general, expensive cards support detailed monitoring, but at least,
+the memory consumption will be given even for the cheapest ones. Also,
+you can check the temperature of your device. An increasing temperature
+is a good indication that FARGO3D is running on the desired device.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Useful comments</p>
+<p><strong>Note 1</strong>:</p>
+<p>If you cannot run on a GPU after reading the above instructions,
+you should try to check the index of your device (normally it is 0
+is you have only one graphics card) with <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   $: nvidia-smi
+
+   +------------------------------------------------------+
+   | NVIDIA-SMI 4.310.44   Driver Version: 310.44         |
+   |-------------------------------+----------------------+----------------------+
+   | GPU  Name                     | Bus-Id        Disp.  | Volatile Uncorr. ECC |
+   | Fan  Temp  Perf  Pwr:Usage/Cap| Memory-Usage         | GPU-Util  Compute M. |
+   |===============================+======================+======================|
+   |   0  GeForce GT 520           | 0000:01:00.0     N/A |                  N/A |
+   | 40%   37C  N/A     N/A /  N/A |  18%  182MB / 1023MB |     N/A      Default |
+   +-------------------------------+----------------------+----------------------+
+
+   +-----------------------------------------------------------------------------+
+   | Compute processes:                                               GPU Memory |
+   |  GPU       PID  Process name                                     Usage      |
+   |=============================================================================|
+   |    0            Not Supported                                               |
+   +-----------------------------------------------------------------------------+
+
+
+And the number of the GPU, in this case, is 0. So, you could try to run FARGO3D forcing the execution on the device 0::
+
+  $: ./fargo3d -D 0 setups/fargo/fargo.par
+</pre></div>
+</div>
+<p><strong>Note 2</strong>:</p>
+<p>We have used two sticky flags: <code class="docutils literal notranslate"><span class="pre">PARALLEL</span></code> and <code class="docutils literal notranslate"><span class="pre">GPU</span></code>, and after
+a while you may wish to know which ones are activated. In order to
+know the current status of the executable, issue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: make info
+
+Current sticky build options:
+
+PROFILING=0
+RESCALE=0
+SETUP=fargo
+PARALLEL=0
+FARGO_DISPLAY=NONE
+FULLDEBUG=0
+UNITS=0
+GPU=1
+DEBUG=0
+MPICUDA=0
+BIGMEM=0
+</pre></div>
+</div>
+<p>You will see the meaning of each flag later on in this manual.</p>
+</div>
+<p>All the information about how to open and visualize your fields is
+still valid. While the computation was done on the GPU,
+all necessary data transfers were run in a transparent manner from the
+GPU to the CPU before a write to the disk. For you, nothing changes,
+except the execution speed.</p>
+</section>
+<section id="first-parallel-gpu-run">
+<h2>First Parallel GPU run<a class="headerlink" href="#first-parallel-gpu-run" title="Link to this heading">#</a></h2>
+<p>The same ideas as before can be used for running FARGO3D on multiple
+GPUs. But we cannot give a set of instructions because they are
+cluster-dependent. In the next sections, you will learn how to run
+FARGO3D on a large cluster and have each process select adequately its
+device, according to your configuration. When you know how to work
+with the internal <code class="docutils literal notranslate"><span class="pre">SelectDevice()</span></code> function, you will be able to work with
+FARGO3D on a cluster of GPUs.</p>
+<p>You could try to run with MPI over one GPU. Of course, it is a bad idea
+for performance reasons, but it shows if all the parallel machinery
+inside FARGO3D works. (Actually, for developing an MPI-CUDA code, you
+do not need more than one thread and one GPU card!).</p>
+<p>Try the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: make mrproper
+$: make PARALLEL=1 gpu
+$: mpirun -np 2 ./fargo3d setups/fargo/fargo.par
+</pre></div>
+</div>
+<p>If all goes fine, that is to say, if the output looks correct, FARGO3D
+is working with MPI and GPUs. The next step is to configure it to run
+on a cluster of GPUs, using as many different GPUs as possible. We
+will learn how to do that later on in this manual</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dir_tree.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Directory tree</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-fargo3d">Getting FARGO3D</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing">Installing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-run">First run</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnuplot">Gnuplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gdl-idl">GDL/IDL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-tools">More tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-parallel-run">First parallel run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-gpu-run">First GPU run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-parallel-gpu-run">First Parallel GPU run</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

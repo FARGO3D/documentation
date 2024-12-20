@@ -1,0 +1,695 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Multifluid &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'multifluid';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Induction equation" href="induction_equation.html" />
+    <link rel="prev" title="Units" href="units.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exec_flags.html">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/multifluid.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Multifluid</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setups">Setups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-rules-for-the-opt-file">New rules for the .opt file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-of-new-fluids">Creation of new fluids</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drag-force-between-fluids">Drag force between fluids</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dust-diffusion-module">Dust diffusion module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundaries">Boundaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-setups-compatible-with-versions-2-0">Update setups compatible with versions &lt; 2.0</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="multifluid">
+<span id="ref-multifluid"></span><h1>Multifluid<a class="headerlink" href="#multifluid" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This extension is described and tested in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJS..241...25B/abstract">Benítez-Llambay et al. (2019)</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Setups from versions &lt; 2.0 are not fully compatible with
+this version.  However, we provide the script
+<code class="docutils literal notranslate"><span class="pre">scripts/single2multi.py</span></code> that makes old setups compatible
+with the multifluid requirements (see <a class="reference internal" href="#ref-single2multi"><span class="std std-ref">Update setups compatible with versions &lt; 2.0</span></a>).</p>
+</div>
+<p>Notes about the multifluid implementation:</p>
+<ul class="simple">
+<li><p>The new velocities are obtained using an implicit update.</p></li>
+<li><p>The implicit update is obtained by solving a set of N linear
+equations. The matrix of this linear system is inverted using
+Gaussian elimination with partial pivoting.</p></li>
+<li><p>Dust is treated as a pressureless fluid.</p></li>
+<li><p>Different fluids can have different equations of states.</p></li>
+<li><p>If a planet is allowed to evolve according to the forces exerted by
+the multifluid system, it evolves according to the gravity produced
+by all the mass of the system (i.e., all the fluids).</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If MHD is enabled, multiple species are allowed, but a
+single gas species must be defined.</p>
+</div>
+<p>In this version, the <code class="docutils literal notranslate"><span class="pre">fargo_multifluid</span></code> setup is included. This is a
+version of the fargo setup with three species of pressureless dust
+fluids, interacting with the gas by mean of a drag force parametrized
+by a constant Stokes Number.</p>
+<p>First run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$: make SETUP=fargo_multifluid
+$: ./fargo3d setups/fargo_multifluid/fargo_multifluid.par
+</pre></div>
+</div>
+<p>As an example, we show a snapshot of this setup after 50 orbits:</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/fargo_multifluid.png"><img alt="_images/fargo_multifluid.png" src="_images/fargo_multifluid.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The density of each fluid is shown using a log10 color scale from -6 to -3.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some cases it may be needed to use <code class="docutils literal notranslate"><span class="pre">-DCOLLISIONPREDICTOR</span></code> in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file to perform a partial update of the velocities by a half collision step after the source step (see Fig. 1 of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJS..241...25B/abstract">Benítez-Llambay et al. (2019)</a>). This option helps reducing artifacts when CFL condition is close to the stability limit. You could also consider decreasing the <code class="docutils literal notranslate"><span class="pre">CFL</span></code> factor in the <cite>.par</cite> file (the default value can be found in <code class="docutils literal notranslate"><span class="pre">std/stdpar.par</span></code>.</p>
+</div>
+<section id="setups">
+<h2>Setups<a class="headerlink" href="#setups" title="Link to this heading">#</a></h2>
+<p>Since version 2.0, any setup is a multifluid setup. For example, the
+original <code class="docutils literal notranslate"><span class="pre">fargo</span></code> setup is treated as a multifluid setup where the
+number of fluids is equal to one.</p>
+<p>Multifluid setups are almost identical to the old setups. The differences are:</p>
+<ul class="simple">
+<li><p>Three mandatory lines must be added to the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file.</p></li>
+<li><p>The fluids must be created before filling the fields.</p></li>
+<li><p>If the fluids interact between them, these interactions need to be defined.</p></li>
+<li><p>Boundary conditions must be declared for each fluid.</p></li>
+</ul>
+<p>A new set of rules have been designed to simplify the creation of
+multifluid setups. Below we explain how to create a multifluid setup.</p>
+</section>
+<section id="new-rules-for-the-opt-file">
+<h2>New rules for the .opt file<a class="headerlink" href="#new-rules-for-the-opt-file" title="Link to this heading">#</a></h2>
+<p>Two new variables are mandatory to set the number of fluids.  These
+are <code class="docutils literal notranslate"><span class="pre">NFLUIDS</span></code> and <code class="docutils literal notranslate"><span class="pre">FLUIDS</span></code>. The latter must be passed via the
+variable <code class="docutils literal notranslate"><span class="pre">FARGO_OPT</span></code> to the makefile, like any normal
+option. <code class="docutils literal notranslate"><span class="pre">NFLUIDS</span></code> sets the total number of fluids and <code class="docutils literal notranslate"><span class="pre">FLUIDS</span></code>
+defines the indices for the fluids. For example, if the number of
+fluids is 2, the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file must have the block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FLUIDS := 0 1
+NFLUIDS = 2
+FARGO_OPT += -DNFLUIDS=${NFLUIDS}
+</pre></div>
+</div>
+<p>(do not forget the <code class="docutils literal notranslate"><span class="pre">:</span></code> after <code class="docutils literal notranslate"><span class="pre">FLUIDS</span></code>).</p>
+</section>
+<section id="creation-of-new-fluids">
+<h2>Creation of new fluids<a class="headerlink" href="#creation-of-new-fluids" title="Link to this heading">#</a></h2>
+<p>New fluids must be created before filling the hydrodynamic fields in
+<code class="docutils literal notranslate"><span class="pre">condinit.c</span></code>. The following function has been developed to simplify
+the process:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fluid*</span> <span class="pre">CreateFluid(char*</span> <span class="pre">fluidname</span> <span class="pre">,</span> <span class="pre">int</span> <span class="pre">fluidtype)</span></code>: This
+function must be used to create new fluids. The <code class="docutils literal notranslate"><span class="pre">fluidname</span></code>
+argument is the label of the fluid used by I/O routines, and the
+<code class="docutils literal notranslate"><span class="pre">fluidtype</span></code> is an integer equal to: <code class="docutils literal notranslate"><span class="pre">GAS</span></code>, for gaseous fluids
+and any number grater than 1 for dust. We recommend you to use the
+value <code class="docutils literal notranslate"><span class="pre">DUST</span></code> in this case.  The value of <code class="docutils literal notranslate"><span class="pre">fluidtype</span></code> controls if
+the fluid is subject to viscous forces.</p>
+<p>A global array of size NFLUIDS, <code class="docutils literal notranslate"><span class="pre">Fluids[]</span></code>, is always available,
+and it should be used in combination with this function. We usually
+use it in <code class="docutils literal notranslate"><span class="pre">condinit.c</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Fluids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateFluid</span><span class="p">(</span><span class="s">&quot;gas&quot;</span><span class="p">,</span><span class="n">GAS</span><span class="p">)</span>
+<span class="n">Fluids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateFluid</span><span class="p">(</span><span class="s">&quot;dust1&quot;</span><span class="p">,</span><span class="n">DUST</span><span class="p">)</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="n">Fluids</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateFluid</span><span class="p">(</span><span class="s">&quot;dust10&quot;</span><span class="p">,</span><span class="n">DUST</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another variable globally available is the integer
+<code class="docutils literal notranslate"><span class="pre">Fluidtype</span></code>. This variable changes its value when the function
+<code class="docutils literal notranslate"><span class="pre">SelectFluid(n)</span></code> is called, and adopts the value <code class="docutils literal notranslate"><span class="pre">fluidtype</span></code>
+corresponding to the fluid number <code class="docutils literal notranslate"><span class="pre">n</span></code>. This variable is useful
+when some part of the code needs to be executed depending on the
+nature of the fluid.</p>
+</li>
+</ul>
+<p>As in the 1.3 version, we work with the same set of primitive fields:
+<code class="docutils literal notranslate"><span class="pre">Density,</span> <span class="pre">Vx,</span> <span class="pre">Vy,</span> <span class="pre">Vz,</span> <span class="pre">Energy</span></code>, declared as pointers in <code class="docutils literal notranslate"><span class="pre">global.h</span></code>,
+but are not allocated.  In version 2.0, each fluid needs to store its
+own primitive fields (each fluid is a structure that contains the
+primitive fields) and to recycle all the routines from previous
+versions, we need to assign the primitive pointers to the primitive
+field of each particular fluid. This process is simplified by the
+following function:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SelecFluid(int</span> <span class="pre">index)</span></code>: This function allows the user to
+select a specific working fluid.  Let’s assume that you have two
+fluids, called <code class="docutils literal notranslate"><span class="pre">gas</span></code> and <code class="docutils literal notranslate"><span class="pre">dust</span></code> which have been created as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fluids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">CreateFluid</span><span class="p">(</span><span class="s2">&quot;gas&quot;</span><span class="p">,</span><span class="n">GAS</span><span class="p">)</span>
+<span class="n">Fluids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">CreateFluid</span><span class="p">(</span><span class="s2">&quot;dust&quot;</span><span class="p">,</span><span class="n">DUST</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For instance, to initialize the <code class="docutils literal notranslate"><span class="pre">Density</span></code> field of the <code class="docutils literal notranslate"><span class="pre">gas</span></code>
+fluid, call <code class="docutils literal notranslate"><span class="pre">SelectFluid()</span></code> before calling the specific
+routine that initializes the density:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SelectFluid</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">InitDensity</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">InitDensity()</span></code> is an user defined function which, as in the
+&lt;2.0 version, uses the <code class="docutils literal notranslate"><span class="pre">Field*</span> <span class="pre">Density</span></code> to refer to
+the density field.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SelectFluid()</span></code> also sets the value of the
+global variable <code class="docutils literal notranslate"><span class="pre">Fluidtype</span></code>. When <code class="docutils literal notranslate"><span class="pre">SelectFluid(i)</span></code> is called,
+<code class="docutils literal notranslate"><span class="pre">Fluidtype</span></code> adopts a value <code class="docutils literal notranslate"><span class="pre">Fluidtype</span></code> of the fluid <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+</li>
+</ul>
+</section>
+<section id="drag-force-between-fluids">
+<h2>Drag force between fluids<a class="headerlink" href="#drag-force-between-fluids" title="Link to this heading">#</a></h2>
+<p>The drag force between fluids is applied by the function
+<code class="docutils literal notranslate"><span class="pre">Collisions()</span></code>, defined in <code class="docutils literal notranslate"><span class="pre">src/collisions.c</span></code>. This function uses
+the content of <code class="docutils literal notranslate"><span class="pre">src/collision_kernel.h</span></code>, which builds the matrix
+that must be inverted to obtain the implicit update. If you need to
+change the drag force (e.g., characterizing the collisions by the
+dust-particle size intead of the Stokes number) this is the file that has
+to be updated.</p>
+<p>To turn on the drag force between different species
+requieres a new option in the <code class="docutils literal notranslate"><span class="pre">.opt</span></code> file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FARGO_OPT</span> <span class="pre">+=</span> <span class="pre">-DDRAGFORCE</span></code> : Enables the drag force in <code class="docutils literal notranslate"><span class="pre">main.c</span></code>
+at compilation time.</p></li>
+</ul>
+<p>To fill the collision array, <code class="docutils literal notranslate"><span class="pre">Alpha</span></code>, and synchronize it with the device (<code class="docutils literal notranslate"><span class="pre">Alpha_d</span></code>),
+the function <code class="docutils literal notranslate"><span class="pre">ColRate</span></code> was designed:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">ColRate(real</span> <span class="pre">value,</span> <span class="pre">int</span> <span class="pre">i,</span> <span class="pre">int</span> <span class="pre">j,</span> <span class="pre">int</span> <span class="pre">feedback)</span></code>: Fills
+the entraces <code class="docutils literal notranslate"><span class="pre">Alpha[i,j]</span></code> with the collision rate
+(or proportional to it).  By default the element
+<code class="docutils literal notranslate"><span class="pre">i,j</span></code> represents the drag force of the fluid j onto the
+fluid i. When <code class="docutils literal notranslate"><span class="pre">feedback</span> <span class="pre">!=</span> <span class="pre">0</span></code> the element <code class="docutils literal notranslate"><span class="pre">j,i</span></code> is filled, and
+the back reaction of the fluid <code class="docutils literal notranslate"><span class="pre">j</span></code> onto fluid <code class="docutils literal notranslate"><span class="pre">i</span></code> is considered. This
+function is usually called in <code class="docutils literal notranslate"><span class="pre">CondInit()</span></code>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">ColRate()</span></code> copies the collisions matrix <code class="docutils literal notranslate"><span class="pre">Alpha</span></code>
+from the Host to the Device, with the following instruction:</p>
+<p><code class="docutils literal notranslate"><span class="pre">DevMemcpyH2D(Alpha_d,Alpha,sizeof(real)*NFLUIDS*NFLUIDS);</span></code></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">ColRate()</span></code> is not used, the collision matrix must
+synchronized manually.</p>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">std/collision_template.cu</span></code> and not
+<code class="docutils literal notranslate"><span class="pre">src/collisions.c</span></code> is compiled when
+<code class="docutils literal notranslate"><span class="pre">GPU=1</span></code>. However, this file also uses
+<code class="docutils literal notranslate"><span class="pre">src/collision_kernel.h</span></code>, so you do not need to modify
+it when you change the drag law.</p>
+</div>
+</section>
+<section id="dust-diffusion-module">
+<span id="refdiffusion"></span><h2>Dust diffusion module<a class="headerlink" href="#dust-diffusion-module" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module is described and tested in the appendix of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019arXiv190901661W/abstract">Weber et al. (2019)</a>.</p>
+</div>
+<p>The multifluid feature can be used to simulate dust as pressureless
+fluids. For these cases, a new (optional) module is added to account
+for dust diffusion.</p>
+<p>Diffusion is modelled as a source term in the
+continuity equation for (pressureless) dust fluids only, spreading mass
+depending on the gradient of the concentration.</p>
+<p>The equation</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \rho_{\rm d}}{\partial t} = \nabla\cdot(D\rho_{\rm tot} \nabla C)\]</div>
+<p>is solved to first order explicitly. <span class="math notranslate nohighlight">\(C = \rho_{\rm d}/\rho_{\rm tot}\)</span> is the concentration, with <span class="math notranslate nohighlight">\(\rho_{\rm tot} = \rho_{\rm d} + \rho_{\rm g}\)</span> and <span class="math notranslate nohighlight">\(\rho_{\rm d}, \rho_{\rm g}\)</span> being the dust and gas densities, respectively. The diffusion coefficient, <span class="math notranslate nohighlight">\(D\)</span>, for simplicity is assumed to be equal to the gas turbulent viscosity. This implies a Schmidt-number of <span class="math notranslate nohighlight">\({\rm Sc}=1\)</span>.</p>
+<p>To turn on the diffusion, in the .opt file add:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FARGO_OPT</span> <span class="pre">+=</span> <span class="pre">-DDUSTDIFFUSION</span></code> : It enables a call to
+<code class="docutils literal notranslate"><span class="pre">DustDiffusion_main()</span></code> function in <code class="docutils literal notranslate"><span class="pre">main.c</span></code>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Current implementation assumes that the gas is stored in <code class="docutils literal notranslate"><span class="pre">Fluids[0]</span></code> and that all additional fluids are pressureless dust fluids of <code class="docutils literal notranslate"><span class="pre">Fluidtype=DUST</span></code>.</p>
+</div>
+<p>Notes about the dust diffusion implementation:</p>
+<ul class="simple">
+<li><p>The diffusion is applied before the transport step (see
+<code class="docutils literal notranslate"><span class="pre">transport.c</span></code>) and does not modify the velocities.</p></li>
+<li><p>Files related to the dust diffusion module:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dust_diffusion_main.c</span></code>: Function that calls the relevant functions of this module.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dust_diffusion_coefficients.c</span></code>: Calculates the diffusion coefficient <span class="math notranslate nohighlight">\(D\)</span> for the activated viscosity module within the mesh. Here, the user can easily modify the dust diffusion model by changing the diffusion coefficients (see warning below).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dust_diffusion_core.c</span></code>: The diffusion equation is solved according to the geometry of the mesh. The output corresponds to the updated density, which is stored in a temporary array. The densities are immediately updated after the loop using <code class="docutils literal notranslate"><span class="pre">copy_fields()</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If a different diffusion coefficient is implemented, a new time step constraint might be necessary in <code class="docutils literal notranslate"><span class="pre">cfl.c</span></code>.</p>
+</div>
+</section>
+<section id="boundaries">
+<h2>Boundaries<a class="headerlink" href="#boundaries" title="Link to this heading">#</a></h2>
+<p>Each fluid needs a boundary file. For instance, if a fluid of
+index <code class="docutils literal notranslate"><span class="pre">n=1</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">Fluids[1]</span> <span class="pre">=</span> <span class="pre">CreateFluid(&quot;dust&quot;,DUST)</span></code>) is
+created, the corresponding boundary file <code class="docutils literal notranslate"><span class="pre">setup.bound.1</span></code> must be
+present in the setup directory. The same is valid for any other fluid
+created with a different index <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+</section>
+<section id="update-setups-compatible-with-versions-2-0">
+<span id="ref-single2multi"></span><h2>Update setups compatible with versions &lt; 2.0<a class="headerlink" href="#update-setups-compatible-with-versions-2-0" title="Link to this heading">#</a></h2>
+<p>To update a setup from a version &lt; 2.0 go to the directory <code class="docutils literal notranslate"><span class="pre">scripts</span></code>  and
+run the python script <code class="docutils literal notranslate"><span class="pre">single2multi.py</span></code>, with the name of the setup as argument.
+For example, for a setup in <code class="docutils literal notranslate"><span class="pre">setups/setupname</span></code></p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">single2multi.py</span> <span class="pre">setupname</span></code></p>
+</div></blockquote>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="units.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Units</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="induction_equation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Induction equation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setups">Setups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-rules-for-the-opt-file">New rules for the .opt file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-of-new-fluids">Creation of new fluids</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drag-force-between-fluids">Drag force between fluids</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dust-diffusion-module">Dust diffusion module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundaries">Boundaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-setups-compatible-with-versions-2-0">Update setups compatible with versions &lt; 2.0</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

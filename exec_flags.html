@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Execution flags &#8212; FARGO3D User Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exec_flags';</script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="VTK Compatibility" href="vtk_comp.html" />
+    <link rel="prev" title="Cuda translator (C2CUDA.py)" href="c2cuda.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Dec 20, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FARGO3D User Guide</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Citing FARGO3D</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tree.html">Directory tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make_proc.html">Make Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundaries.html">Boundaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh_fields.html">Mesh and Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="def_setups.html">Default SETUPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opt_file.html">.opt files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non_uniform_meshes.html">Non-uniform meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nbody.html">N-Body solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multifluid.html">Multifluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induction_equation.html">Induction equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_setup.html">Defining a new SETUP</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2cuda.html">Cuda translator (C2CUDA.py)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Execution flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_comp.html">VTK Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_perf.html">Improving CUDA Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">GPU vs CPU Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_setup.html">Developing a complex setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttt.html">Tips, Tricks, Todos and Troubleshooting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/exec_flags.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Execution flags</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="execution-flags">
+<span id="execflags"></span><h1>Execution flags<a class="headerlink" href="#execution-flags" title="Link to this heading">#</a></h1>
+<p>FARGO3D has options that can be activated at run time in the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">flag</span> <span class="n">parfile</span>
+</pre></div>
+</div>
+<p>where “flag” is a suitable flag. The extensive list is:</p>
+<hr class="docutils" />
+<p><strong>-m</strong>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Starting from version 1.2, merging output files is the default
+behavior and the <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag is no longer needed. We have kept it for
+backward compatibility.</p>
+</div>
+<p>Merge. This flag is used for writing files in the form <code class="docutils literal notranslate"><span class="pre">fieldn.dat</span></code>
+instead <code class="docutils literal notranslate"><span class="pre">fieldn_m.dat</span></code>, with <code class="docutils literal notranslate"><span class="pre">n,m</span></code> integers (<code class="docutils literal notranslate"><span class="pre">n</span></code> is the output
+number, <cite>m</cite> is the process number). This flag has relevance when you
+work with MPI. In practice, after NINTERM time steps, you will
+have an output, and each processor will write its own piece of mesh on
+the disk. If <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag is activated, they will write a single file with
+all the data inside, in the right order, as if the data had been
+written by a single process run.</p>
+<hr class="docutils" />
+<p><strong>-k</strong>:</p>
+<p>Keep individual files from the different processes (do not merge
+outputs). This flag is required if the different processes output to
+different local disks, or if one dumps outputs including the ghost zones.</p>
+<hr class="docutils" />
+<p><strong>-o</strong>:</p>
+<p>Redefine (overwrite) parameters on the command line. The following
+argument must be enclosed between quotes. The parameters are case
+insensitive. The syntax for the separators is relatively flexible. The
+following example shows a valid instruction:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">o</span> <span class="s2">&quot;outputdir=/scratch/test, nx:200 Ny=34&quot;</span>  <span class="n">my_parameterfile</span><span class="o">.</span><span class="n">par</span>
+</pre></div>
+</div>
+<p>An error message is issued if the parameter does not exist, or is
+redefined several times. If the parameter was defined in the parameter
+file (rather than being implicitly set to its default value), an
+information string is output at run start.</p>
+<hr class="docutils" />
+<p><strong>-s</strong>:</p>
+<p>Restart from separate files. This flag must be used in the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">s</span> <span class="n">n</span> <span class="n">parfile</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the output number at which you want to restart the
+run. Each normal output could be used as a restart file. It works for
+Dat &amp; VTK files. The output files used for the restart are separate,
+i.e. they have the shape <code class="docutils literal notranslate"><span class="pre">fieldn_m.dat</span></code>, and must have been produced
+by a run <strong>without</strong> the <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag.</p>
+<hr class="docutils" />
+<p><strong>-S</strong>:</p>
+<p>Restart from merged files. Same as before. It works for Dat &amp; VTK
+files. The only difference is that the output files used for the restart are merged,
+i.e. they have the shape <code class="docutils literal notranslate"><span class="pre">fieldn.dat</span></code>, and must have been produced
+by a run <strong>with</strong> the <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag.</p>
+<hr class="docutils" />
+<p><strong>+S</strong>:</p>
+<p>Restart and expand a run along the X dimension. This is typically used
+to run a prior 2D calculation (radius, colatitude or Z) to enable a
+disk to relax toward some equilibrium state. Once this equilibrium
+state has been reached, the data is used to make up axisymmetric,
+three-dimensional data cubes. Note that this is not considered as a
+restart inside the code, but rather a fresh start, except that the
+arrays are not filled with the initial condition but rather with the
+data at output number <em>n</em>, expanded as necessary in X:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="n">initial_2D_run</span><span class="o">.</span><span class="n">par</span>
+<span class="o">./</span><span class="n">fargo3d</span> <span class="o">+</span><span class="n">S</span> <span class="mi">100</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;Nx=628&#39;</span> <span class="n">initial_2D_run</span><span class="o">.</span><span class="n">par</span>
+</pre></div>
+</div>
+<p>In the example above the 2D output number 100 is used to fill the
+arrays. The second run is this time 3D, as the number of zones in X
+(azimuth) is now larger than one. Since technically this is <em>not</em> a
+restart, the run will output its data at numbers 0, 1, etc. as for any
+fresh start. The flag +S naturally also  works if the mesh is
+cylindrical or Cartesian. It can also be used to re-spawn a 1D run, so
+as to make it 2D (radius, azimuth).</p>
+<hr class="docutils" />
+<p><strong>-D</strong>:</p>
+<p>Specify manually the CUDA device. This flag must to be used in the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">D</span> <span class="n">n</span> <span class="n">parameters</span><span class="o">.</span><span class="n">par</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">n</span></code> is an integer.</p>
+<p>With this flag, you can select manually the device where FARGO3D will run.</p>
+<hr class="docutils" />
+<p><strong>+D</strong>:</p>
+<p>Specify the CUDA device file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">+</span><span class="n">D</span> <span class="n">devfile</span> <span class="n">parameters</span><span class="o">.</span><span class="n">par</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">devfile</span></code> is a text file which contains several lines. Each
+line must contain a hostname (such as <code class="docutils literal notranslate"><span class="pre">compute-0-34</span></code>), followed by
+one of the three following separators:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span> <span class="p">(</span><span class="n">column</span><span class="p">),</span> <span class="o">/</span> <span class="p">(</span><span class="n">slash</span><span class="p">),</span> <span class="ow">or</span> <span class="o">=</span> <span class="p">(</span><span class="n">equal</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>followed itself by a device number. Example of device file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">compute</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="mi">0</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">compute</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">compute</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>This device file is intended for a run on two nodes (<code class="docutils literal notranslate"><span class="pre">compute-0-0</span></code> and
+<code class="docutils literal notranslate"><span class="pre">compute-0-1</span></code>), each node having two GPUs (numbered 0 and 1 on each
+node). If the run is spawned on nodes not specified in the device
+file, the run will fail (technically, if the string returned by
+<code class="docutils literal notranslate"><span class="pre">gethostname()</span></code> does not match the beginning of any line in the device
+file).</p>
+<p>The device file can be used together with the job scheduler (such as
+torque or PBS) to obtain the list of free GPUs on the nodes of the
+job, <em>even if the job scheduler is not GPU aware</em>.  The public
+distribution comes with a directory called <code class="docutils literal notranslate"><span class="pre">jobs</span></code>, in which you will
+find an example of PBS job file called <code class="docutils literal notranslate"><span class="pre">devfile</span></code> that parses the
+output of <code class="docutils literal notranslate"><span class="pre">qstat</span></code> to find the GPUs available.</p>
+<hr class="docutils" />
+<p><strong>-V</strong>:</p>
+<p>The same as -S, but takes .dat merged files as input, and writes the same data in a VTK (.vtk)
+file. Useful to convert .dat files into VTK files.</p>
+<p>Example: to convert the outputs number “0” to VTK:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">V</span> <span class="mi">0</span> <span class="n">parameters</span><span class="o">.</span><span class="n">par</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>-B</strong>:</p>
+<p>The same as -S, but takes VTK merged files as input, and makes .dat
+files. Useful to convert VTK (.vtk) files into .dat files.</p>
+<p>Example: to convert the outputs number “0” in VTK format to standard FARGO3D .dat files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">B</span> <span class="mi">0</span> <span class="n">parameters</span><span class="o">.</span><span class="n">par</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>-t</strong>:</p>
+<p>Timer. Very useful to follow the execution of a run and get an
+estimate of the time remaining to complete.
+If you want more detailed information, you can compile the code with
+the PROFILE=1 option (shortcut: make prof) and it will provide
+detailed information for each block of the time step. The -t flag is
+not required in this case.</p>
+<hr class="docutils" />
+<p><strong>-f</strong>:</p>
+<p>Execute one elementary time step and exits. Useful for some automatic
+benchmarking (such as optimal block size determination), and also
+(indirectly) useful to merge the output of several processes (see <a class="reference internal" href="ttt.html#ttt"><span class="std std-ref">Tips, Tricks, Todos and Troubleshooting</span></a>.)</p>
+<hr class="docutils" />
+<p><strong>-0</strong>:</p>
+<p>Set the initial arrays (either with <code class="docutils literal notranslate"><span class="pre">condinit()</span></code> for a fresh start,
+or reading an output if it is a restart), writes them to the disk, and
+exits. Might be useful to merge prior outputs if FARGO3D has been run
+without the flag <code class="docutils literal notranslate"><span class="pre">-m</span></code>.</p>
+<hr class="docutils" />
+<p><strong>-C</strong>:</p>
+<p>Force execution of all functions on CPU (for a GPU built). Obviously
+this flag does nothing if the executable was built for the CPU.</p>
+<hr class="docutils" />
+<p><strong>-p</strong>:</p>
+<p>Instruct the code to execute a post restart hook upon loading the
+files from a previous output. This flag is not used in any of the
+files provided in the public release.</p>
+<hr class="docutils" />
+<p><strong>+/-# n</strong>:</p>
+<p>Provides a numerical seed to the code, that is used for two things:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The numerical seed is zero padded up to six digits and appended
+to the name of the output directory.</p></li>
+<li><p>This seed, which is accessible from any part of the code as the
+integer variable <code class="docutils literal notranslate"><span class="pre">ArrayNb</span></code>, will be used in general as a
+random seed for the initial conditions (<code class="docutils literal notranslate"><span class="pre">condinit.c</span></code> in the
+setup directory)  or the file <code class="docutils literal notranslate"><span class="pre">postrestarthook.c</span></code> (but its use
+may not be limited to that).</p></li>
+</ol>
+</div></blockquote>
+<p>In the case of a restart, the name of the output directory is changed
+<em>prior to</em> reading the data necessary of the restart, if the flag
+<code class="docutils literal notranslate"><span class="pre">+#</span></code> is used. Otherwise, when the flag <code class="docutils literal notranslate"><span class="pre">-#</span></code> is used, the data is
+read in the directory specified by the string <code class="docutils literal notranslate"><span class="pre">outputdir</span></code> of the
+parameter file or the command line, then the <code class="docutils literal notranslate"><span class="pre">outputdir</span></code> parameter
+is changed and the data is output to the new directory. This technique
+is very useful to spawn a large number of jobs when used in
+conjunction with <code class="docutils literal notranslate"><span class="pre">$PBS_ARRAYID</span></code>.</p>
+<p>Example: we run a master simulation in output directory <code class="docutils literal notranslate"><span class="pre">out</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;outputdir=out&#39;</span> <span class="n">parameters</span><span class="o">.</span><span class="n">par</span>
+</pre></div>
+</div>
+<p>We then fork the results of this master simulation by restarting it
+with many different random seeds:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">S</span> <span class="mi">100</span> <span class="o">-</span><span class="c1"># number -o &#39;outputdir=out&#39; parameters.par</span>
+</pre></div>
+</div>
+<p>We use the output number 100 found in <code class="docutils literal notranslate"><span class="pre">out</span></code> for each of the runs
+(since we use the <code class="docutils literal notranslate"><span class="pre">-#</span></code> flag). <code class="docutils literal notranslate"><span class="pre">number</span></code> is either provided by
+<code class="docutils literal notranslate"><span class="pre">$PBS_ARRAY</span></code> or any shell loop index.</p>
+<p>Finally, each of the runs can be subsequently  restarted itself as
+follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">fargo3d</span> <span class="o">-</span><span class="n">S</span> <span class="mi">200</span> <span class="o">+</span><span class="c1"># number -o &#39;outputdir=out&#39; parameters.par</span>
+</pre></div>
+</div>
+<p>We must now use the flag <code class="docutils literal notranslate"><span class="pre">+#</span></code>, as it is important that run 23 seeks
+the data for restart in <code class="docutils literal notranslate"><span class="pre">out000023</span></code> and not <code class="docutils literal notranslate"><span class="pre">out</span></code>.</p>
+<p>When no restart is planned, one must use the +# flag instead of -#.</p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="c2cuda.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cuda translator (C2CUDA.py)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vtk_comp.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">VTK Compatibility</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2014-2023, Pablo Benítez Llambay, Frédéric Masset &amp; Contributors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Dec 20, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
