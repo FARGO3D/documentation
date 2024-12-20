@@ -715,4 +715,13 @@ This section describes the most common errors at compilation time using the pars
         some variable ----> ok
     <\EXTERNAL>
 
+* Block opening/closing not in first column::
+
+    __<EXTERNAL>
+	This block will not be parsed
+    __<\EXTERNAL>
+    <EXTERNAL>
+	This block will be parsed
+    <\EXTERNAL>
+
 This list may be completed as we receive users' feedback.
