@@ -344,7 +344,7 @@ setup.objects was created. This file must to has two make variables::
   MAINOBJ += routine_filename.o
   GPUOBJ  += routine_filename_gpu.o
 
-where the second line is optional. In our case should be::
+where the second line is only needed if the routine will run on a GPU. For this particular example, the lines should be::
 
   MAINOBJ += edamp.o
   GPUOBJ  += edamp_gpu.o
