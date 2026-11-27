@@ -86,7 +86,11 @@ Note: Some fields are not available until one specific direction is activated.
 * HILLCUT: Activates a cut for the force computation. Must to be
   defined in order to accept ``ExcludeHill`` parameter file
   variable set to ``yes``.
-
+* BM08: Removes the azimuthally averaged density prior to the force evaluation.
+* KEPLERIAN_MESH_WEIGHTS: Replaces linear radial weights with Keplerian power-law weights 
+  in the centrifugal, gravitational, and viscous shear updates. Enable for 2D/3D CYLINDRICAL and SPHERICAL 
+  Keplerian disk runs. Omit (default) for CARTESIAN / SHEARINGBOX.
+  
 ------------------------------------------------------------------
 
 **Coordinates**:
